@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/space_10dp"
+        android:background="@color/cardview_shadow_end_color">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/circleimage_width"
+                android:layout_height="@dimen/circleimage_width"
+                android:src="@drawable/deskmate"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="同桌"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/circleimage_width"
+                android:layout_height="@dimen/circleimage_width"
+                android:src="@drawable/team"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小组"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/circleimage_width"
+                android:layout_height="@dimen/circleimage_width"
+                android:src="@drawable/flag"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打卡"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/circleimage_width"
+                android:layout_height="@dimen/circleimage_width"
+                android:src="@drawable/daily"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="每日一句"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/circleimage_width"
+                android:layout_height="@dimen/circleimage_width"
+                android:src="@drawable/navigation"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="附近的人"
+                android:textColor="#FFF"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/cardview_shadow_end_color"
+        >
+
+        <TextView
+            android:id="@+id/everyday_sentence_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="每日一句"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:text="查看图文"
+            android:textSize="16sp"
+            android:background="@drawable/setbar_bg"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:text="I don't want to be someone that you're settling for. I don't want to be someone that anyone settles for."
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

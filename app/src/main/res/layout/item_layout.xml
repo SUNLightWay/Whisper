@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@color/colorGrey">
+
+    <!--title部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="1dp"
+        android:paddingTop="15dp"
+        android:background="@color/colorWhite">
+        <!--icon-->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            app:srcCompat="@drawable/ic_help" />
+        <!--标题/时间-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="帮助与技巧"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020-03-24 22:11"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <!--了解更多-->
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:text="了解更多"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    <!--内容部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:paddingLeft="40dp"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/tvContext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="为什么收不到新人的信件？"
+            android:textColor="@color/colorfont"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

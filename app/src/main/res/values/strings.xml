@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">轻语</string>
+    <string name="action_today">今天</string>
+    <string name="action_day_view">日视图</string>
+    <string name="action_three_day_view">3日视图</string>
+    <string name="action_week_view">周视图</string>
+    <string name="title_activity_basic">基本样例</string>
+    <string name="month_view">月视图</string>
+    <string name="calendar_view">日程列表</string>
+    <string name="title_activity_asynchronous">异步请求事件</string>
+    <string name="async_error">无法从网络下载日程</string>
+    <string name="add_schedule">添加日程</string>
+    <string name="sync_system_schedule">读取手机系统日程，插入系统日程</string>
+    <string name="sync_system_event">同步手机系统事件</string>
+    <string name="title_plan">计划</string>
+    <string name="title_mail">过客</string>
+    <string name="title_find">发现</string>
+    <string name="title_my">我的</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">过客</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_plan_base">PlanBaseActivity</string>
+    <string name="title_mail_list">邮件列表</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_increase_plan">新增计划</string>
+
+    <string name="letter_list">信件列表</string>
+    <string name="seacrch_queryHint">请输入搜索内容</string>
+
+
+    <string name="desc">图片描述</string>
+    <string name="p_name">昵称：</string>
+    <string name="t_person">174366</string>
+
+
+    <!--个人资料修改-->
+    <string name="changeImg">修改头像</string>
+    <string name="p_id">学号：</string>
+    <string name="id">账号：</string>
+    <string name="sex">性别:</string>
+    <string name="email">邮箱：</string>
+    <string name="collage">学院:</string>
+    <string name="major">专业：</string>
+    <string name="tele">电话:</string>
+    <string name="dorm">宿舍:</string>
+    <string name="geqian">个性签名:</string>
+    <string name="says">介绍下自己吧</string>
+    <string name="submit">提交</string>
+
+    <!--我的-->
+    <string name="pt1">个人资料</string>
+    <string name="pt2">我的日程</string>
+    <string name="pt3">个人评级</string>
+    <string name="pt4">我的同桌</string>
+    <string name="pt5">分享应用</string>
+    <string name="pt6">留言反馈</string>
+    <string name="setting">设置</string>
+    <string name="quit">退出登陆</string>
+
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_plan_card"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="3dp"
+    card_view:cardMaxElevation="5dp"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/item_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/item_tv"
+        android:text="CardView测试"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:gravity="left|top"
+        android:layout_marginLeft="@dimen/space_20dp"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_plan_limitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal|top"
+        android:textSize="20sp"
+        android:text="剩余300天"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="@dimen/space_10dp"/>
+
+    <TextView
+        android:id="@+id/item_destination_simply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="@dimen/space_20dp"
+        android:text="为了明天的工资，拼了~" />
+
+
+</androidx.cardview.widget.CardView>
