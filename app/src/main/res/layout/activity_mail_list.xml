@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MailListActivity"
+    android:orientation="vertical">
+    <!--
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_letter"
+            android:layout_width="53dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/wrong" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="@string/letter_list"
+            android:textColor="@color/letter_color"
+            android:textSize="30sp"
+            />
+    </RelativeLayout>
+-->
+    <!--search 注意采用自定义布局运用seacch_line.xml-->
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/search_line"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/seacrch_queryHint"
+        android:submitBackground="@null"
+        android:queryBackground="@null"/>
+
+    <!--利用RecyclerView用于显示信件的内容  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+</LinearLayout>

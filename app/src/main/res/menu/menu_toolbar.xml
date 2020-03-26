@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".plan.PlanFragment" >
+
+    <item android:id="@+id/action_check_chart"
+        android:title="查看日程表"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_increase_plan"
+        android:title="新增计划"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+</menu>
