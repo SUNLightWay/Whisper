@@ -16,7 +16,21 @@ import com.example.myapplication.module.ContactInfo;
 
 import java.util.List;
 
+
 public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.ContactViewHolder> {
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+
+        void onItemLongClick(View view, int position);
+    }
+
+    private OnItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
     private List<ContactInfo> contactInfoList;
     private LayoutInflater mInflater;
 
@@ -35,12 +49,31 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanCardAdapter.ContactViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PlanCardAdapter.ContactViewHolder holder, int position) {
         //contactInfoList中包含的都是ContactInfo类的对象
         //通过其get()方法可以获得其中的对象
         ContactInfo ci =contactInfoList.get(position);
         holder.item_tv.setText(ci.getText());
         holder.item_iv.setImageResource(ci.getImgId());
+
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.itemView, pos);
+                }
+            });
+
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemLongClick(holder.itemView, pos);
+                    return false;
+                }
+            });
+        }
     }
 
     @Override

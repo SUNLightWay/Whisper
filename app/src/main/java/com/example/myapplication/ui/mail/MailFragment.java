@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MailListActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.WriteMailActivity;
 import com.example.myapplication.adapter.RecyclerAdapter;
 import com.example.myapplication.util.Utils;
 
@@ -89,6 +90,14 @@ public class MailFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Utils.actionStart(getActivity(), MailListActivity.class, null, null);
+            }
+        });
+
+        ImageButton sendEmail = (ImageButton)getActivity().findViewById(R.id.btWriteLetters);
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.actionStart(getActivity(), WriteMailActivity.class, null, null);
             }
         });
     }

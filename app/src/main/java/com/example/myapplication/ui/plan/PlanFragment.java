@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,12 +21,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.IncreasePlanActivity;
+import com.example.myapplication.PlanDetailActivity;
 import com.example.myapplication.ScheduleChartActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.PlanCardAdapter;
 import com.example.myapplication.module.ContactInfo;
+import com.example.myapplication.util.DBUtil;
 import com.example.myapplication.util.Utils;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +88,19 @@ public class PlanFragment extends Fragment{
 
         //为RecyclerView对象mRecyclerView设置adapter
         mRecyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new PlanCardAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Utils.actionStart(getActivity(), PlanDetailActivity.class, null, null);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Toast.makeText(getActivity().getApplicationContext(),
+                        "long click: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return root;
     }

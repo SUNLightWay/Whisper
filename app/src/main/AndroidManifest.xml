@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/gugong"
@@ -9,22 +14,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MailListActivity"
-                android:label="@string/title_mail_list"
-            android:theme="@style/ActivityTheme"/>
+        <activity android:name=".WriteMailActivity"
+            android:label="写信">
+        </activity>
+        <activity android:name=".PlanDetailActivity"
+            android:label="计划详情">
+        </activity>
         <activity
-            android:name=".IncreasePlanActivity"
-            android:label="@string/title_activity_increase_plan"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScheduleChartActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".MailListActivity"
+            android:label="@string/title_mail_list"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".IncreasePlanActivity"
+            android:label="@string/title_activity_increase_plan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ScheduleChartActivity"
+            android:label="日程表">
+        </activity>
         <activity android:name=".ScheduleChartBaseActivity" />
     </application>
 

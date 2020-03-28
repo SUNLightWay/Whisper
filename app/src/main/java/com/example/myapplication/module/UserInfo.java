@@ -8,8 +8,8 @@ public class UserInfo {
     Integer rate = 0;
     String idSeatmate = ""; //同桌ID
     String idTeam = "";     //队伍ID
-    Integer isPunch = 0;    //是否打卡
     String remark = "";     //备注
+    Integer isPunch = 0;    //是否打卡
 
     public UserInfo(String idUser, String nickname, String phone, Integer rate, String idSeatmate, String idTeam, Integer isPunch, String remark) {
         this.idUser = idUser;

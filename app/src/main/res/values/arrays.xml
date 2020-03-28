@@ -6,4 +6,11 @@
         <item>女</item>
     </array>
 
+
+    <string-array name="delayarr">
+        <item>0</item>
+        <item>3天</item>
+        <item>7天</item>
+        <item>自定义</item>
+    </string-array>
 </resources>
