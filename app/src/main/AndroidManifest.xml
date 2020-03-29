@@ -14,6 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+       <!--同桌start-->
+        <activity
+            android:label="@string/title_destmate"
+            android:name="com.example.myapplication.ui.find.DeskMate.DeskmateActivity"/>
+        <activity
+            android:label="寻找同桌"
+            android:name="com.example.myapplication.ui.find.DeskMate.DeskMateFindActivity"/>
+        <!--同桌end-->
+
         <activity android:name=".DiscoveryActivity">
         </activity>
         <activity android:name=".WriteMailActivity"

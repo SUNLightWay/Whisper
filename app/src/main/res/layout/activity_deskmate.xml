@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical" android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+   <!--
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/deskMate_back"
+            android:layout_width="53dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/wrong" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="同桌"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            />
+    </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/deskMate_image"
+        android:layout_width="294dp"
+        android:layout_height="287dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/deskone" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="同桌"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:gravity="center"
+        android:text="监督打卡陪你一起学习"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/find_deskMate_go"
+        android:isScrollContainer="true"
+        android:layout_width="181dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_find_deskmate"
+        android:text="找个同桌"
+
+        android:textSize="25sp" />
+
+</LinearLayout>

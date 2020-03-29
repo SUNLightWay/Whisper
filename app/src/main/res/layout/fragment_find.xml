@@ -29,6 +29,7 @@
         android:padding="@dimen/space_10dp"
         android:background="@color/cardview_shadow_end_color">
         <LinearLayout
+             android:id="@+id/find_deskmate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"

@@ -45,10 +45,27 @@ public class FindFragment extends Fragment {
         view = root;
 
         initBanner();
+
+	 initView();
         return root;
 
     }
+      /*
+    同桌的实现
+     */
+    private void initView() {
+        find_deskmate = this.view.findViewById(R.id.find_deskmate);
 
+        find_deskmate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DeskmateActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+   
     public void initBanner(){
         banner = view.findViewById(R.id.banner);
         ArrayList<String> imagelist = new ArrayList<>();
