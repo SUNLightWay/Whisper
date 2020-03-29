@@ -10,14 +10,18 @@ import android.view.WindowManager;
 
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.UserInfo;
+import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
+import com.example.myapplication.service.UserService;
 
 import org.litepal.LitePal;
+import org.litepal.crud.LitePalSupport;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private static final String TAG ="WelcomeActivity" ;
     private Handler handler;
     private Runnable runnable;
+    UserServiceImpl userService = new UserServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,10 @@ public class WelcomeActivity extends AppCompatActivity {
         };
         handler.postDelayed(runnable,5000);
 
+        LitePal.initialize(this);
         dbInitFirstInstall();
+
+        userService.doLogin(new LoginInfo("phineas", "123456", null));
     }
 
     @Override
@@ -55,5 +62,12 @@ public class WelcomeActivity extends AppCompatActivity {
         //用户信息
         UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
         userInfo.save();
+
     }
 }
+
+
+
+
+
+

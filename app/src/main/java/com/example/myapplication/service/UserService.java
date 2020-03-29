@@ -9,7 +9,7 @@ public interface UserService {
      * 注册用户
      * @return
      */
-    public UserInfo doRegister(String phone, String password);
+    public Boolean doRegister(UserInfo userInfo, String password);
 
     /**
      * 登录
