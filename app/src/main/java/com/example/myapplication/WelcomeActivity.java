@@ -8,13 +8,21 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.example.myapplication.dao.DaoImpl.SeatmateDaoImpl;
 import com.example.myapplication.module.LoginInfo;
+import com.example.myapplication.module.SeatmateInfo;
 import com.example.myapplication.module.UserInfo;
+import com.example.myapplication.service.SeatmateService;
+import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.service.UserService;
+import com.example.myapplication.util.ConstUtil;
+import com.example.myapplication.util.Utils;
 
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
+
+import java.util.Date;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -22,6 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private Handler handler;
     private Runnable runnable;
     UserServiceImpl userService = new UserServiceImpl();
+    SeatmateServiceImpl seatmateService = new SeatmateServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +65,21 @@ public class WelcomeActivity extends AppCompatActivity {
         //登录用户
         LoginInfo loginInfo = new LoginInfo("phineas", "123456", "12345678912");
         loginInfo.save();
+        LoginInfo loginInfo1 = new LoginInfo("cloud", "123456", "12345678912");
+        loginInfo1.save();
 
         //用户信息
         UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
         userInfo.save();
 
+        //同桌
+        SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
+        SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
+        seatmateInfo2.save();
+
+        //seatmateService.sendRequest(seatmateInfo1);
+        //Log.d(TAG, "dbInitFirstInstall: findSeatmateFailedorSucceeded" + seatmateService.findSeatmateFailedorSucceeded("phineas").size());
+        //Log.d(TAG, "dbInitFirstInstall: findSeatmateNeedToResponse" + seatmateService.findSeatmateNeedToResponse("cloud").size());
     }
 }
 

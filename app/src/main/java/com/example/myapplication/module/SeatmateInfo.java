@@ -13,19 +13,19 @@ public class SeatmateInfo extends LitePalSupport {
     String person1 = "";
     String person2 = "";
     Date startTime = null;
-    Date endTime = null;
+    Integer duration = 7;   //单位:天
     Integer status = ConstUtil.SeatmateStatus.STATUS_PROCESSING;
-    Integer processingDay = 0;  //目前处于第几天
+    Integer processingDay = 0;  //目前处于第几天,每完成一次打卡+1，等于duration时设置为完成态
 
     public SeatmateInfo() {
     }
 
-    public SeatmateInfo(String idSeatmate, String person1, String person2, Date startTime, Date endTime, Integer status, Integer processingDay) {
+    public SeatmateInfo(String idSeatmate, String person1, String person2, Integer duration, Date startTime, Integer status, Integer processingDay) {
         this.idSeatmate = idSeatmate;
         this.person1 = person1;
         this.person2 = person2;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.duration = duration;
         this.status = status;
         this.processingDay = processingDay;
     }
@@ -62,12 +62,12 @@ public class SeatmateInfo extends LitePalSupport {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Integer getDuration() {
+        return duration;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
     public Integer getStatus() {

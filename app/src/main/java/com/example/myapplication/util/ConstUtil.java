@@ -6,6 +6,8 @@ public class ConstUtil {
         public static final int STATUS_FAIL = 0;
         public static final int STATUS_SUCCEED = 1;
         public static final int STATUS_PROCESSING = 2;
+        public static final int STATUS_WAITING_ANOTHER_RESPONSE = 3;
+        public static final int STATUS_NONESENSE = 5;
 
         public static String getStatusDesc(int code){
             String desc = "未知状态";
@@ -19,10 +21,35 @@ public class ConstUtil {
                 case STATUS_PROCESSING:
                     desc = "正在进行";
                     break;
+                case STATUS_WAITING_ANOTHER_RESPONSE:
+                    desc = "等待对方答复";
+                    break;
+                case STATUS_NONESENSE:
+                    desc = "无意义的条目";
+                    break;
             }
             return desc;
         }
     }
+
+    public static class SeatmateReplyType{
+        public static final int TYPE_APPROVE = 0;
+        public static final int TYPE_REFUSE = 1;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知种类";
+            switch (code){
+                case TYPE_APPROVE:
+                    desc = "同意";
+                    break;
+                case TYPE_REFUSE:
+                    desc = "拒绝";
+                    break;
+            }
+            return desc;
+        }
+    }
+
 
     public static class PlanType{
         public static final int TYPE_PERSONAL = 0;
@@ -95,4 +122,5 @@ public class ConstUtil {
             return desc;
         }
     }
+
 }
