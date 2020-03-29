@@ -40,22 +40,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserInfo findUserList() {
-        return null;
+    public List<UserInfo> findUserList() {
+        List<UserInfo> userInfos = userDao.findUserList();
+        Log.d(TAG, "findUserList: " + userInfos.size());
+        return userInfos;
     }
 
     @Override
     public UserInfo findUserByID(String idUser) {
+
+        List<UserInfo> userInfos = userDao.findUserInfoByID(idUser);
+        if(userInfos.size() > 0){
+            Log.d(TAG, "findUserByID: " + userInfos.get(0).getIdUser());
+            return userInfos.get(0);
+        }
         return null;
     }
 
     @Override
     public Boolean updatePassword(String idUser, String password) {
-        return null;
+        return userDao.updatePassword(idUser, password);
     }
 
     @Override
-    public UserInfo updateUserInfo(UserInfo userInfo) {
-        return null;
+    public Boolean updateUserInfo(UserInfo userInfo) {
+        return userDao.updateUserinfo(userInfo);
     }
 }

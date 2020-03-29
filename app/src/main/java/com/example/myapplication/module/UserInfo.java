@@ -4,14 +4,14 @@ import org.litepal.crud.LitePalSupport;
 
 public class UserInfo extends LitePalSupport {
 
-    String idUser = "";
-    String nickname = "";
-    String phone = "";
-    Integer rate = 0;
-    String idSeatmate = ""; //同桌ID
-    String idTeam = "";     //队伍ID
-    String remark = "";     //备注
-    Integer isPunch = 0;    //是否打卡
+    String idUser;
+    String nickname;
+    String phone;
+    Integer rate;
+    String idSeatmate; //同桌ID
+    String idTeam;     //队伍ID
+    String remark;     //备注
+    Integer isPunch;    //是否打卡
 
     public UserInfo() {
     }

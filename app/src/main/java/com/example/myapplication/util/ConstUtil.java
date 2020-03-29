@@ -77,4 +77,22 @@ public class ConstUtil {
             return desc;
         }
     }
+
+    public static class TeamNumberLimit{
+        public static final int Type_simple = 100;
+        public static final int Type_advance = 300;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知上限";
+            switch(code){
+                case Type_simple:
+                    desc = "普通队伍";
+                    break;
+                case Type_advance:
+                    desc = "进阶队伍";
+                    break;
+            }
+            return desc;
+        }
+    }
 }

@@ -7,15 +7,15 @@ import java.util.Date;
 
 public class TeamInfo extends LitePalSupport {
 
-    String idTeam = "";
-    String captain = "";
-    Integer number = 0;
-    Integer numberLimit = 0;
+    String idTeam;
+    String captain;
+    Integer number;
+    Integer numberLimit;
     Date foundTime = new Date(2020, 2, 2);
-    float ponchRate = 0;
-    String inviteCode = "";
-    String teamTitle = "";
-    String teamInfo = "";
+    float ponchRate;
+    String inviteCode;
+    String teamTitle;
+    String teamInfo;
 
     public TeamInfo() {
     }

@@ -41,8 +41,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         LitePal.initialize(this);
         dbInitFirstInstall();
-
-        userService.doLogin(new LoginInfo("phineas", "123456", null));
     }
 
     @Override

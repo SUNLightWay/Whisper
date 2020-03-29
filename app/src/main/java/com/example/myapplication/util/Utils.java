@@ -3,6 +3,8 @@ package com.example.myapplication.util;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.Random;
+
 public class Utils {
 
     public static void actionStart(Context from, Class<?> to, String data1, String data2){
@@ -10,5 +12,16 @@ public class Utils {
         intent.putExtra("param1", data1);
         intent.putExtra("param2", data2);
         from.startActivity(intent);
+    }
+
+    public static String getRandomString(int length){
+        String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random random=new Random();
+        StringBuffer sb=new StringBuffer();
+        for(int i=0;i<length;i++){
+            int number=random.nextInt(62);
+            sb.append(str.charAt(number));
+        }
+        return sb.toString();
     }
 }

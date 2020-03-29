@@ -3,6 +3,8 @@ package com.example.myapplication.service;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.UserInfo;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
@@ -23,7 +25,7 @@ public interface UserService {
      * 查询用户列表
      * @return
      */
-    public UserInfo findUserList();
+    public List<UserInfo> findUserList();
 
     /**
      * 查询用户
@@ -45,5 +47,5 @@ public interface UserService {
      * @param userInfo
      * @return
      */
-    public UserInfo updateUserInfo(UserInfo userInfo);
+    public Boolean updateUserInfo(UserInfo userInfo);
 }

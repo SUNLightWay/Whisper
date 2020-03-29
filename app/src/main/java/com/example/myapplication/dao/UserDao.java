@@ -22,4 +22,34 @@ public interface UserDao {
      * @return
      */
     public Boolean IncreaseUser(UserInfo userInfo, String password);
+
+
+    /**
+     * 根据用户ID获取用户信息
+     * @param userID
+     * @return
+     */
+    public List<UserInfo> findUserInfoByID(String userID);
+
+
+    /**
+     * 查询用户列表
+     * @return
+     */
+    public List<UserInfo> findUserList();
+
+    /**
+     * 更新密码
+     * @param userId
+     * @param password
+     * @return
+     */
+    public Boolean updatePassword(String userId, String password);
+
+    /**
+     * 更新用户信息
+     * @param userInfo
+     * @return
+     */
+    public Boolean updateUserinfo(UserInfo userInfo);
 }
