@@ -49,7 +49,7 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Boolean exitTeam(String userId, String teamId) {
-        return null;
+        return teamDao.exitTeam(userId, teamId);
     }
 
     @Override
