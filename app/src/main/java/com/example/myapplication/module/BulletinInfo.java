@@ -1,8 +1,10 @@
 package com.example.myapplication.module;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.Date;
 
-public class BulletinInfo {
+public class BulletinInfo extends LitePalSupport {
 
     Integer idButtetin = 0;
     String idTeam = "";
@@ -12,6 +14,9 @@ public class BulletinInfo {
     String content = "";
     Integer clickNum = 0;
     Integer heart = 0;
+
+    public BulletinInfo() {
+    }
 
     public BulletinInfo(Integer idButtetin, String idTeam, String author, String title, Date time, String content, Integer clickNum, Integer heart) {
         this.idButtetin = idButtetin;

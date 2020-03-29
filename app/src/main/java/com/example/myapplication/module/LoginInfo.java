@@ -1,10 +1,15 @@
 package com.example.myapplication.module;
 
-public class LoginInfo {
+import org.litepal.crud.LitePalSupport;
+
+public class LoginInfo extends LitePalSupport {
 
     String idUser = "";
     String password = "";
     String phone = "";
+
+    public LoginInfo() {
+    }
 
     public LoginInfo(String idUser, String password, String phone) {
         this.idUser = idUser;

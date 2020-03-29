@@ -1,9 +1,11 @@
 package com.example.myapplication.module;
 
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.Date;
 
-public class TeamInfo {
+public class TeamInfo extends LitePalSupport {
 
     String idTeam = "";
     String captain = "";
@@ -14,6 +16,9 @@ public class TeamInfo {
     String inviteCode = "";
     String teamTitle = "";
     String teamInfo = "";
+
+    public TeamInfo() {
+    }
 
     public TeamInfo(String idTeam, String captain, Integer number, Integer numberLimit, Date foundTime, float ponchRate, String inviteCode, String teamTitle, String teamInfo) {
         this.idTeam = idTeam;

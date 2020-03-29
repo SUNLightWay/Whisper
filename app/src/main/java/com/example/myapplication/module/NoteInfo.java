@@ -1,15 +1,20 @@
 package com.example.myapplication.module;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.sql.Time;
 import java.util.Date;
 
-public class NoteInfo {
+public class NoteInfo extends LitePalSupport {
 
     Integer idNote = 0;
     Date time = null;
     String content = "";
     String idTeam = "";
     String author = "";
+
+    public NoteInfo() {
+    }
 
     public NoteInfo(Integer idNote, Date time, String content, String idTeam, String author) {
         this.idNote = idNote;

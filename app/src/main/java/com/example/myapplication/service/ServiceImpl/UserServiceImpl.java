@@ -18,12 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean doLogin(LoginInfo user) {
-
-        LoginInfo login = userDao.findUserLoginById(user.getIdUser());
-        if (login.getPassword().equals(user.getPassword())){
-            return true;
-        }
-        return false;
+        return null;
     }
 
     @Override

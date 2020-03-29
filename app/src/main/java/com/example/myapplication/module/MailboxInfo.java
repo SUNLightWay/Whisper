@@ -2,9 +2,11 @@ package com.example.myapplication.module;
 
 import com.example.myapplication.util.ConstUtil;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.Date;
 
-public class MailboxInfo {
+public class MailboxInfo extends LitePalSupport {
 
     Integer idMail = 0;
     String From = "";
@@ -14,6 +16,9 @@ public class MailboxInfo {
     String title = "";
     Integer isPublic = ConstUtil.MailPublicType.TYPE_NOTPUBLIC;
     Integer isDelay = ConstUtil.MailDealyType.TYPE_NOTDELAY;
+
+    public MailboxInfo() {
+    }
 
     public MailboxInfo(Integer idMail, String from, String to, Date sendTime, Date recelveTime, String title, Integer isPublic, Integer isDelay) {
 

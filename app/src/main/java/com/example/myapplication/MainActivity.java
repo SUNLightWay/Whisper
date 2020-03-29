@@ -15,6 +15,7 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 import com.bumptech.glide.Glide;
+import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.ui.plan.PlanBaseFragment;
 import com.example.myapplication.ui.plan.PlanFragment;
 import com.example.myapplication.util.DBUtil;
@@ -30,6 +31,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import org.litepal.LitePal;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -55,22 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         //设置底部导航栏不会遮挡布局
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Connection connection = DBUtil.getConn();
-                if (connection != null){
-                    Log.d("MainActivity", "connection return succ");
-                }else{
-                    Log.d("MainActivity", "connection return fail");
-
-                }
-            }
-        }).start();
-
-        //轮播图初始化
-        //initView();
     }
 
 //    //自定义的图片加载器

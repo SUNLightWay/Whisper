@@ -3,9 +3,11 @@ package com.example.myapplication.module;
 
 import com.example.myapplication.util.ConstUtil;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.Date;
 
-public class SeatmateInfo {
+public class SeatmateInfo extends LitePalSupport {
 
     String idSeatmate = "";
     String person1 = "";
@@ -14,6 +16,9 @@ public class SeatmateInfo {
     Date endTime = null;
     Integer status = ConstUtil.SeatmateStatus.STATUS_PROCESSING;
     Integer processingDay = 0;  //目前处于第几天
+
+    public SeatmateInfo() {
+    }
 
     public SeatmateInfo(String idSeatmate, String person1, String person2, Date startTime, Date endTime, Integer status, Integer processingDay) {
         this.idSeatmate = idSeatmate;

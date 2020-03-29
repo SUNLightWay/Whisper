@@ -1,6 +1,8 @@
 package com.example.myapplication.module;
 
-public class UserInfo {
+import org.litepal.crud.LitePalSupport;
+
+public class UserInfo extends LitePalSupport {
 
     String idUser = "";
     String nickname = "";
@@ -10,6 +12,9 @@ public class UserInfo {
     String idTeam = "";     //队伍ID
     String remark = "";     //备注
     Integer isPunch = 0;    //是否打卡
+
+    public UserInfo() {
+    }
 
     public UserInfo(String idUser, String nickname, String phone, Integer rate, String idSeatmate, String idTeam, Integer isPunch, String remark) {
         this.idUser = idUser;

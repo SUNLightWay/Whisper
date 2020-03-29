@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.find;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -21,6 +23,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.find.DeskMate.DeskmateActivity;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -54,7 +57,7 @@ public class FindFragment extends Fragment {
     同桌的实现
      */
     private void initView() {
-        find_deskmate = this.view.findViewById(R.id.find_deskmate);
+        LinearLayout find_deskmate = this.view.findViewById(R.id.find_deskmate);
 
         find_deskmate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,9 +2,11 @@ package com.example.myapplication.module;
 
 import com.example.myapplication.util.ConstUtil;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.Date;
 
-public class PlanListInfo {
+public class PlanListInfo extends LitePalSupport {
 
     Integer idPlan = 0;
     String idUser = "";
@@ -16,6 +18,9 @@ public class PlanListInfo {
     String significance = "";
     float completion = 0;
     Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
+
+    public PlanListInfo() {
+    }
 
     public PlanListInfo(Integer idPlan, String idUser, Integer fatherPlan, String title, String detail, Date startTime, Date endTime, String significance, float completion, Integer type) {
 

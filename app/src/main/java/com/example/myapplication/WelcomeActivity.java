@@ -8,6 +8,11 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.example.myapplication.module.LoginInfo;
+import com.example.myapplication.module.UserInfo;
+
+import org.litepal.LitePal;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     private static final String TAG ="WelcomeActivity" ;
@@ -30,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
         };
         handler.postDelayed(runnable,5000);
 
+        dbInitFirstInstall();
     }
 
     @Override
@@ -37,5 +43,17 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onDestroy();
         handler.removeCallbacks(runnable);
         Log.i(TAG,"移除runable");
+    }
+
+    private void dbInitFirstInstall(){
+
+        LitePal.getDatabase();
+        //登录用户
+        LoginInfo loginInfo = new LoginInfo("phineas", "123456", "12345678912");
+        loginInfo.save();
+
+        //用户信息
+        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
+        userInfo.save();
     }
 }
