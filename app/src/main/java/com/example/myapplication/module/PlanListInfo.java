@@ -8,41 +8,79 @@ import java.util.Date;
 
 public class PlanListInfo extends LitePalSupport {
 
-    Integer idPlan = 0;
-    String idUser = "";
-    Integer fatherPlan = -1;
-    String title = "";
-    String detail = "";
-    Date startTime = null;
-    Date endTime = null;
-    String significance = "";
-    float completion = 0;
+    String idPlan;
+    String idUser;
+    String fatherPlan;
+    String title;
+    String goal;
+    String goalType;
+    String detail;
+    Date startTime;
+    Date endTime;
+    String significance;
+    String bless;
+    float completion;
     Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
 
     public PlanListInfo() {
     }
 
-    public PlanListInfo(Integer idPlan, String idUser, Integer fatherPlan, String title, String detail, Date startTime, Date endTime, String significance, float completion, Integer type) {
-
+    public PlanListInfo(String idPlan, String idUser, String fatherPlan, String title, String goal, String goalType, String detail, Date startTime, Date endTime, String significance, float completion, Integer type, String bless) {
         this.idPlan = idPlan;
         this.idUser = idUser;
         this.fatherPlan = fatherPlan;
         this.title = title;
+        this.goal = goal;
+        this.goalType = goalType;
         this.detail = detail;
         this.startTime = startTime;
         this.endTime = endTime;
         this.significance = significance;
         this.completion = completion;
         this.type = type;
+        this.bless = bless;
     }
 
-    public Integer getIdPlan() {
+    public String getBless() {
+        return bless;
+    }
+
+    public void setBless(String bless) {
+        this.bless = bless;
+    }
+
+    public String getIdPlan() {
         return idPlan;
     }
 
-    public void setIdPlan(Integer idPlan) {
+    public void setIdPlan(String idPlan) {
         this.idPlan = idPlan;
     }
+
+    public String getFatherPlan() {
+        return fatherPlan;
+    }
+
+    public void setFatherPlan(String fatherPlan) {
+        this.fatherPlan = fatherPlan;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    public String getGoalType() {
+        return goalType;
+    }
+
+    public void setGoalType(String goalType) {
+        this.goalType = goalType;
+    }
+
 
     public String getIdUser() {
         return idUser;
@@ -50,14 +88,6 @@ public class PlanListInfo extends LitePalSupport {
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
-    }
-
-    public Integer getFatherPlan() {
-        return fatherPlan;
-    }
-
-    public void setFatherPlan(Integer fatherPlan) {
-        this.fatherPlan = fatherPlan;
     }
 
     public String getTitle() {
