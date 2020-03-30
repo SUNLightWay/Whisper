@@ -91,7 +91,7 @@ public class UserDaoImpl implements UserDao {
         if(userInfo.getNickname() != null)
             user.setNickname(userInfo.getNickname());
         if(userInfo.getPhone() != null){
-            user.setNickname(userInfo.getNickname());
+            user.setPhone(userInfo.getPhone());
             LoginInfo loginInfo = LitePal.select()
                     .where("iduser = ?", userInfo.getIdUser())
                     .limit(1)

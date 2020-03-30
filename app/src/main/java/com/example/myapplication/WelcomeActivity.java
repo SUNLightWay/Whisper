@@ -71,7 +71,13 @@ public class WelcomeActivity extends AppCompatActivity {
         //用户信息
         UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
         userInfo.save();
-
+        {
+            UserInfo userInfo1 = new UserInfo();
+            userInfo1.setIdUser("phineas");
+            userInfo1.setPhone("11111111111");
+            userInfo1.setRemark("update测试");
+            userService.updateUserInfo(userInfo1);
+        }
         //同桌
         SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
         SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
