@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/child_card1"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/space_20dp"
+    android:layout_marginBottom="@dimen/space_10dp"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/child_card_title"
+            android:text="高数"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="目标"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/child_card_goal"
+                android:layout_marginLeft="10dp"
+                android:text="135"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/event_color_04"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/child_card_goal_type"
+                android:layout_marginLeft="10dp"
+                android:text="分"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/grey"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/child_card_stage_plan_list"
+                android:text="2020.2.3~2020.4.30 第一阶段基础复习"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="@dimen/space_10dp"
+            android:text="进度"
+            android:layout_marginLeft="@dimen/space_30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <ProgressBar
+            android:id="@+id/child_card_progressbar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="@dimen/space_30dp"
+            android:layout_marginRight="@dimen/space_30dp"
+            android:max="100"
+            android:progress="35"
+            android:progressDrawable="@drawable/layer_list_progress_drawable" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

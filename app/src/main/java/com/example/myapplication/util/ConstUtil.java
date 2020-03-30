@@ -55,6 +55,9 @@ public class ConstUtil {
         public static final int TYPE_PERSONAL = 0;
         public static final int TYPE_TEAM = 1;
 
+        public static final int TYPE_LAST = 2;
+        public static final int TYPE_NOT_LAST = 3;
+
         public static String getTypeDesc(int code){
             String desc = "未知种类";
             switch (code){
@@ -63,6 +66,12 @@ public class ConstUtil {
                     break;
                 case TYPE_TEAM:
                     desc = "团队";
+                    break;
+                case TYPE_LAST:
+                    desc = "最后一层计划";
+                    break;
+                case TYPE_NOT_LAST:
+                    desc = "非最后一层计划";
                     break;
             }
             return desc;

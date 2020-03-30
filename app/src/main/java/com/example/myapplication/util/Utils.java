@@ -3,6 +3,7 @@ package com.example.myapplication.util;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.Date;
 import java.util.Random;
 
 public class Utils {
@@ -24,4 +25,14 @@ public class Utils {
         }
         return sb.toString();
     }
+
+    public  static int differentDayMillisecond(Date date1, Date date2)
+    {
+
+
+        int day = (int)((date2.getTime()-date1.getTime())/(3600*1000*24));
+        return day;
+    }
 }
+
+

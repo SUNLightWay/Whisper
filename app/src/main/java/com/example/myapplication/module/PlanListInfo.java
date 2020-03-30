@@ -4,6 +4,7 @@ import com.example.myapplication.util.ConstUtil;
 
 import org.litepal.crud.LitePalSupport;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class PlanListInfo extends LitePalSupport {
@@ -18,9 +19,11 @@ public class PlanListInfo extends LitePalSupport {
     Date startTime;
     Date endTime;
     String significance;
-    String bless;
     float completion;
     Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
+    String bless;
+    Integer isLast;
+
 
     public PlanListInfo() {
     }

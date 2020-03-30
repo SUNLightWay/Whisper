@@ -53,7 +53,9 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
         //contactInfoList中包含的都是ContactInfo类的对象
         //通过其get()方法可以获得其中的对象
         ContactInfo ci =contactInfoList.get(position);
-        holder.item_tv.setText(ci.getText());
+        holder.item_tv.setText(ci.getTitle());
+        holder.item_tm.setText("剩余" + ci.getTimeRemain() + "天");
+        holder.item_s.setText(ci.getSignificance());
         holder.item_iv.setImageResource(ci.getImgId());
 
         if (mOnItemClickListener != null) {
@@ -85,6 +87,8 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
 
         private ImageView item_iv;
         private TextView item_tv;
+        private TextView item_tm;   //剩余时间
+        private TextView item_s;    //重要性
         private CardView item_cardview;
 
         public ContactViewHolder(@NonNull View itemView) {
@@ -92,6 +96,8 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
             item_cardview = itemView.findViewById(R.id.item_plan_card);
             item_iv = itemView.findViewById(R.id.item_iv);
             item_tv = itemView.findViewById(R.id.item_tv);
+            item_tm = itemView.findViewById(R.id.item_plan_time_remain);
+            item_s = itemView.findViewById(R.id.item_plan_significance);
         }
     }
 }

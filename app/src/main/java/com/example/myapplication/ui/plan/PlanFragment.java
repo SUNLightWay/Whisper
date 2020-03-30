@@ -26,11 +26,14 @@ import com.example.myapplication.ScheduleChartActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.PlanCardAdapter;
 import com.example.myapplication.module.ContactInfo;
+import com.example.myapplication.module.PlanListInfo;
+import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.util.DBUtil;
 import com.example.myapplication.util.Utils;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PlanFragment extends Fragment{
@@ -38,7 +41,9 @@ public class PlanFragment extends Fragment{
     private PlanViewModel planViewModel;
     private PlanCardAdapter adapter;
     List<ContactInfo> mList = new ArrayList<>();
+    List<PlanListInfo> plans;     //计划列表
     private View view;
+    private PlanListServiceImpl planListService = new PlanListServiceImpl();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -92,7 +97,7 @@ public class PlanFragment extends Fragment{
         adapter.setOnItemClickListener(new PlanCardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Utils.actionStart(getActivity(), PlanDetailActivity.class, null, null);
+                Utils.actionStart(getActivity(), PlanDetailActivity.class, plans.get(0).getIdPlan(), null);
             }
 
             @Override
@@ -130,11 +135,18 @@ public class PlanFragment extends Fragment{
     }
 
     public void initInfo(){
-        ContactInfo card1 = new ContactInfo("考研",R.drawable.bg_card_01);
+        plans = planListService.findFirstLevelPlanList();
+        for (PlanListInfo plan:plans
+             ) {
+            ContactInfo card = new ContactInfo(plan.getTitle(),
+                    Utils.differentDayMillisecond(new Date(), plan.getEndTime()), plan.getSignificance(),R.drawable.bg_card_01);
+            mList.add(card);
+        }
+        /*ContactInfo card1 = new ContactInfo("考研",R.drawable.bg_card_01);
         mList.add(card1);
         ContactInfo card2 = new ContactInfo("学习演讲",R.drawable.bg_card_02);
         mList.add(card2);
         ContactInfo card3 = new ContactInfo("先占个位",R.drawable.bg_card_03);
-        mList.add(card3);
+        mList.add(card3);*/
     }
 }
