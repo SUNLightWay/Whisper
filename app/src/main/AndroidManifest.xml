@@ -15,8 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
 
        <!--同桌start-->
+=======
+        <activity android:name=".ui.find.GroupHome"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".MailListActivity"
+            android:label="@string/title_mail_list"
+            android:theme="@style/ActivityTheme" />
+>>>>>>> 179025049686ab7fb90ac0bad9446fb906380ee9
         <activity
             android:label="同桌"
             android:name="com.example.myapplication.ui.find.DeskMate.DeskmateActivity"/>
