@@ -2,7 +2,6 @@ package com.example.myapplication.service;
 
 import com.example.myapplication.module.MailboxInfo;
 import com.example.myapplication.module.UserInfo;
-import com.example.myapplication.vo.Mail;
 
 import java.util.Date;
 import java.util.List;

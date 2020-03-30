@@ -1,7 +1,6 @@
 package com.example.myapplication.dao;
 
 import com.example.myapplication.module.MailboxInfo;
-import com.example.myapplication.vo.Mail;
 
 import java.util.List;
 

@@ -2,7 +2,6 @@ package com.example.myapplication.dao.DaoImpl;
 
 import com.example.myapplication.dao.MailBoxDao;
 import com.example.myapplication.module.MailboxInfo;
-import com.example.myapplication.vo.Mail;
 
 import org.litepal.LitePal;
 
