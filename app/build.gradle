@@ -44,4 +44,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.youth.banner:banner:1.4.8'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+
+    /*图片加载器*/
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 }
