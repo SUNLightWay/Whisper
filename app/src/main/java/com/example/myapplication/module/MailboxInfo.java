@@ -14,13 +14,15 @@ public class MailboxInfo extends LitePalSupport {
     Date sendTime = null;
     Date recelveTime = null;
     String title = "";
+    String content = "";
     Integer isPublic = ConstUtil.MailPublicType.TYPE_NOTPUBLIC;
     Integer isDelay = ConstUtil.MailDealyType.TYPE_NOTDELAY;
 
     public MailboxInfo() {
     }
 
-    public MailboxInfo(Integer idMail, String from, String to, Date sendTime, Date recelveTime, String title, Integer isPublic, Integer isDelay) {
+
+    public MailboxInfo(Integer idMail, String from, String to, Integer isPublic, Integer isDelay , Date sendTime, Date recelveTime, String title, String content) {
 
         this.idMail = idMail;
         From = from;
@@ -30,6 +32,7 @@ public class MailboxInfo extends LitePalSupport {
         this.title = title;
         this.isPublic = isPublic;
         this.isDelay = isDelay;
+        this.content = content;
     }
 
 
@@ -73,6 +76,14 @@ public class MailboxInfo extends LitePalSupport {
         this.recelveTime = recelveTime;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -95,5 +106,20 @@ public class MailboxInfo extends LitePalSupport {
 
     public void setIsDelay(Integer isDelay) {
         this.isDelay = isDelay;
+    }
+
+    @Override
+    public String toString() {
+        return "MailboxInfo{" +
+                "idMail=" + idMail +
+                ", From='" + From + '\'' +
+                ", To='" + To + '\'' +
+                ", sendTime=" + sendTime +
+                ", recelveTime=" + recelveTime +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", isPublic=" + isPublic +
+                ", isDelay=" + isDelay +
+                '}';
     }
 }

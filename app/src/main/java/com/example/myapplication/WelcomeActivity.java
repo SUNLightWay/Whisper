@@ -10,9 +10,12 @@ import android.view.WindowManager;
 
 import com.example.myapplication.dao.DaoImpl.SeatmateDaoImpl;
 import com.example.myapplication.module.LoginInfo;
+import com.example.myapplication.module.MailboxInfo;
 import com.example.myapplication.module.SeatmateInfo;
 import com.example.myapplication.module.UserInfo;
+import com.example.myapplication.service.MailService;
 import com.example.myapplication.service.SeatmateService;
+import com.example.myapplication.service.ServiceImpl.MailServiceImpl;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.service.UserService;
@@ -86,6 +89,13 @@ public class WelcomeActivity extends AppCompatActivity {
         //seatmateService.sendRequest(seatmateInfo1);
         //Log.d(TAG, "dbInitFirstInstall: findSeatmateFailedorSucceeded" + seatmateService.findSeatmateFailedorSucceeded("phineas").size());
         //Log.d(TAG, "dbInitFirstInstall: findSeatmateNeedToResponse" + seatmateService.findSeatmateNeedToResponse("cloud").size());
+
+        //邮件
+        MailboxInfo mailboxInfo = new MailboxInfo(3,"Miracle","Phineas",1,1,new Date(),new Date(),"test","hello");
+        mailboxInfo.save();
+//        MailService mailService = new MailServiceImpl();
+//        mailService.findMailBoxList();
+
     }
 }
 
