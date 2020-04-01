@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +22,15 @@ import com.example.myapplication.util.Utils;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PlanDetailActivity extends AppCompatActivity {
 
     private String idFatherPlan;
+    private String idUser;
     private ChildPlanCardAdapter adapter;
     List<PlanListInfo> mList = new ArrayList<>();
     List<PlanListInfo> plans;     //计划列表
@@ -38,6 +44,7 @@ public class PlanDetailActivity extends AppCompatActivity {
 
         //获取fatherPlan的id
         idFatherPlan = getIntent().getStringExtra("param1");
+        idUser = getIntent().getStringExtra("param2");
         Log.d(TAG, "onCreate: " + idFatherPlan);
 
         //获取RecycleView对象
@@ -73,9 +80,30 @@ public class PlanDetailActivity extends AppCompatActivity {
             }
         });
 
+        CardView increasePlan = (CardView) findViewById(R.id.child_card_increase);
+        increasePlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.actionStart(PlanDetailActivity.this, IncreasePlanActivity.class, idFatherPlan, idUser);
+            }
+        });
+
     }
 
     protected void initPlanList(){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        PlanListInfo fatherPlan = planListService.findPlanById(idFatherPlan);
+        ((TextView)findViewById(R.id.father_card_title)).setText(fatherPlan.getTitle());
+        ((TextView)findViewById(R.id.father_card_goal)).setText(fatherPlan.getGoal());
+        ((TextView)findViewById(R.id.father_card_goal_type)).setText(fatherPlan.getGoalType());
+        ((TextView)findViewById(R.id.father_card_time)).setText(
+                sdf.format(fatherPlan.getStartTime()) + "~" + sdf.format(fatherPlan.getEndTime())
+        );
+        ((ProgressBar)findViewById(R.id.father_card_progressbar)).setProgress((int)fatherPlan.getCompletion());
+        ((TextView)findViewById(R.id.father_card_time_limit)).setText("剩余" + Utils.differentDayMillisecond(new Date(), fatherPlan.getEndTime()) + "天");
+        ((TextView)findViewById(R.id.child_card_significance)).setText(fatherPlan.getSignificance());
 
         plans = planListService.findChildPlanList(idFatherPlan);
         Log.d(TAG, "initPlanList: " + plans.size());

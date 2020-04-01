@@ -42,4 +42,12 @@ public interface PlanListService {
      * @return
      */
     public Boolean deletePlan(String planId);
+
+
+    /**
+     * 根据Id查找计划
+     * @param planId
+     * @return
+     */
+    public PlanListInfo findPlanById(String planId);
 }

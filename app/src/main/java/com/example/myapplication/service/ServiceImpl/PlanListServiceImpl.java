@@ -35,4 +35,9 @@ public class PlanListServiceImpl implements PlanListService {
     public Boolean deletePlan(String planId) {
         return planListDao.deletePlan(planId);
     }
+
+    @Override
+    public PlanListInfo findPlanById(String planId) {
+        return planListDao.findPlanById(planId).get(0);
+    }
 }

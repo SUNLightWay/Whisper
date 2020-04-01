@@ -22,13 +22,15 @@ public class PlanListInfo extends LitePalSupport {
     float completion;
     Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
     String bless;
-    Integer isLast;
+    Integer isLast; //不为0时表示为最后一个
+    Integer sumHourNeeded;
+    float hourPerTime;
 
 
     public PlanListInfo() {
     }
 
-    public PlanListInfo(String idPlan, String idUser, String fatherPlan, String title, String goal, String goalType, String detail, Date startTime, Date endTime, String significance, float completion, Integer type, String bless) {
+    public PlanListInfo(String idPlan, String idUser, String fatherPlan, String title, String goal, String goalType, String detail, Date startTime, Date endTime, String significance, float completion, Integer type, String bless, Integer isLast, Integer sumHourNeeded, float hourPerTime) {
         this.idPlan = idPlan;
         this.idUser = idUser;
         this.fatherPlan = fatherPlan;
@@ -42,6 +44,33 @@ public class PlanListInfo extends LitePalSupport {
         this.completion = completion;
         this.type = type;
         this.bless = bless;
+        this.isLast = isLast;
+        this.sumHourNeeded = sumHourNeeded;
+        this.hourPerTime = hourPerTime;
+    }
+
+    public float getHourPerTime() {
+        return hourPerTime;
+    }
+
+    public void setHourPerTime(float hourPerTime) {
+        this.hourPerTime = hourPerTime;
+    }
+
+    public Integer getIsLast() {
+        return isLast;
+    }
+
+    public void setIsLast(Integer isLast) {
+        this.isLast = isLast;
+    }
+
+    public Integer getSumHourNeeded() {
+        return sumHourNeeded;
+    }
+
+    public void setSumHourNeeded(Integer sumHourNeeded) {
+        this.sumHourNeeded = sumHourNeeded;
     }
 
     public String getBless() {

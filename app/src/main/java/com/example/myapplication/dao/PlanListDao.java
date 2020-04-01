@@ -43,4 +43,12 @@ public interface PlanListDao {
      * @return
      */
     public Boolean deletePlan(String planId);
+
+
+    /**
+     * 根据Id查找计划
+     * @param planId
+     * @return
+     */
+    public List<PlanListInfo> findPlanById(String planId);
 }

@@ -44,6 +44,7 @@ public class PlanFragment extends Fragment{
     List<PlanListInfo> plans;     //计划列表
     private View view;
     private PlanListServiceImpl planListService = new PlanListServiceImpl();
+    private String userId = "phineas";
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -97,7 +98,7 @@ public class PlanFragment extends Fragment{
         adapter.setOnItemClickListener(new PlanCardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Utils.actionStart(getActivity(), PlanDetailActivity.class, plans.get(0).getIdPlan(), null);
+                Utils.actionStart(getActivity(), PlanDetailActivity.class, plans.get(position).getIdPlan(), userId);
             }
 
             @Override
@@ -126,7 +127,7 @@ public class PlanFragment extends Fragment{
                 break;
             case R.id.action_increase_plan:
                 //跳转到添加计划界面
-                Utils.actionStart(getActivity(), IncreasePlanActivity.class, null, null);
+                Utils.actionStart(getActivity(), IncreasePlanActivity.class, "-1", userId);
                 break;
             default:
                 break;

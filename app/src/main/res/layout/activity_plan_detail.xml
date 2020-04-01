@@ -69,6 +69,7 @@
                 android:layout_gravity="center_horizontal" />
 
             <TextView
+                android:id="@+id/father_card_goal_type"
                 android:layout_marginLeft="10dp"
                 android:text="院校"
                 android:textSize="18sp"
@@ -162,6 +163,16 @@
                 android:text="没有鸿鹄之志，只求步步为营"
                 android:textStyle="bold"
                 android:textColor="@color/holiday_text_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/child_card_significance"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="没有鸿鹄之志，只求步步为营"
+                android:textStyle="bold"
+                android:textColor="@color/blue_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
