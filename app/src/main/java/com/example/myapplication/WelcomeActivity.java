@@ -75,8 +75,8 @@ public class WelcomeActivity extends AppCompatActivity {
         loginInfo1.save();
 
         //用户信息
-        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
-        userInfo.save();
+        UserInfo userInfo = new UserInfo("SUNLight", "test", "12345678912", 89, null, null, 1, null);
+        //userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();
             userInfo1.setIdUser("phineas");
@@ -108,6 +108,8 @@ public class WelcomeActivity extends AppCompatActivity {
        // mailboxInfo.save();
 //        MailService mailService = new MailServiceImpl();
 //        mailService.findMailBoxList();
+        //Log.d(TAG, "dbInitFirstInstall: register" + userService.doRegister(userInfo, "123456"));
+        Log.d(TAG, "dbInitFirstInstall: login" + userService.doLogin(new LoginInfo("SUNLight", "123456", null)));
         Log.d(TAG, "dbInitFirstInstall: " + planListService.findLastPlanList("phineas").size());
     }
 }
