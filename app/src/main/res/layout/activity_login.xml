@@ -82,7 +82,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginRight="18dp"
+                android:drawableRight="@drawable/visible_password"
                 android:hint="请输入密码"
+
                 android:paddingLeft="10dp"
                 android:paddingBottom="5dp"
                 android:singleLine="true"

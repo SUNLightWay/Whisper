@@ -7,6 +7,7 @@ import com.example.myapplication.dao.DaoImpl.UserDaoImpl;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.UserService;
+import com.example.myapplication.util.MD5Util;
 import com.example.myapplication.util.SPHelper;
 
 import org.litepal.LitePal;
@@ -17,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
     private final String TAG = "UserServiceImpl";
     UserDaoImpl userDao = new UserDaoImpl();
+    MD5Util md5Util = new MD5Util();
 
     @Override
     public Boolean doRegister(UserInfo userInfo, String password) {
@@ -31,6 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean doLogin(LoginInfo user) {
         List<LoginInfo> login = userDao.findLoginInfo(user);
+        Log.d(TAG, "doLogin: " + user.getIdUser() + " " + user.getPassword() + " "+ login.get(0).getIdUser() + " " + login.get(0).getPassword());
         if (login.size() > 0 && login.get(0).getPassword().equals(user.getPassword())){
             Log.d(TAG, "doLogin: successful. userID:" + user.getIdUser());
             return true;

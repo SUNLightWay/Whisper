@@ -46,18 +46,18 @@ public class WelcomeActivity extends AppCompatActivity {
         //设置为全屏模式
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
+        LitePal.initialize(this);
+        dbInitFirstInstall();
         handler = new Handler();
         runnable = new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
                 finish();
             }
         };
         handler.postDelayed(runnable,5000);
 
-        LitePal.initialize(this);
-        dbInitFirstInstall();
     }
 
     @Override
@@ -77,8 +77,8 @@ public class WelcomeActivity extends AppCompatActivity {
         loginInfo1.save();
 
         //用户信息
-        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
-        userInfo.save();
+        UserInfo userInfo = new UserInfo("SUNLight", "test", "12345678912", 89, null, null, 1, null);
+        //userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();
             userInfo1.setIdUser("phineas");
@@ -87,9 +87,10 @@ public class WelcomeActivity extends AppCompatActivity {
             userService.updateUserInfo(userInfo1);
         }
         //同桌
-        SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
+              SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
         SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
         seatmateInfo2.save();
+<<<<<<< HEAD
 
         //seatmateService.sendRequest(seatmateInfo1);
         //Log.d(TAG, "dbInitFirstInstall: findSeatmateFailedorSucceeded" + seatmateService.findSeatmateFailedorSucceeded("phineas").size());
@@ -121,6 +122,8 @@ public class WelcomeActivity extends AppCompatActivity {
         NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
         noteInfo.save();
 
+=======
+>>>>>>> 2ca69909cf963f3480a6ab8b64f326ac15dcc0d3
     }
 }
 
