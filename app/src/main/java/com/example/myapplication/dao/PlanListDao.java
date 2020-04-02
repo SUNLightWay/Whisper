@@ -51,4 +51,12 @@ public interface PlanListDao {
      * @return
      */
     public List<PlanListInfo> findPlanById(String planId);
+
+
+    /**
+     * 查找最后一层计划列表
+     * @param userId
+     * @return
+     */
+    public List<PlanListInfo> findLastPlanList(String userId);
 }

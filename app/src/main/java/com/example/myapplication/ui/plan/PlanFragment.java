@@ -123,7 +123,7 @@ public class PlanFragment extends Fragment{
         switch (item.getItemId()) {
             case R.id.action_check_chart:
                 //跳转到日程表界面
-                Utils.actionStart(getActivity(), ScheduleChartActivity.class, null, null);
+                Utils.actionStart(getActivity(), ScheduleChartActivity.class, null, userId);
                 break;
             case R.id.action_increase_plan:
                 //跳转到添加计划界面

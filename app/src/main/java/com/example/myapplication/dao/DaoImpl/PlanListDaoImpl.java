@@ -71,4 +71,12 @@ public class PlanListDaoImpl implements PlanListDao {
                 .where("idplan = ?", planId)
                 .find(PlanListInfo.class));
     }
+
+    @Override
+    public List<PlanListInfo> findLastPlanList(String userId) {
+
+        return (LitePal.select()
+                .where("iduser = ? and islast = ?", userId, "1")
+                .find(PlanListInfo.class));
+    }
 }

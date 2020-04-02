@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -70,7 +72,7 @@ public class PlanDetailActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new ChildPlanCardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Utils.actionStart(PlanDetailActivity.this, PlanDetailActivity.class, plans.get(0).getIdPlan(), null);
+                Utils.actionStart(PlanDetailActivity.this, PlanDetailActivity.class, plans.get(0).getIdPlan(), idUser);
             }
 
             @Override
@@ -88,6 +90,31 @@ public class PlanDetailActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_action_plan_detail, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO Auto-generated method stub
+        switch (item.getItemId()) {
+            case R.id.enter_update_plan:
+                //更新计划
+                Utils.actionStart(this, UpdatePlanActivity.class, idFatherPlan, idUser);
+                break;
+            case R.id.enter_delete_plan:
+                //删除主计划
+                planListService.deletePlan(idFatherPlan);
+                Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     protected void initPlanList(){

@@ -50,4 +50,12 @@ public interface PlanListService {
      * @return
      */
     public PlanListInfo findPlanById(String planId);
+
+
+    /**
+     * 查询最后一层计划列表
+     * @param userId
+     * @return
+     */
+    public List<PlanListInfo> findLastPlanList(String userId);
 }
