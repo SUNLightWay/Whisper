@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import com.example.myapplication.dao.DaoImpl.SeatmateDaoImpl;
+import com.example.myapplication.module.BulletinInfo;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.MailboxInfo;
@@ -103,12 +104,16 @@ public class WelcomeActivity extends AppCompatActivity {
         //PlanListInfo plan2 = new PlanListInfo(Utils.getRandomString(10), "phineas", "1A2xhadRWW", "健身", "匀称", "体态", null, new Date(), new Date(), "告别臃肿，游历世界梦想的第一步", 0, ConstUtil.PlanType.TYPE_PERSONAL, "最无益，只怕一日曝十日寒");
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan1));
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
+
         //邮件
         MailboxInfo mailboxInfo = new MailboxInfo(3,"Miracle","Phineas",1,1,new Date(),new Date(),"test","hello");
         mailboxInfo.save();
 //        MailService mailService = new MailServiceImpl();
 //        mailService.findMailBoxList();
 
+        //公告
+        BulletinInfo bulletinInfo = new BulletinInfo(1,Utils.getRandomString(10),"Miracle","test",new Date(),"test !!!",100,200);
+        bulletinInfo.save();
     }
 }
 
