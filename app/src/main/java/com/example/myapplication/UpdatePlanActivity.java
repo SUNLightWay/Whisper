@@ -1,64 +1,38 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.util.ConstUtil;
 import com.example.myapplication.util.Utils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import java.text.ParseException;
 
-public class IncreasePlanActivity extends AppCompatActivity {
+public class UpdatePlanActivity extends AppCompatActivity {
 
-    private PlanListServiceImpl planListService = new PlanListServiceImpl();
-    private PlanListInfo plan = new PlanListInfo();
-    private String fatherPlanId;
     private String userId;
-    private final String TAG = "IncreasePlanActivity";
+    private String planId;
+    private PlanListInfo plan;
+    private final String TAG = "UpdatePlanActivity";
+    private PlanListServiceImpl planListService = new PlanListServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_increase_plan);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_update_plan);
 
-        fatherPlanId = getIntent().getStringExtra("param1");
         userId = getIntent().getStringExtra("param2");
-        Log.d(TAG, "onCreate: fatherPlanId" + fatherPlanId + "/ userId:" + userId);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-        CheckBox isLast = (CheckBox)findViewById(R.id.cb_is_last);
-        isLast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    plan.setIsLast(1);
-                }else{
-                    plan.setIsLast(0);
-                }
-            }
-        });
+        planId = getIntent().getStringExtra("param1");
+
+        initEditText();
     }
 
     @Override
@@ -74,13 +48,28 @@ public class IncreasePlanActivity extends AppCompatActivity {
             case R.id.enter_increase:
                 //完成
                 setValue();
-                planListService.addPlan(plan);
+                planListService.updatePlanInfo(plan);
                 this.finish();
                 break;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initEditText(){
+        plan = planListService.findPlanById(planId);
+
+        ((EditText)findViewById(R.id.et_time_n)).setText(String.valueOf(plan.getHourPerTime()));
+        ((EditText)findViewById(R.id.et_time_needed)).setText(String.valueOf(plan.getSumHourNeeded()));
+        ((EditText)findViewById(R.id.et_start_time)).setText(Utils.sdf.format(plan.getStartTime()));
+        ((EditText)findViewById(R.id.et_end_time)).setText(Utils.sdf.format(plan.getEndTime()));
+        ((EditText)findViewById(R.id.et_detail)).setText(plan.getDetail());
+        ((EditText)findViewById(R.id.et_goal_type)).setText(plan.getGoalType());
+        ((EditText)findViewById(R.id.et_goal)).setText(plan.getGoal());
+        ((EditText)findViewById(R.id.et_significance)).setText(plan.getSignificance());
+        ((EditText)findViewById(R.id.et_blessing)).setText(plan.getBless());
+        ((EditText)findViewById(R.id.et_title)).setText(plan.getTitle());
     }
 
     private void setValue(){
@@ -102,11 +91,12 @@ public class IncreasePlanActivity extends AppCompatActivity {
         }
         plan.setSumHourNeeded(Integer.parseInt(((TextView)findViewById(R.id.et_time_needed)).getText().toString()));
         plan.setCompletion(0);
-        plan.setFatherPlan(fatherPlanId);
         plan.setIdPlan(Utils.getRandomString(10));
         plan.setIdUser(userId);
         Log.d(TAG, "setValue: " + plan.getIdUser());
         plan.setType(ConstUtil.PlanType.TYPE_PERSONAL);
         plan.setHourPerTime(Float.parseFloat(((TextView)findViewById(R.id.et_time_n)).getText().toString()));
     }
+
+
 }

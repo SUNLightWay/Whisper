@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import com.example.myapplication.dao.DaoImpl.SeatmateDaoImpl;
+import com.example.myapplication.module.BulletinInfo;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.MailboxInfo;
@@ -75,8 +76,8 @@ public class WelcomeActivity extends AppCompatActivity {
         loginInfo1.save();
 
         //用户信息
-        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
-        userInfo.save();
+        UserInfo userInfo = new UserInfo("SUNLight", "test", "12345678912", 89, null, null, 1, null);
+        //userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();
             userInfo1.setIdUser("phineas");
@@ -88,27 +89,6 @@ public class WelcomeActivity extends AppCompatActivity {
               SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
         SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
         seatmateInfo2.save();
-
-        //seatmateService.sendRequest(seatmateInfo1);
-        //Log.d(TAG, "dbInitFirstInstall: findSeatmateFailedorSucceeded" + seatmateService.findSeatmateFailedorSucceeded("phineas").size());
-        //Log.d(TAG, "dbInitFirstInstall: findSeatmateNeedToResponse" + seatmateService.findSeatmateNeedToResponse("cloud").size());
-
-        //计划
-        //LitePal.deleteAll(PlanListInfo.class, "fatherplan = ?", "1A2xhadRWW");
-        //String id = Utils.getRandomString(10);
-        //PlanListInfo plan2 = new PlanListInfo(id, "phineas", "1A2xhadRWW", "高数", "140", "分", null, new Date(), new Date(), "这只是一个开始，加油！", 0, ConstUtil.PlanType.TYPE_PERSONAL, "最无益，只怕一日曝十日寒");
-        //PlanListInfo plan1 = new PlanListInfo(Utils.getRandomString(10), "phineas", id, "第一阶段基础复习", "中等题", "程度", null, new Date(), new Date(), "这只是一个开始，加油！", 0, ConstUtil.PlanType.TYPE_PERSONAL, "最无益，只怕一日曝十日寒");
-        //plan2.save();
-        //plan1.save();
-        //PlanListInfo plan2 = new PlanListInfo(Utils.getRandomString(10), "phineas", "1A2xhadRWW", "健身", "匀称", "体态", null, new Date(), new Date(), "告别臃肿，游历世界梦想的第一步", 0, ConstUtil.PlanType.TYPE_PERSONAL, "最无益，只怕一日曝十日寒");
-        //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan1));
-        //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
-        //邮件
-        MailboxInfo mailboxInfo = new MailboxInfo(3,"Miracle","Phineas",1,1,new Date(),new Date(),"test","hello");
-        mailboxInfo.save();
-//        MailService mailService = new MailServiceImpl();
-//        mailService.findMailBoxList();
-
     }
 }
 

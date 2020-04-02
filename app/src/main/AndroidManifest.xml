@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -21,6 +22,12 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+=======
+        <activity android:name=".UpdatePlanActivity"></activity>
+        <!-- 同桌start -->
+        <activity android:name=".ui.find.GroupHome" />
+        <activity android:name=".LoginActivity" />
+>>>>>>> 6d4f6c5caa1781887fca16f05b850d451a59c03e
         <activity
             android:name=".MailListActivity"
             android:label="@string/title_mail_list"
@@ -31,6 +38,7 @@
         <activity
             android:name=".ui.find.DeskMate.DeskMateFindActivity"
             android:label="寻找同桌" /> <!-- 同桌end -->
+<<<<<<< HEAD
         <activity android:name=".DiscoveryActivity" />
         <activity
             android:name=".WriteMailActivity"
@@ -38,6 +46,15 @@
         <activity
             android:name=".PlanDetailActivity"
             android:label="计划详情" />
+=======
+        <activity android:name=".DiscoveryActivity"></activity>
+        <activity
+            android:name=".WriteMailActivity"
+            android:label="写信"></activity>
+        <activity
+            android:name=".PlanDetailActivity"
+            android:label="计划详情"></activity>
+>>>>>>> 6d4f6c5caa1781887fca16f05b850d451a59c03e
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -54,7 +71,11 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".ScheduleChartActivity"
+<<<<<<< HEAD
             android:label="日程表" />
+=======
+            android:label="日程表"></activity>
+>>>>>>> 6d4f6c5caa1781887fca16f05b850d451a59c03e
         <activity android:name=".ScheduleChartBaseActivity" />
     </application>
 

@@ -24,6 +24,7 @@ public class UserDaoImpl implements UserDao {
                 .where("iduser = ? or phone = ?", user.getIdUser(), user.getIdUser())
                 .limit(1)
                 .find(LoginInfo.class);
+        Log.d(TAG, "findLoginInfo: size() = " + login.size());
         return login;
     }
 

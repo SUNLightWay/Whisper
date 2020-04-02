@@ -3,10 +3,17 @@ package com.example.myapplication.util;
 import android.content.Context;
 import android.content.Intent;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
 public class Utils {
+
+    //构造date
+    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-kk-mm-ss");
+
+    //解析date
+    public static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void actionStart(Context from, Class<?> to, String data1, String data2){
         Intent intent = new Intent(from, to);

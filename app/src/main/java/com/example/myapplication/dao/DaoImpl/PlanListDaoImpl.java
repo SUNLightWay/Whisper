@@ -64,4 +64,19 @@ public class PlanListDaoImpl implements PlanListDao {
     public Boolean deletePlan(String planId) {
         return (LitePal.deleteAll(PlanListInfo.class, "idplan = ?", planId) > 0 ? true: false);
     }
+
+    @Override
+    public List<PlanListInfo> findPlanById(String planId) {
+        return (LitePal.select()
+                .where("idplan = ?", planId)
+                .find(PlanListInfo.class));
+    }
+
+    @Override
+    public List<PlanListInfo> findLastPlanList(String userId) {
+
+        return (LitePal.select()
+                .where("iduser = ? and islast = ?", userId, "1")
+                .find(PlanListInfo.class));
+    }
 }

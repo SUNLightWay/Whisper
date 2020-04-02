@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean doLogin(LoginInfo user) {
         List<LoginInfo> login = userDao.findLoginInfo(user);
+        Log.d(TAG, "doLogin: " + user.getIdUser() + " " + user.getPassword() + " "+ login.get(0).getIdUser() + " " + login.get(0).getPassword());
         if (login.size() > 0 && login.get(0).getPassword().equals(user.getPassword())){
             Log.d(TAG, "doLogin: successful. userID:" + user.getIdUser());
             return true;
