@@ -2,11 +2,14 @@ package com.example.myapplication;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 
 import com.alamkanak.weekview.WeekViewEvent;
+import com.example.myapplication.module.PlanListInfo;
+import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -15,6 +18,13 @@ import java.util.List;
 
 
 public class ScheduleChartActivity extends ScheduleChartBaseActivity {
+
+    private PlanListServiceImpl planListService = new PlanListServiceImpl();
+    private List<PlanListInfo> plans = new ArrayList<>();
+    private List<Object> colors = new ArrayList<>();
+    private String userId;
+
+    private final String TAG = "ScheduleChartActivity";
 
     //private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -39,7 +49,17 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userId = getIntent().getStringExtra("param2");
+        plans = planListService.findLastPlanList(userId);
+        Log.d(TAG, "onCreate: findLastPlanList:" + plans.size() + " / userId: " + userId);
 
+
+        {
+            colors.add(R.color.event_color_01);
+            colors.add(R.color.event_color_02);
+            colors.add(R.color.event_color_03);
+            colors.add(R.color.event_color_04);
+        }
     }
 
     @Override
@@ -47,7 +67,41 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
         // Populate the week view with some events.
         List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
 
-        Calendar startTime = Calendar.getInstance();
+        int hour = 0;
+        int minute = 0;
+        int counter = 0;
+
+        Log.d(TAG, "onMonthChange: " + plans.size());
+        for (PlanListInfo plan :
+                plans) {
+            counter ++;
+            Calendar startTime = Calendar.getInstance();
+            startTime.set(Calendar.HOUR_OF_DAY, hour);
+            startTime.set(Calendar.MINUTE, minute);
+            startTime.set(Calendar.MONTH, newMonth - 1);
+            startTime.set(Calendar.YEAR, newYear);
+            Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute + "/HourPerTime:" + plan.getHourPerTime());
+
+            {
+                minute += (int) ((plan.getHourPerTime() - (int) plan.getHourPerTime()) * 60);
+                hour += (int) plan.getHourPerTime() + (int) (minute / 60);
+                minute = minute % 60;
+                if (hour >= 24)
+                    hour = 0;
+            }
+
+            Calendar endTime = (Calendar)startTime.clone();
+            //startTime.add(Calendar.MINUTE, (int) ((plan.getHourPerTime() - (int) plan.getHourPerTime()) * 60));
+            endTime.add(Calendar.HOUR, (int) plan.getHourPerTime());
+            endTime.set(Calendar.MONTH, newMonth - 1);
+            Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute);
+
+            WeekViewEvent event = new WeekViewEvent(1, getEventString(plan, startTime, endTime ), startTime, endTime);
+            event.setColor(getResources().getColor(R.color.event_color_01));
+            events.add(event);
+        }
+
+/*        Calendar startTime = Calendar.getInstance();
         startTime.set(Calendar.HOUR_OF_DAY, 3);
         startTime.set(Calendar.MINUTE, 0);
         startTime.set(Calendar.MONTH, newMonth - 1);
@@ -55,7 +109,7 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
         Calendar endTime = (Calendar) startTime.clone();
         endTime.add(Calendar.HOUR, 1);
         endTime.set(Calendar.MONTH, newMonth - 1);
-        WeekViewEvent event = new WeekViewEvent(1, getEventTitle(startTime), startTime, endTime);
+        WeekViewEvent event = new WeekViewEvent(2, getEventTitle(startTime), startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
 
@@ -185,9 +239,13 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
         event = new WeekViewEvent(8, getEventTitle(startTime), null, startTime, endTime);
         event.setColor(getResources().getColor(R.color.event_color_01));
         events.add(event);
-
+*/
         return events;
     }
 
+    public String getEventString(PlanListInfo plan, Calendar startTime, Calendar endTime){
+        return plan.getTitle() + "\n" + startTime.YEAR + "-" + startTime.MONTH + "-" + startTime.MINUTE
+                + endTime.YEAR + "-" + endTime.MONTH + "-" + endTime.MINUTE;
+    }
 }
 

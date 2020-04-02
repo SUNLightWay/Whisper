@@ -73,6 +73,12 @@ public class ChildPlanCardAdapter extends RecyclerView.Adapter<ChildPlanCardAdap
                             childPlan.getTitle()
             );
         }
+        if (childlist.size() == 0){
+            holder.child_card_stage_plan_list.setText(
+                    sdf.format(plan.getStartTime()) + "~" + sdf.format(plan.getEndTime()) + " " +
+                            plan.getTitle()
+            );
+        }
         holder.child_card_progressbar.setProgress((int)plan.getCompletion());
 
 

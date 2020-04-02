@@ -40,4 +40,9 @@ public class PlanListServiceImpl implements PlanListService {
     public PlanListInfo findPlanById(String planId) {
         return planListDao.findPlanById(planId).get(0);
     }
+
+    @Override
+    public List<PlanListInfo> findLastPlanList(String userId) {
+        return planListDao.findLastPlanList(userId);
+    }
 }
