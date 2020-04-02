@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import com.example.myapplication.dao.DaoImpl.SeatmateDaoImpl;
 import com.example.myapplication.module.BulletinInfo;
 import com.example.myapplication.module.LoginInfo;
+import com.example.myapplication.module.NoteInfo;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.MailboxInfo;
 import com.example.myapplication.module.SeatmateInfo;
@@ -115,6 +116,10 @@ public class WelcomeActivity extends AppCompatActivity {
         //公告
         BulletinInfo bulletinInfo = new BulletinInfo(1,Utils.getRandomString(10),"Miracle","test",new Date(),"test !!!",100,200);
         bulletinInfo.save();
+
+        //消息
+        NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
+        noteInfo.save();
 
     }
 }
