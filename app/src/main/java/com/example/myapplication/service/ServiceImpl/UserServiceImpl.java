@@ -7,6 +7,7 @@ import com.example.myapplication.dao.DaoImpl.UserDaoImpl;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.UserService;
+import com.example.myapplication.util.MD5Util;
 import com.example.myapplication.util.SPHelper;
 
 import org.litepal.LitePal;
@@ -17,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
     private final String TAG = "UserServiceImpl";
     UserDaoImpl userDao = new UserDaoImpl();
+    MD5Util md5Util = new MD5Util();
 
     @Override
     public Boolean doRegister(UserInfo userInfo, String password) {

@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
         LoginInfo login = new LoginInfo();
         login.setPhone(userInfo.getPhone());
         login.setIdUser(userInfo.getIdUser());
-        login.setPhone(password);
+        login.setPassword(password);
 
         if (userInfo.save() && login.save())
             return true;

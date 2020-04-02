@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
-
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
@@ -15,33 +14,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-
-       <!--同桌start-->
-=======
-        <activity android:name=".ui.find.GroupHome"></activity>
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.find.GroupHome" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MailListActivity"
             android:label="@string/title_mail_list"
             android:theme="@style/ActivityTheme" />
->>>>>>> 179025049686ab7fb90ac0bad9446fb906380ee9
         <activity
-            android:label="同桌"
-            android:name="com.example.myapplication.ui.find.DeskMate.DeskmateActivity"/>
+            android:name=".ui.find.DeskMate.DeskmateActivity"
+            android:label="同桌" />
         <activity
-            android:label="寻找同桌"
-            android:name="com.example.myapplication.ui.find.DeskMate.DeskMateFindActivity"/>
-        <!--同桌end-->
-
-        <activity android:name=".DiscoveryActivity">
-        </activity>
-        <activity android:name=".WriteMailActivity"
-            android:label="写信">
-        </activity>
-        <activity android:name=".PlanDetailActivity"
-            android:label="计划详情">
-        </activity>
+            android:name=".ui.find.DeskMate.DeskMateFindActivity"
+            android:label="寻找同桌" /> <!-- 同桌end -->
+        <activity android:name=".DiscoveryActivity" />
+        <activity
+            android:name=".WriteMailActivity"
+            android:label="写信" />
+        <activity
+            android:name=".PlanDetailActivity"
+            android:label="计划详情" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -51,19 +47,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".MailListActivity"
-            android:label="@string/title_mail_list"
-            android:theme="@style/ActivityTheme" />
         <activity
             android:name=".IncreasePlanActivity"
             android:label="@string/title_activity_increase_plan"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ScheduleChartActivity"
-            android:label="日程表">
-        </activity>
+        <activity
+            android:name=".ScheduleChartActivity"
+            android:label="日程表" />
         <activity android:name=".ScheduleChartBaseActivity" />
     </application>
 
