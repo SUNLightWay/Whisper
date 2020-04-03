@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 
@@ -74,7 +75,9 @@ public class IncreasePlanActivity extends AppCompatActivity {
             case R.id.enter_increase:
                 //完成
                 setValue();
-                planListService.addPlan(plan);
+                Boolean isSucc = planListService.addPlan(plan);
+                setResult(isSucc == true? ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH: RESULT_CANCELED);
+                Toast.makeText(this, (isSucc == true) ? "新增成功": "新增失败", Toast.LENGTH_SHORT).show();
                 this.finish();
                 break;
             default:

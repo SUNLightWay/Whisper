@@ -22,6 +22,13 @@ public class Utils {
         from.startActivity(intent);
     }
 
+    public static Intent intentFactory(Context from, Class<?> to, String data1, String data2){
+        Intent intent = new Intent(from, to);
+        intent.putExtra("param1", data1);
+        intent.putExtra("param2", data2);
+        return intent;
+    }
+
     public static String getRandomString(int length){
         String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random=new Random();

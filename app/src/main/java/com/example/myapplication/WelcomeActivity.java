@@ -51,7 +51,7 @@ public class WelcomeActivity extends AppCompatActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
+                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
                 finish();
             }
         };

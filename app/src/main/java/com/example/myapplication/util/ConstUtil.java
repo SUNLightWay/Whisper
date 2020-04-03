@@ -132,4 +132,16 @@ public class ConstUtil {
         }
     }
 
+    public static class RequestCode{
+        public static final int REQUEST_CODE_UPDATE = 1;
+        public static final int REQUEST_CODE_DELETE = 2;
+        public static final int REQUEST_CODE_INCREASE = 3;
+        public static final int REQUEST_CODE_DETAIL = 4;
+    }
+
+    public static class ResponseCode{
+        public static final int RESPONSE_CODE_REFRESH = 1;
+        public static final int RESPONSE_CODE_FINISH = 2;
+    }
+
 }
