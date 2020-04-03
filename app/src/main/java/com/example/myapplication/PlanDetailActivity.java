@@ -74,7 +74,7 @@ public class PlanDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Utils.actionStart(PlanDetailActivity.this, IncreasePlanActivity.class, idFatherPlan, idUser);
-                startActivityForResult(Utils.intentFactory(PlanDetailActivity.this, UpdatePlanActivity.class, idFatherPlan, idUser), ConstUtil.RequestCode.REQUEST_CODE_INCREASE);
+                startActivityForResult(Utils.intentFactory(PlanDetailActivity.this, IncreasePlanActivity.class, idFatherPlan, idUser), ConstUtil.RequestCode.REQUEST_CODE_INCREASE);
             }
         });
 
@@ -156,8 +156,10 @@ public class PlanDetailActivity extends AppCompatActivity {
             case (ConstUtil.RequestCode.REQUEST_CODE_UPDATE):
             case (ConstUtil.RequestCode.REQUEST_CODE_DETAIL):
             case (ConstUtil.RequestCode.REQUEST_CODE_INCREASE):
-                if (resultCode == ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH)
+                if (resultCode == ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH) {
                     initPlanList();
+                    Log.d(TAG, "onActivityResult: refresh");
+                }
                 break;
                 //确认删除时关闭该activity，同时更新上一activity
             case (ConstUtil.RequestCode.REQUEST_CODE_DELETE):

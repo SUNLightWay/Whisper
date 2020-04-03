@@ -31,6 +31,8 @@ public class MailFragment extends Fragment{
     public RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private RecyclerAdapter recyclerAdapter;
+    private String idUser = "phineas";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -89,7 +91,7 @@ public class MailFragment extends Fragment{
         ibMailBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.actionStart(getActivity(), MailListActivity.class, null, null);
+                Utils.actionStart(getActivity(), MailListActivity.class, null, idUser);
             }
         });
 
@@ -97,7 +99,7 @@ public class MailFragment extends Fragment{
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.actionStart(getActivity(), WriteMailActivity.class, null, null);
+                Utils.actionStart(getActivity(), WriteMailActivity.class, null, idUser);
             }
         });
     }

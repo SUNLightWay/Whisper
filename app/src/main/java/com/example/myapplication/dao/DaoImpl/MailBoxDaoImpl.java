@@ -17,7 +17,7 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public List<MailboxInfo> findMailById(String Id) {
         List<MailboxInfo> mailboxInfos = LitePal.select()
-                .where("id = ?", Id)
+                .where("idmail = ?", Id)
                 .limit(1)
                 .find(MailboxInfo.class);
         return mailboxInfos;
@@ -26,6 +26,13 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public boolean sendMail(MailboxInfo mail) {
         return mail.save();
+    }
+
+    @Override
+    public List<MailboxInfo> findMailListByUserId(String userId) {
+        return LitePal.select()
+                .where("to = ?", userId)
+                .find(MailboxInfo.class);
     }
 
 

@@ -14,16 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MailDetailActivity"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.find.GroupHome" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".UpdatePlanActivity"></activity>
-
+        <activity android:name=".UpdatePlanActivity" />
         <activity
             android:name=".MailListActivity"
             android:label="@string/title_mail_list"
@@ -34,7 +33,6 @@
         <activity
             android:name=".ui.find.DeskMate.DeskMateFindActivity"
             android:label="寻找同桌" /> <!-- 同桌end -->
-
         <activity android:name=".DiscoveryActivity" />
         <activity
             android:name=".WriteMailActivity"
@@ -42,7 +40,6 @@
         <activity
             android:name=".PlanDetailActivity"
             android:label="计划详情" />
-
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -60,7 +57,6 @@
         <activity
             android:name=".ScheduleChartActivity"
             android:label="日程表" />
-
         <activity android:name=".ScheduleChartBaseActivity" />
     </application>
 

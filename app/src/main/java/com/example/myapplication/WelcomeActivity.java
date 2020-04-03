@@ -87,10 +87,9 @@ public class WelcomeActivity extends AppCompatActivity {
             userService.updateUserInfo(userInfo1);
         }
         //同桌
-              SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
-        SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
-        seatmateInfo2.save();
-<<<<<<< HEAD
+        //SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
+        //SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_SUCCEED, 7);
+        //seatmateInfo2.save();
 
         //seatmateService.sendRequest(seatmateInfo1);
         //Log.d(TAG, "dbInitFirstInstall: findSeatmateFailedorSucceeded" + seatmateService.findSeatmateFailedorSucceeded("phineas").size());
@@ -108,8 +107,8 @@ public class WelcomeActivity extends AppCompatActivity {
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
 
         //邮件
-        //MailboxInfo mailboxInfo = new MailboxInfo(3,"Miracle","Phineas",1,1,new Date(),new Date(),"test","hello");
-       // mailboxInfo.save();
+        MailboxInfo mailboxInfo = new MailboxInfo(5,"Miracle","phineas",1,1,new Date(),new Date(),"test","hello? nice yo meet you");
+        mailboxInfo.save();
 //        MailService mailService = new MailServiceImpl();
 //        mailService.findMailBoxList();
 
@@ -122,8 +121,6 @@ public class WelcomeActivity extends AppCompatActivity {
         NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
         noteInfo.save();
 
-=======
->>>>>>> 2ca69909cf963f3480a6ab8b64f326ac15dcc0d3
     }
 }
 

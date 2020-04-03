@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/space_20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/space_10dp"
+    android:layout_marginRight="@dimen/space_10dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardBackgroundColor="@color/white">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,6 +17,7 @@
     android:layout_marginTop="20dp"
     android:background="@color/white">
     <!--listview里的每一个Item的显示-->
+
     <RelativeLayout
         android:id="@+id/letter"
         android:layout_width="match_parent"
@@ -17,7 +29,7 @@
         <TextView
             android:id="@+id/letter_who"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:text="你是谁"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -25,8 +37,8 @@
         <!--显示在"你是谁的右面使用的margin_left来实现？？"-->
         <ImageView
             android:id="@+id/letter_go"
-            android:layout_width="40dp"
-            android:layout_height="43dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="270dp"
             android:src="@drawable/go"/>
     </RelativeLayout>
@@ -36,7 +48,7 @@
         android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:text="内容"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -54,7 +66,7 @@
             android:layout_marginTop="10dp"
             android:text="From XXXX"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
         <TextView
             android:id="@+id/letter_date"
             android:layout_width="match_parent"
@@ -62,6 +74,7 @@
             android:layout_marginLeft="150dp"
             android:layout_marginTop="10dp"
             android:text="2020/2/3"
-            android:textSize="20sp"/>
+            android:textSize="16sp"/>
     </LinearLayout>
 </LinearLayout>
+</androidx.cardview.widget.CardView>

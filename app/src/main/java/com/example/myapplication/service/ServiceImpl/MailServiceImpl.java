@@ -41,5 +41,10 @@ public class MailServiceImpl implements MailService {
         return false;
     }
 
+    @Override
+    public List<MailboxInfo> findMailListByUserId(String userId) {
+        return mailDao.findMailListByUserId(userId);
+    }
+
 
 }
