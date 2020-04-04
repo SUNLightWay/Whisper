@@ -8,35 +8,46 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.HelpDetailActivity;
 import com.example.myapplication.MailListActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.WriteMailActivity;
+import com.example.myapplication.adapter.ChildPlanCardAdapter;
 import com.example.myapplication.adapter.RecyclerAdapter;
+import com.example.myapplication.module.BulletinInfo;
+import com.example.myapplication.service.ServiceImpl.BulletinServiceImpl;
 import com.example.myapplication.util.Utils;
+
+import java.util.List;
 
 public class MailFragment extends Fragment{
 
     private MailViewModel mailViewModel;
-    private View view;             //定义view用来设置fragment的layout
+    private View view;  //定义view用来设置fragment的layout
+
+    private List<BulletinInfo> bulletinInfos ;
+    private BulletinServiceImpl bulletinService=new BulletinServiceImpl();
+
     public RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
-    private RecyclerAdapter recyclerAdapter;
+    private RecyclerAdapter adapter;
+
     private String idUser = "phineas";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
@@ -56,8 +67,41 @@ public class MailFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view=inflater.inflate(R.layout.fragment_mail, container, false);   //获取fragment的layout
-        initRecyclerView();
+        View root =inflater.inflate(R.layout.fragment_mail, container, false);   //获取fragment的layout
+        view = root;
+
+        //获取RecyclerView对象
+        recyclerView=view.findViewById(R.id.recyclerView);
+        //设置固定的大小
+        recyclerView.setHasFixedSize(true);
+
+        //创建布局管理器
+        layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        //给RecyclerView设置布局管理器
+        recyclerView.setLayoutManager(layoutManager);
+
+        bulletinInfos=bulletinService.getBulletins();
+        if(bulletinInfos==null)
+            return null;
+
+        //实例化Adapter并传入List对象
+        adapter=new RecyclerAdapter(bulletinInfos);
+        //为RecyclerView对象mRecyclerView设置adapter
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new ChildPlanCardAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Utils.actionStart(getActivity(), HelpDetailActivity.class, String.valueOf(bulletinInfos.get(0).getIdButtetin()), idUser);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Toast.makeText(getContext(),"long click: " + position, Toast.LENGTH_LONG).show();
+            }
+        });
+
         return view;
     }
 
@@ -71,17 +115,6 @@ public class MailFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    private void initRecyclerView(){
-        recyclerView=view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);                     //设置固定的大小
-        recyclerAdapter=new RecyclerAdapter(getActivity());
-        layoutManager=new LinearLayoutManager(getActivity());   //创建线性布局
-        layoutManager.setOrientation(RecyclerView.VERTICAL);    //设置垂直方向
-        recyclerView.setLayoutManager(layoutManager);           //给RecyclerView设置布局管理器
-        recyclerAdapter=new RecyclerAdapter(getActivity());     //创建适配器，并设置
-        recyclerView.setAdapter(recyclerAdapter);
     }
 
 
@@ -103,4 +136,5 @@ public class MailFragment extends Fragment{
             }
         });
     }
+
 }
