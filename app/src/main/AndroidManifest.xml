@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PunchSumChartActivity"></activity>
+        <activity android:name=".HelpDetailActivity"></activity>
         <activity android:name=".MailDetailActivity" />
         <activity
             android:name=".RegisterActivity"
