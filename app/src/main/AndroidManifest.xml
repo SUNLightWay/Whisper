@@ -18,6 +18,7 @@
             android:theme="@style/Dialog.NoTitle"
             android:label=""></activity>
         <activity android:name=".PunchSumChartActivity" />
+        <activity android:name=".HelpDetailActivity"></activity>
         <activity android:name=".MailDetailActivity" />
         <activity
             android:name=".RegisterActivity"
