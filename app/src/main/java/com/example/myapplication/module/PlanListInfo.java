@@ -25,10 +25,13 @@ public class PlanListInfo extends LitePalSupport {
     Integer isLast; //不为0时表示为最后一个
     Integer sumHourNeeded;
     float hourPerTime;
+    float hourRemained;
+    float hourPerDayAverage;
 
 
     public PlanListInfo() {
     }
+
 
     public PlanListInfo(String idPlan, String idUser, String fatherPlan, String title, String goal, String goalType, String detail, Date startTime, Date endTime, String significance, float completion, Integer type, String bless, Integer isLast, Integer sumHourNeeded, float hourPerTime) {
         this.idPlan = idPlan;
@@ -47,6 +50,22 @@ public class PlanListInfo extends LitePalSupport {
         this.isLast = isLast;
         this.sumHourNeeded = sumHourNeeded;
         this.hourPerTime = hourPerTime;
+    }
+
+    public float getHourRemained() {
+        return hourRemained;
+    }
+
+    public void setHourRemained(float hourRemained) {
+        this.hourRemained = hourRemained;
+    }
+
+    public float getHourPerDayAverage() {
+        return hourPerDayAverage;
+    }
+
+    public void setHourPerDayAverage(float hourPerDayAverage) {
+        this.hourPerDayAverage = hourPerDayAverage;
     }
 
     public float getHourPerTime() {

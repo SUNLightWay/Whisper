@@ -11,7 +11,7 @@ public interface PlanListDao {
      * 查询第一级计划
      * @return
      */
-    public List<PlanListInfo> findFirstLevelPlanList();
+    public List<PlanListInfo> findFirstLevelPlanList(String userId);
 
 
     /**

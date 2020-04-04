@@ -77,7 +77,7 @@ public class WelcomeActivity extends AppCompatActivity {
         loginInfo1.save();
 
         //用户信息
-        UserInfo userInfo = new UserInfo("SUNLight", "test", "12345678912", 89, null, null, 1, null);
+        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
         //userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();

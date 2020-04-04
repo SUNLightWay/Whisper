@@ -57,6 +57,7 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
         holder.item_tm.setText("剩余" + ci.getTimeRemain() + "天");
         holder.item_s.setText(ci.getSignificance());
         holder.item_iv.setImageResource(ci.getImgId());
+        holder.item_access.setText("预计完成还需要" + ci.getRemainDays() + "天");
 
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,7 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
         private TextView item_tm;   //剩余时间
         private TextView item_s;    //重要性
         private CardView item_cardview;
+        private TextView item_access;
 
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +100,7 @@ public class PlanCardAdapter extends RecyclerView.Adapter<PlanCardAdapter.Contac
             item_tv = itemView.findViewById(R.id.item_tv);
             item_tm = itemView.findViewById(R.id.item_plan_time_remain);
             item_s = itemView.findViewById(R.id.item_plan_significance);
+            item_access = itemView.findViewById(R.id.access_sum_days);
         }
     }
 }

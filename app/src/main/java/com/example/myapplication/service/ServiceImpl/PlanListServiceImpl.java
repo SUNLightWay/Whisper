@@ -12,8 +12,8 @@ public class PlanListServiceImpl implements PlanListService {
     private final String TAG = "PlanListServiceImpl";
 
     @Override
-    public List<PlanListInfo> findFirstLevelPlanList() {
-        return planListDao.findFirstLevelPlanList();
+    public List<PlanListInfo> findFirstLevelPlanList(String userId) {
+        return planListDao.findFirstLevelPlanList(userId);
     }
 
     @Override

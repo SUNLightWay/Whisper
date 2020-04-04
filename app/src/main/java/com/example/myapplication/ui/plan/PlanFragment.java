@@ -136,11 +136,12 @@ public class PlanFragment extends Fragment{
     }
 
     public void initInfo(){
-        plans = planListService.findFirstLevelPlanList();
+        plans = planListService.findFirstLevelPlanList(userId);
         for (PlanListInfo plan:plans
              ) {
             ContactInfo card = new ContactInfo(plan.getTitle(),
-                    Utils.differentDayMillisecond(new Date(), plan.getEndTime()), plan.getSignificance(),R.drawable.bg_card_01);
+                    Utils.differentDayMillisecond(new Date(), plan.getEndTime()), plan.getSignificance(),R.drawable.bg_card_01,
+                    (int)(plan.getHourRemained() / plan.getHourPerDayAverage()));
             mList.add(card);
         }
         /*ContactInfo card1 = new ContactInfo("考研",R.drawable.bg_card_01);

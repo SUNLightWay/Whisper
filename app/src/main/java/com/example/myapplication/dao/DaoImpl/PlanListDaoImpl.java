@@ -11,9 +11,9 @@ import java.util.List;
 public class PlanListDaoImpl implements PlanListDao {
 
     @Override
-    public List<PlanListInfo> findFirstLevelPlanList() {
+    public List<PlanListInfo> findFirstLevelPlanList(String userId) {
         List<PlanListInfo> planListInfos = LitePal.select()
-                .where("fatherplan = ?", "-1")
+                .where("fatherplan = ? and iduser = ?", "-1", userId)
                 .find(PlanListInfo.class);
         return planListInfos;
     }
@@ -56,6 +56,15 @@ public class PlanListDaoImpl implements PlanListDao {
             plan.setTitle(planListInfo.getTitle());
         if (planListInfo.getBless() != null)
             plan.setBless(planListInfo.getBless());
+        if (planListInfo.getHourPerTime() != 0){
+            plan.setHourPerTime(planListInfo.getHourPerTime());
+        }
+        if (planListInfo.getHourRemained() != 0){
+            plan.setHourRemained(planListInfo.getHourRemained());
+        }
+        if (planListInfo.getSumHourNeeded() != 0){
+            plan.setSumHourNeeded(planListInfo.getSumHourNeeded());
+        }
 
         return plan.save();
     }

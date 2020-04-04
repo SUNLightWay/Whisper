@@ -111,5 +111,7 @@ public class IncreasePlanActivity extends AppCompatActivity {
         Log.d(TAG, "setValue: " + plan.getIdUser());
         plan.setType(ConstUtil.PlanType.TYPE_PERSONAL);
         plan.setHourPerTime(Float.parseFloat(((TextView)findViewById(R.id.et_time_n)).getText().toString()));
+        plan.setHourPerDayAverage(Float.parseFloat(((TextView)findViewById(R.id.et_time_n)).getText().toString()));
+        plan.setHourRemained(Float.parseFloat(((TextView)findViewById(R.id.et_time_needed)).getText().toString()));
     }
 }
