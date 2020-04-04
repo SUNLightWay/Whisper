@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.example.myapplication.util.ConstUtil;
+import com.example.myapplication.util.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +34,8 @@ public abstract class ScheduleChartBaseActivity extends AppCompatActivity implem
     private static final int TYPE_WEEK_VIEW = 3;
     private int mWeekViewType = TYPE_THREE_DAY_VIEW;
     private WeekView mWeekView;
+
+    private final String TAG = "ScheduleChartActivity";
 
 
     @Override
@@ -156,6 +161,8 @@ public abstract class ScheduleChartBaseActivity extends AppCompatActivity implem
 
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
+        Log.d(TAG, "onEventClick: " + event.getName().substring(0, 10));
+        startActivityForResult(Utils.intentFactory(this, UpdatePlanTimeOrHolidayDialogActivity.class, event.getName().substring(0, 10), null), ConstUtil.RequestCode.REQUEST_CODE_UPDATE);
         Toast.makeText(this, "Clicked " + event.getName(), Toast.LENGTH_SHORT).show();
     }
 

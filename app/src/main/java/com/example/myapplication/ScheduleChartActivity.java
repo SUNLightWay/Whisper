@@ -24,6 +24,12 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
     private List<Object> colors = new ArrayList<>();
     private String userId;
 
+    private String planId;
+
+    public String getPlanId(){
+        return  planId;
+    }
+
     private final String TAG = "ScheduleChartActivity";
 
     //private TextView mTextMessage;
@@ -53,7 +59,6 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
         plans = planListService.findLastPlanList(userId);
         Log.d(TAG, "onCreate: findLastPlanList:" + plans.size() + " / userId: " + userId);
 
-
         {
             colors.add(R.color.event_color_01);
             colors.add(R.color.event_color_02);
@@ -61,6 +66,7 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
             colors.add(R.color.event_color_04);
         }
     }
+
 
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
@@ -75,24 +81,35 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
         for (PlanListInfo plan :
                 plans) {
             counter ++;
+
+            int hourShift = (int)plan.getShifting();
+            int minuteShift = (int)((plan.getShifting() - (int)plan.getShifting()) * 60);
+
             Calendar startTime = Calendar.getInstance();
+
             startTime.set(Calendar.HOUR_OF_DAY, hour);
             startTime.set(Calendar.MINUTE, minute);
             startTime.set(Calendar.MONTH, newMonth - 1);
             startTime.set(Calendar.YEAR, newYear);
             Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute + "/HourPerTime:" + plan.getHourPerTime());
 
+            if (plan.getShifting() <= 4 * 10e-4)
             {
                 minute += (int) ((plan.getHourPerTime() - (int) plan.getHourPerTime()) * 60);
                 hour += (int) plan.getHourPerTime() + (int) (minute / 60);
                 minute = minute % 60;
                 if (hour >= 24)
                     hour = 0;
+            } else{
+                Log.d(TAG, "onMonthChange: hourshift: " + hourShift + " //minuteShift: " + minuteShift);
+                startTime.set(Calendar.HOUR_OF_DAY, hourShift);
+                startTime.set(Calendar.MINUTE, minuteShift);
             }
 
             Calendar endTime = (Calendar)startTime.clone();
             //startTime.add(Calendar.MINUTE, (int) ((plan.getHourPerTime() - (int) plan.getHourPerTime()) * 60));
             endTime.add(Calendar.HOUR, (int) plan.getHourPerTime());
+            endTime.add(Calendar.MINUTE, (int) ((plan.getHourPerTime() - (int) plan.getHourPerTime()) * 60));
             endTime.set(Calendar.MONTH, newMonth - 1);
             Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute);
 
@@ -244,8 +261,7 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
     }
 
     public String getEventString(PlanListInfo plan, Calendar startTime, Calendar endTime){
-        return plan.getTitle() + "\n" + startTime.YEAR + "-" + startTime.MONTH + "-" + startTime.MINUTE
-                + endTime.YEAR + "-" + endTime.MONTH + "-" + endTime.MINUTE;
+        return plan.getIdPlan() + "\n" + plan.getTitle();
     }
 }
 

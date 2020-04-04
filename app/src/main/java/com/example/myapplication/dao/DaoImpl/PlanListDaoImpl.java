@@ -65,7 +65,9 @@ public class PlanListDaoImpl implements PlanListDao {
         if (planListInfo.getSumHourNeeded() != 0){
             plan.setSumHourNeeded(planListInfo.getSumHourNeeded());
         }
-
+        plan.setShifting(planListInfo.getShifting());
+        plan.setIsHoliday(planListInfo.getIsHoliday());
+        plan.setIsPunch(planListInfo.getIsPunch());
         return plan.save();
     }
 

@@ -144,4 +144,14 @@ public class ConstUtil {
         public static final int RESPONSE_CODE_FINISH = 2;
     }
 
+
+    public static class PlanHolidayStatus{
+        public static final int PLAN_ON_HOLIDAY = 1;
+        public static final int PLAN_NOT_ON_HOLIDAY = 2;
+    }
+
+    public static class PlanPunchStatus{
+        public static final int PLAN_ON_PUNCH = 1;
+        public static final int PLAN_NOT_ON_PUNCH = 2;
+    }
 }

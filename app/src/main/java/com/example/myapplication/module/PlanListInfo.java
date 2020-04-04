@@ -16,18 +16,23 @@ public class PlanListInfo extends LitePalSupport {
     String goal;
     String goalType;
     String detail;
+    String bless;
+    String significance;
+
+    Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
+    Integer isLast = 0; //不为0时表示为最后一个
+    Integer sumHourNeeded = 0;
+    Integer isHoliday = ConstUtil.PlanHolidayStatus.PLAN_NOT_ON_HOLIDAY;
+    Integer isPunch = ConstUtil.PlanPunchStatus.PLAN_NOT_ON_PUNCH;
+
     Date startTime;
     Date endTime;
-    String significance;
-    float completion;
-    Integer type = ConstUtil.PlanType.TYPE_PERSONAL;
-    String bless;
-    Integer isLast; //不为0时表示为最后一个
-    Integer sumHourNeeded;
-    float hourPerTime;
-    float hourRemained;
-    float hourPerDayAverage;
 
+    float completion = 0;
+    float hourPerTime = 0;
+    float hourRemained = 0;
+    float hourPerDayAverage = 0;
+    float shifting = 0; //偏移量
 
     public PlanListInfo() {
     }
@@ -50,6 +55,30 @@ public class PlanListInfo extends LitePalSupport {
         this.isLast = isLast;
         this.sumHourNeeded = sumHourNeeded;
         this.hourPerTime = hourPerTime;
+    }
+
+    public Integer getIsPunch() {
+        return isPunch;
+    }
+
+    public void setIsPunch(Integer isPunch) {
+        this.isPunch = isPunch;
+    }
+
+    public Integer getIsHoliday() {
+        return isHoliday;
+    }
+
+    public void setIsHoliday(Integer isHoliday) {
+        this.isHoliday = isHoliday;
+    }
+
+    public float getShifting() {
+        return shifting;
+    }
+
+    public void setShifting(float shifting) {
+        this.shifting = shifting;
     }
 
     public float getHourRemained() {
