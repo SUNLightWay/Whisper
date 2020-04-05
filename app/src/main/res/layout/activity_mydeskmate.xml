@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+        <!--person1昵称和头像-->
+        <TextView
+            android:id="@+id/personOneNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25sp"
+            android:text="昵称"
+            android:textSize="20dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ground" />
+
+        <!--第几天显示-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dayClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:text="第四天"
+                android:textColor="#66FF00" />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line_imaginary"
+                android:layerType="software" />
+        </LinearLayout>
+
+        <!--person2昵称和头像-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/deskone" />
+
+        <TextView
+            android:id="@+id/personTwoNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25sp"
+            android:text="昵称"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="251dp"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:background="@drawable/aa">
+
+        <!--Day 1图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dayOne_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/ground"
+            android:visibility="invisible" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayOne_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/deskone" />
+
+        <!--Day 2图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayTwo_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ground" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayTwo_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/deskone" />
+
+        <!--Day 3图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayThree_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="-5dp"
+            android:src="@drawable/ground" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayThree_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="-5dp"
+            android:src="@drawable/deskone" />
+
+        <!--Day 4图片的显示-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayFour_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ground" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayFour_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/deskone" />
+
+        <!--Day 5图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayFive_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="83dp"
+            android:src="@drawable/ground" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/dayFive_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="83dp"
+            android:src="@drawable/deskone" />
+
+        <!--Day 6图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/daySix_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/ground" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/daySix_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/deskone" />
+        <!--Day 7图片的显示-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/daySeven_p1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ground" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="invisible"
+            android:id="@+id/daySeven_p2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/deskone" />
+
+        <!--提醒同桌打卡-->
+
+        <Button
+            android:id="@+id/remind"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-90dp"
+            android:layout_marginTop="190dp"
+            android:background="@android:color/transparent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_message"
+            android:layout_width="270dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/white"
+            android:hint="今天学习顺利吗？给同桌留个小纸条..."
+            android:textSize="16dp" />
+        <Button
+            android:id="@+id/leave_message"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10sp"
+            android:text="留言"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="57dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@color/gray"
+        android:src="@drawable/edit" />
+</LinearLayout>
