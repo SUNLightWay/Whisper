@@ -33,7 +33,7 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public boolean sendMail(Integer idMail, String from, String to, Integer isPublic, Integer isDelay , Date sendTime, Date recelveTime, String title, String content) {
-        MailboxInfo mail = new MailboxInfo(idMail,from,to,isPublic,isDelay,sendTime,recelveTime,title,content);
+        MailboxInfo mail = new MailboxInfo(idMail,from,to,isPublic,isDelay,sendTime,recelveTime,title,content,1);
         if(mailDao.sendMail(mail)){
             Log.d(TAG, "sendMail success!");
             return true;

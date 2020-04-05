@@ -20,7 +20,7 @@ public class BulletinServiceImpl implements BulletinService {
 
     @Override
     public List<BulletinInfo> getBulletins() {
-        return bulletinDao.getBulletins();
+        return bulletinDao.getRecentBullets();
     }
 
     @Override
