@@ -133,6 +133,24 @@ public class ConstUtil {
 
     }
 
+    public static class BulletinType{
+        public static final int HELP = 0;
+        public static final int ANNOUNCEMENT = 1;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知种类";
+            switch (code){
+                case HELP:
+                    desc = "帮助";
+                    break;
+                case ANNOUNCEMENT:
+                    desc = "公告";
+                    break;
+            }
+            return desc;
+        }
+    }
+
     public static class TeamNumberLimit{
         public static final int Type_simple = 100;
         public static final int Type_advance = 300;

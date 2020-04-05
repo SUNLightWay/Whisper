@@ -17,6 +17,8 @@
         <activity android:name=".MailListSentActivity"
             android:label="邮筒"></activity>
         <activity android:name=".EverydayPhrase"></activity>
+        <activity android:name=".LocationActivity">
+        </activity>
         <activity
             android:name=".UpdatePlanTimeOrHolidayDialogActivity"
             android:label=""

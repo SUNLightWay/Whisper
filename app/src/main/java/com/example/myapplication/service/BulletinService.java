@@ -54,4 +54,11 @@ public interface BulletinService {
      */
     public boolean cancelHeart(BulletinInfo bulletinInfo);
 
+    /**
+     * 根据类型获取说明或公告,'0'->说明,'1'->公告
+     * @param type
+     * @return
+     */
+    public List<BulletinInfo> getBulletsByType(Integer type);
+
 }

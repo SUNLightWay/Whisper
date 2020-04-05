@@ -116,7 +116,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
         //公告
-        BulletinInfo bulletinInfo = new BulletinInfo(1,Utils.getRandomString(10),"Miracle","test",new Date(),"test !!!",100,200);
+        BulletinInfo bulletinInfo = new BulletinInfo(3,Utils.getRandomString(10),"Miracle","test",new Date(),"test !!!",100,200,1);
         bulletinInfo.save();
 
         //消息
