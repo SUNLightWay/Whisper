@@ -31,7 +31,14 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public List<MailboxInfo> findMailListByUserId(String userId) {
         return LitePal.select()
-                .where("to = ?", userId)
+                .where("to_lpcolumn = ?", userId)
+                .find(MailboxInfo.class);
+    }
+
+    @Override
+    public List<MailboxInfo> findMailSentListByUserId(String userId) {
+        return LitePal.select()
+                .where("from_lpcolumn = ?", userId)
                 .find(MailboxInfo.class);
     }
 

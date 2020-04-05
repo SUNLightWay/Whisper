@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.HelpDetailActivity;
 import com.example.myapplication.MailListActivity;
+import com.example.myapplication.MailListSentActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.WriteMailActivity;
 import com.example.myapplication.adapter.ChildPlanCardAdapter;
@@ -133,6 +134,14 @@ public class MailFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Utils.actionStart(getActivity(), WriteMailActivity.class, null, idUser);
+            }
+        });
+
+        ImageButton postBox = (ImageButton)getActivity().findViewById(R.id.btPostbox);
+        postBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.actionStart(getActivity(), MailListSentActivity.class, null, idUser);
             }
         });
     }

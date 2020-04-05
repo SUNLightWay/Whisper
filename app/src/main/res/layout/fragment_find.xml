@@ -49,6 +49,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/team"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -68,6 +69,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/punch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -87,6 +89,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/word_daily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -106,6 +109,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/around"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"

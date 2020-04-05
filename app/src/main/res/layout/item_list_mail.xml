@@ -14,7 +14,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="20dp"
     android:background="@color/white">
     <!--listview里的每一个Item的显示-->
 

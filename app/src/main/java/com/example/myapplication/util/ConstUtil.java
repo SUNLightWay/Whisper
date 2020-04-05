@@ -122,10 +122,10 @@ public class ConstUtil {
             String desc = "未知状态";
             switch (code){
                 case REACHED:
-                    desc = "已到达";
+                    desc = "•已到达";
                     break;
                 case UNREACHED:
-                    desc = "未到达";
+                    desc = "•未到达";
                     break;
             }
             return desc;

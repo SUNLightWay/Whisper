@@ -14,19 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EverydayPhrase">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MailListSentActivity"
+            android:label="邮筒"></activity>
+        <activity android:name=".EverydayPhrase"></activity>
         <activity
             android:name=".UpdatePlanTimeOrHolidayDialogActivity"
             android:label=""
             android:theme="@style/Dialog.NoTitle" />
         <activity android:name=".PunchSumChartActivity" />
-        <activity android:name=".HelpDetailActivity" />
+        <activity
+            android:name=".HelpDetailActivity"
+            android:label="详情" />
         <activity android:name=".MailDetailActivity" />
         <activity
             android:name=".RegisterActivity"
@@ -56,11 +54,11 @@
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
+            </intent-filter>
         </activity>
         <activity
             android:name=".IncreasePlanActivity"
