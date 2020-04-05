@@ -157,7 +157,9 @@ public class PlanDetailActivity extends AppCompatActivity {
             case (ConstUtil.RequestCode.REQUEST_CODE_DETAIL):
             case (ConstUtil.RequestCode.REQUEST_CODE_INCREASE):
                 if (resultCode == ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH) {
-                    initPlanList();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
                     Log.d(TAG, "onActivityResult: refresh");
                 }
                 break;

@@ -44,7 +44,7 @@
                 <EditText
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_title"
+                    android:id="@+id/et_title1"
                     android:hint="输入目标标题"
                     android:background="@null"
                     android:textSize="15sp"
@@ -75,7 +75,7 @@
                     <EditText
                         android:layout_marginLeft="@dimen/space_20dp"
                         android:layout_marginRight="@dimen/space_20dp"
-                        android:id="@+id/et_goal"
+                        android:id="@+id/et_goal1"
                         android:hint="目标量化"
                         android:background="@null"
                         android:textSize="15sp"
@@ -97,7 +97,7 @@
                     <EditText
                         android:layout_marginLeft="@dimen/space_20dp"
                         android:layout_marginRight="@dimen/space_20dp"
-                        android:id="@+id/et_goal_type"
+                        android:id="@+id/et_goal_type1"
                         android:hint="量化类型"
                         android:background="@null"
                         android:textSize="15sp"
@@ -123,7 +123,7 @@
                 <EditText
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_start_time"
+                    android:id="@+id/et_start_time1"
                     android:hint="开始时间"
                     android:background="@null"
                     android:textSize="15sp"
@@ -148,7 +148,7 @@
                 <EditText
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_end_time"
+                    android:id="@+id/et_end_time1"
                     android:hint="结束时间"
                     android:background="@null"
                     android:textSize="15sp"
@@ -173,7 +173,7 @@
                 <EditText
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_time_needed"
+                    android:id="@+id/et_time_needed1"
                     android:hint="预估总时长"
                     android:background="@null"
                     android:textSize="15sp"
@@ -198,7 +198,7 @@
                 <EditText
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_time_n"
+                    android:id="@+id/et_time_n1"
                     android:hint="每日贡献时长"
                     android:background="@null"
                     android:textSize="15sp"
@@ -228,7 +228,7 @@
                     android:gravity="top"
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_detail"
+                    android:id="@+id/et_detail1"
                     android:hint="详细内容"
                     android:background="@null"
                     android:textSize="15sp"
@@ -258,7 +258,7 @@
                     android:gravity="top"
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_significance"
+                    android:id="@+id/et_significance1"
                     android:hint="意义"
                     android:background="@null"
                     android:textSize="15sp"
@@ -288,7 +288,7 @@
                     android:gravity="top"
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_marginRight="@dimen/space_20dp"
-                    android:id="@+id/et_blessing"
+                    android:id="@+id/et_blessing1"
                     android:hint="我希望..."
                     android:background="@null"
                     android:textSize="15sp"
@@ -305,7 +305,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/cb_is_last"
+                    android:id="@+id/cb_is_last1"
                     android:layout_marginLeft="@dimen/space_20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

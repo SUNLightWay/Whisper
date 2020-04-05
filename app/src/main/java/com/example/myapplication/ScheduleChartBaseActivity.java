@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alamkanak.weekview.DateTimeInterpreter;
@@ -178,5 +179,16 @@ public abstract class ScheduleChartBaseActivity extends AppCompatActivity implem
 
     public WeekView getWeekView() {
         return mWeekView;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode){
+            case ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH:
+                Intent intent = getIntent();
+                this.finish();
+                startActivity(intent);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.alamkanak.weekview.WeekViewEvent;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
+import com.example.myapplication.util.ConstUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
 
     private PlanListServiceImpl planListService = new PlanListServiceImpl();
     private List<PlanListInfo> plans = new ArrayList<>();
-    private List<Object> colors = new ArrayList<>();
+    private List<Integer> colors = new ArrayList<>();
     private String userId;
 
     private String planId;
@@ -114,7 +115,12 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
             Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute);
 
             WeekViewEvent event = new WeekViewEvent(1, getEventString(plan, startTime, endTime ), startTime, endTime);
-            event.setColor(getResources().getColor(R.color.event_color_01));
+            event.setColor(colors.get(counter % 4));
+            if (plan.getIsPunch() == ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH){
+                event.setColor(getResources().getColor(R.color.event_color_finish));
+            } else if(plan.getIsHoliday() == ConstUtil.PlanHolidayStatus.PLAN_ON_HOLIDAY){
+                event.setColor(getResources().getColor(R.color.event_color_holiday));
+            }
             events.add(event);
         }
 
