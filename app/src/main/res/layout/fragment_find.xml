@@ -127,7 +127,6 @@
 
 
     </LinearLayout>
-
     <RelativeLayout
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -170,8 +169,6 @@
             />
 
     </RelativeLayout>
-
-
 
 
 </LinearLayout>
