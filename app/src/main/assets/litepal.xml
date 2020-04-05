@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="whisper"></dbname>
-    <version value="7" ></version>
+    <version value="8" ></version>
     <list>
         <mapping class="com.example.myapplication.module.LoginInfo"></mapping>
         <mapping class="com.example.myapplication.module.UserInfo"></mapping>
@@ -11,5 +11,6 @@
         <mapping class="com.example.myapplication.module.BulletinInfo"></mapping>
         <mapping class="com.example.myapplication.module.SeatmateInfo"></mapping>
         <mapping class="com.example.myapplication.module.TeamInfo"></mapping>
+        <mapping class="com.example.myapplication.module.SystemNoteInfo"></mapping>
     </list>
 </litepal>
