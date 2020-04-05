@@ -114,6 +114,25 @@ public class ConstUtil {
         }
     }
 
+    public static class MailSendStatus{
+        public static final int REACHED = 1;
+        public static final int UNREACHED = 0;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知状态";
+            switch (code){
+                case REACHED:
+                    desc = "已到达";
+                    break;
+                case UNREACHED:
+                    desc = "未到达";
+                    break;
+            }
+            return desc;
+        }
+
+    }
+
     public static class TeamNumberLimit{
         public static final int Type_simple = 100;
         public static final int Type_advance = 300;

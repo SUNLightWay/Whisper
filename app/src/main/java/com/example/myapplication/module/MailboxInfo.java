@@ -17,12 +17,14 @@ public class MailboxInfo extends LitePalSupport {
     String content = "";
     Integer isPublic = ConstUtil.MailPublicType.TYPE_NOTPUBLIC;
     Integer isDelay = ConstUtil.MailDealyType.TYPE_NOTDELAY;
+    Integer status = ConstUtil.MailSendStatus.UNREACHED;
 
     public MailboxInfo() {
     }
 
 
-    public MailboxInfo(Integer idMail, String from, String to, Integer isPublic, Integer isDelay , Date sendTime, Date recelveTime, String title, String content) {
+    public MailboxInfo(Integer idMail, String from, String to, Integer isPublic, Integer isDelay ,
+                       Date sendTime, Date recelveTime, String title, String content,Integer status) {
 
         this.idMail = idMail;
         From = from;
@@ -33,6 +35,7 @@ public class MailboxInfo extends LitePalSupport {
         this.isPublic = isPublic;
         this.isDelay = isDelay;
         this.content = content;
+        this.status = status;
     }
 
 
@@ -106,6 +109,14 @@ public class MailboxInfo extends LitePalSupport {
 
     public void setIsDelay(Integer isDelay) {
         this.isDelay = isDelay;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override
