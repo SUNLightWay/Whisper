@@ -173,4 +173,18 @@ public class ConstUtil {
         public static final int PLAN_ON_PUNCH = 1;
         public static final int PLAN_NOT_ON_PUNCH = 2;
     }
+
+
+    public static class SysNoteType{
+        public static final int SYS_NOTE_SEATMATE_INVITATION = 1;   //邀请
+        public static final int SYS_NOTE_SEATMATE_SUCCESS = 2;  //成功
+        public static final int SYS_NOTE_SEATMATE_FAIL = 3; //失败
+        public static final int SYS_NOTE_SEATMATE_RECEIVE = 4;  //接受
+        public static final int SYS_NOTE_SEATMATE_REJECT = 5;   //拒绝
+    }
+
+    public static class SysNoteRead{
+        public static final int SYS_NOTE_ON_READ = 1;
+        public static final int SYS_NOTE_NOT_ON_READ = 2;
+    }
 }

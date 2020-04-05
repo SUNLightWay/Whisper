@@ -11,5 +11,6 @@
         <mapping class="com.example.myapplication.module.BulletinInfo"></mapping>
         <mapping class="com.example.myapplication.module.SeatmateInfo"></mapping>
         <mapping class="com.example.myapplication.module.TeamInfo"></mapping>
+        <mapping class="com.example.myapplication.module.SystemNoteInfo"></mapping>
     </list>
 </litepal>
