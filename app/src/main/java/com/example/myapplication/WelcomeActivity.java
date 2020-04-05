@@ -107,8 +107,10 @@ public class WelcomeActivity extends AppCompatActivity {
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
 
         //邮件
-        MailboxInfo mailboxInfo = new MailboxInfo(6,"Miracle","phineas",3,1,new Date(),new Date(),"test","hello? nice yo meet you",1);
+        MailboxInfo mailboxInfo = new MailboxInfo(10,"phineas","Miracle",3,1,new Date(),new Date(),"test","hello? nice yo meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo.save();
+        MailboxInfo mailboxInfo1 = new MailboxInfo(11,"phineas","Miracle",3,1,new Date(),new Date(),"test","hello? nice yo meet you",ConstUtil.MailSendStatus.UNREACHED);
+        mailboxInfo1.save();
 //        MailService mailService = new MailServiceImpl();
 //        mailService.findMailBoxList();
 

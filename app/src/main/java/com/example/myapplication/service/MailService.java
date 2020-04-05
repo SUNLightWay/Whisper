@@ -43,4 +43,12 @@ public interface MailService {
      * @return
      */
     public List<MailboxInfo> findMailListByUserId(String userId);
+
+
+    /**
+     * 根据用户Id查找已发送的邮件列表
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailSentListByUserId(String userId);
 }

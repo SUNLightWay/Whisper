@@ -33,4 +33,12 @@ public interface MailBoxDao {
      * @return
      */
     public List<MailboxInfo> findMailListByUserId(String userId);
+
+
+    /**
+     * 根据用户Id查询已发送的邮件
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailSentListByUserId(String userId);
 }

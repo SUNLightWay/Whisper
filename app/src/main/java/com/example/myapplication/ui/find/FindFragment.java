@@ -21,9 +21,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.EverydayPhrase;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.find.DeskMate.DeskmateActivity;
+import com.example.myapplication.util.Utils;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -32,13 +34,14 @@ import com.youth.banner.loader.ImageLoaderInterface;
 
 import java.util.ArrayList;
 
-public class FindFragment extends Fragment {
+public class FindFragment extends Fragment implements View.OnClickListener {
 
     private FindViewModel notificationsViewModel;
     private View view;
     private Banner banner;
     private ArrayList<Integer> list_path;
     private ArrayList<String> list_title;
+    String userId = "phineas";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,14 +61,16 @@ public class FindFragment extends Fragment {
      */
     private void initView() {
         LinearLayout find_deskmate = this.view.findViewById(R.id.find_deskmate);
+        LinearLayout dailyWord = this.view.findViewById(R.id.word_daily);
+        LinearLayout team = this.view.findViewById(R.id.team);
+        LinearLayout around = this.view.findViewById(R.id.around);
+        LinearLayout punch = this.view.findViewById(R.id.punch);
 
-        find_deskmate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DeskmateActivity.class);
-                startActivity(intent);
-            }
-        });
+        find_deskmate.setOnClickListener(this);
+        dailyWord.setOnClickListener(this);
+        team.setOnClickListener(this);
+        around.setOnClickListener(this);
+        punch.setOnClickListener(this);
     }
 
    
@@ -87,6 +92,27 @@ public class FindFragment extends Fragment {
         });
         banner.setImages(imagelist);
         banner.start();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.find_deskmate:
+                Utils.actionStart(getActivity(), DeskmateActivity.class, null, userId);
+                break;
+            case R.id.word_daily:
+                Utils.actionStart(getActivity(), EverydayPhrase.class, null, userId);
+                break;
+            case R.id.around:
+                //Utils.actionStart(getActivity(), );
+                break;
+            case R.id.punch:
+                //
+                break;
+            case R.id.team:
+                //
+                break;
+        }
     }
     /**
      * 轮播图组件初始化
