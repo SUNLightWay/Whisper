@@ -31,7 +31,14 @@ public class MyFragment extends Fragment {
 
     private MyViewModel myViewModel;
     private View view;             //定义view用来设置fragment的layout
-    private String idUser = "phineas";  //用户名当前用户
+    
+    //暂未与登录模块整合在一起，先假定为111用户
+    private String idUser = "111";  
+
+    private ImageView image_head;//头像
+    private TextView t_name;//昵称
+    private TextView t_number;//账号
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -46,11 +53,63 @@ public class MyFragment extends Fragment {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }
     }
-    /**
-     * 用于我的同桌界面得显示
-     */
+   
+
     public void initView() {
 
+
+        //分享
+        LinearLayout me_share=getActivity().findViewById(R.id.me_share);
+
+        //设置
+        LinearLayout settings=getActivity().findViewById(R.id.settings);
+
+        //编辑个人资料
+        LinearLayout personInfo=getActivity().findViewById(R.id.personInfo);
+
+        //反馈
+        LinearLayout feedback=getActivity().findViewById(R.id.feedback);
+
+        me_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ShareActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        personInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), EditPersonActivity.class);
+                //传递用户名给编辑资料页
+                intent.putExtra("idUser",idUser);
+                startActivity(intent);
+                //实施更新首页图像
+                UserServiceImpl userService=new UserServiceImpl();
+                UserInfo userInfo=userService.findUserByID(idUser);
+                image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
+            }
+        });
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+        //我的同桌
         LinearLayout myPartner =  getActivity().findViewById(R.id.myPartner);
 
         myPartner.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +149,28 @@ public class MyFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        image_head=(ImageView)view.findViewById(R.id.images_head);
+        t_name=(TextView)view.findViewById(R.id.t_name);
+        t_number=(TextView)view.findViewById(R.id.t_number);
+
+        UserServiceImpl userService=new UserServiceImpl();
+        UserInfo userInfo=userService.findUserByID(idUser);
+
+        //渲染头像
+        //image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
+        image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
+
+
+
+        //渲染昵称
+        t_name.setText(userInfo.getNickname());
+
+        //渲染账号
+        t_number.setText(userInfo.getIdUser());
+
         super.onViewCreated(view, savedInstanceState);
-        initView();
+
+        initView();//初始化视图
     }
 }

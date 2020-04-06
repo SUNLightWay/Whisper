@@ -70,4 +70,10 @@ public class UserServiceImpl implements UserService {
     public Boolean updateUserInfo(UserInfo userInfo) {
         return userDao.updateUserinfo(userInfo);
     }
+
+    //反馈
+    @Override
+    public Boolean updateFeedbackInfo(String problem,String details,String contact){
+        return userDao.updateFeedbackinfo(problem,details,contact);
+    }
 }

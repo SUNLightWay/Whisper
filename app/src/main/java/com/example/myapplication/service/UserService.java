@@ -48,4 +48,13 @@ public interface UserService {
      * @return
      */
     public Boolean updateUserInfo(UserInfo userInfo);
+
+    /**
+     * 反馈
+     * @param problem
+     * @param details
+     * @param contact
+     * @return
+     */
+    public Boolean updateFeedbackInfo(String problem,String details,String contact);
 }

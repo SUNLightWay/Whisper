@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/vbackground"
+    tools:context=".FeedbackActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".FeedbackActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="标 题:"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/f_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:hint="具体问题"
+                    android:textColor="@color/bg_black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <EditText android:text=""
+                    android:id="@+id/f_details"
+                    android:lines="5"
+                    android:gravity="top"
+                    android:hint="请输入您的反馈意见"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"></EditText>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="联系方式:"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/f_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:hint=""
+                        android:textColor="@color/bg_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/but_help_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/trans_cal_color_point_blue"
+                    android:text="提交"
+                    android:textSize="20sp"></Button>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:text="下面是常见问题"
+                    android:id="@+id/help_allseequestions"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="fill_parent"
+                    android:textColor="#000000"
+                    android:layout_marginTop="10px"
+                    android:layout_height="wrap_content"></TextView>
+
+                <TextView
+                    android:layout_marginTop="10px"
+                    android:paddingLeft="15px"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="Q:【操作问题】相关疑问.\n A:可参考设置中《用户使用说明》，如果没有涉及的话可以留言反馈，我们看到后会加上的奥~"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/help_1"></TextView>
+
+
+
+                <TextView
+                    android:layout_marginTop="10px"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:paddingLeft="15px"
+                    android:text="Q:【通知提醒】并未提醒和显示? \n A:去管理开启手机通知提醒"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/help_2"
+                    ></TextView>
+
+
+
+                <TextView
+                    android:layout_marginTop="10px"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:paddingLeft="15px"
+                    android:text="Q【用户密码】丢失后如何找回呢？ \n A:可以点击忘记密码自助找回的奥~也可以联系18812345678帮您找回奥~"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/help_3"
+                    ></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Customer_tele"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/bg_white"
+                    android:text="联系客服"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

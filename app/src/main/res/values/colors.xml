@@ -74,6 +74,8 @@
     <color name="text_clo">#333</color>
     <color name="sblue">#C74DADF7</color>
 
+     <color name="bg_black">#000000</color>
+
     <!-- 位置颜色 -->
     <color name="line_color_blue">#3C8EAE</color>
     <color name="bg_color_pink">#FF90A2</color>
