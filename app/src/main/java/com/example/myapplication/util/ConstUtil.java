@@ -188,8 +188,8 @@ public class ConstUtil {
     }
 
     public static class PlanPunchStatus{
-        public static final int PLAN_ON_PUNCH = 1;
-        public static final int PLAN_NOT_ON_PUNCH = 2;
+        public static final int PLAN_ON_PUNCH = 1; //未打卡
+        public static final int PLAN_NOT_ON_PUNCH = 2; //打卡
     }
 
 
@@ -202,7 +202,7 @@ public class ConstUtil {
     }
 
     public static class SysNoteRead{
-        public static final int SYS_NOTE_ON_READ = 1;
-        public static final int SYS_NOTE_NOT_ON_READ = 2;
+        public static final int SYS_NOTE_ON_READ = 1; //已读
+        public static final int SYS_NOTE_NOT_ON_READ = 2; //未读
     }
 }
