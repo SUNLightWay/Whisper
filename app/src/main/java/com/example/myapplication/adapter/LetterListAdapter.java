@@ -61,7 +61,7 @@ public class LetterListAdapter extends RecyclerView.Adapter<LetterListAdapter.Le
         MailboxInfo mail = mailbox.get(position);
 
         holder.letter_who.setText(mail.getTitle());
-        holder.letter_text.setText(mail.getContent().substring(0, 20) + "...");
+        holder.letter_text.setText(mail.getContent().length() > 20 ? mail.getContent().substring(0, 20): mail.getContent());
         Log.d(TAG, "onBindViewHolder: " + mail.getFrom());
         holder.letter_from.setText(mail.getFrom());
         holder.letter_date.setText(Utils.sdf.format(mail.getRecelveTime()));
