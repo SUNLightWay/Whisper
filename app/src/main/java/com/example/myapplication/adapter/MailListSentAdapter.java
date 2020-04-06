@@ -100,7 +100,7 @@ public class MailListSentAdapter extends RecyclerView.Adapter<MailListSentAdapte
     //item数目
     @Override
     public int getItemCount() {
-        return mailbox.size();
+        return (mailbox == null ? 0: mailbox.size());
     }
 
 
@@ -124,6 +124,8 @@ public class MailListSentAdapter extends RecyclerView.Adapter<MailListSentAdapte
             letter_status = itemView.findViewById(R.id.mail_sent_status);
         }
     }
+
+
 }
 
 

@@ -88,7 +88,7 @@ public class LetterListAdapter extends RecyclerView.Adapter<LetterListAdapter.Le
     //item数目
     @Override
     public int getItemCount() {
-        return mailbox.size();
+        return (mailbox == null ? 0: mailbox.size());
     }
 
 
