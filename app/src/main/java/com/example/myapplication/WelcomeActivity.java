@@ -21,6 +21,7 @@ import com.example.myapplication.service.SeatmateService;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.service.ServiceImpl.MailServiceImpl;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
+import com.example.myapplication.service.ServiceImpl.SystemNoteServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.service.UserService;
 import com.example.myapplication.util.ConstUtil;
@@ -39,6 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
     UserServiceImpl userService = new UserServiceImpl();
     SeatmateServiceImpl seatmateService = new SeatmateServiceImpl();
     PlanListServiceImpl planListService = new PlanListServiceImpl();
+    SystemNoteServiceImpl systemNoteService = new SystemNoteServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,8 @@ public class WelcomeActivity extends AppCompatActivity {
         loginInfo1.save();
 
         //用户信息
-        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null, null, 1, null);
+        UserInfo userInfo = new UserInfo("cloud12", "cloud", "12345678912", 89, null,
+                null, null, 1, Utils.imageToByte(Utils.drawableToBitmap(getResources().getDrawable(R.drawable.daily))));
         //userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();
@@ -123,6 +126,14 @@ public class WelcomeActivity extends AppCompatActivity {
         NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
         noteInfo.save();
 
+        String seatmateId = Utils.getRandomString(10);
+        Log.d(TAG, "dbInitFirstInstall: " +
+            seatmateService.sendRequest(new SeatmateInfo(seatmateId, "phineas", "Miracle", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0))
+        );
+
+        Log.d(TAG, "dbInitFirstInstall: " + seatmateService.replyRequest(seatmateId, ConstUtil.SeatmateReplyType.TYPE_APPROVE));
+
+        Log.d(TAG, "dbInitFirstInstall: " + systemNoteService.findNoteNotRead("Miracle").size());
     }
 }
 

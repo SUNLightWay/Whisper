@@ -66,7 +66,7 @@ public class SeatmateDaoImpl implements SeatmateDao {
     @Override
     public Boolean updateSeatemate(String seatmateId, int status, Date startTime) {
         List<SeatmateInfo> seatmateInfos = LitePal.select()
-                .where("idseatmate = ？", seatmateId)
+                .where("idseatmate = ?", seatmateId)
                 .limit(10)
                 .find(SeatmateInfo.class);
         if (seatmateInfos.size() == 0){
@@ -81,7 +81,7 @@ public class SeatmateDaoImpl implements SeatmateDao {
     @Override
     public Boolean updateSeatmateStatusOnly(String seatmateId, int status) {
         List<SeatmateInfo> seatmateInfos = LitePal.select()
-                .where("idseatmate = ？", seatmateId)
+                .where("idseatmate = ?", seatmateId)
                 .limit(10)
                 .find(SeatmateInfo.class);
         if (seatmateInfos.size() == 0){

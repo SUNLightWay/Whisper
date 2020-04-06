@@ -12,19 +12,29 @@ public class UserInfo extends LitePalSupport {
     String idTeam;     //队伍ID
     String remark;     //备注
     Integer isPunch;    //是否打卡
+    byte[] headshot;    //头像
 
     public UserInfo() {
     }
 
-    public UserInfo(String idUser, String nickname, String phone, Integer rate, String idSeatmate, String idTeam, Integer isPunch, String remark) {
+    public UserInfo(String idUser, String nickname, String phone, Integer rate, String idSeatmate, String idTeam, String remark, Integer isPunch, byte[] headshot) {
         this.idUser = idUser;
         this.nickname = nickname;
         this.phone = phone;
         this.rate = rate;
         this.idSeatmate = idSeatmate;
         this.idTeam = idTeam;
-        this.isPunch = isPunch;
         this.remark = remark;
+        this.isPunch = isPunch;
+        this.headshot = headshot;
+    }
+
+    public byte[] getHeadshot() {
+        return headshot;
+    }
+
+    public void setHeadshot(byte[] headshot) {
+        this.headshot = headshot;
     }
 
     public String getIdUser() {

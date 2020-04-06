@@ -104,7 +104,8 @@ public class UserDaoImpl implements UserDao {
             user.setRate(userInfo.getRate());
         if(userInfo.getRemark() != null)
             user.setRemark(userInfo.getRemark());
-
+        if(userInfo.getHeadshot() != null)
+            user.setHeadshot(userInfo.getHeadshot());
         if(user.save()){
             return true;
         }
