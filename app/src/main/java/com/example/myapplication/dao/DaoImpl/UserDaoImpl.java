@@ -111,6 +111,18 @@ public class UserDaoImpl implements UserDao {
         }
         return false;
     }
+
+    //存储反馈信息
+    @Override
+    public Boolean updateFeedbackinfo(String problem,String details,String contact){
+
+        FeedbackInfo feedbackInfo=new FeedbackInfo();
+        feedbackInfo.setProblem(problem);
+        feedbackInfo.setDetails(details);
+        feedbackInfo.setContact(contact);
+        
+        return true;
+    }
 }
 
 

@@ -81,6 +81,20 @@
         <activity
             android:name=".ui.my.MyDeskMate.MyDeskMate"
             android:label="我的同桌" />
+        <activity android:name=".EditPersonActivity"
+            android:label="个人信息"
+            android:theme="@style/ActivityTheme"/>
+        <activity android:name=".SettingsActivity"
+            android:label="设置"
+            android:theme="@style/ActivityTheme"/>
+        <activity android:name=".ShareActivity"
+            android:label="分享"
+            android:theme="@style/ActivityTheme"/>
+        <activity android:name=".SelectPhotoActivity"
+            android:label="更换头像"/>
+        <activity android:name=".FeedbackActivity"
+            android:label="留言反馈"
+            android:theme="@style/ActivityTheme"/>
     </application>
 
 </manifest>
