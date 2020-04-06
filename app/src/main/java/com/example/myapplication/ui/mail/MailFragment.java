@@ -1,8 +1,12 @@
 package com.example.myapplication.ui.mail;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -17,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.HelpDetailActivity;
+import com.example.myapplication.InformationSys;
 import com.example.myapplication.MailListActivity;
 import com.example.myapplication.MailListSentActivity;
 import com.example.myapplication.R;
@@ -58,6 +63,38 @@ public class MailFragment extends Fragment{
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }
+    }
+
+
+    /**
+     *
+     * @param menu
+     * @param inflater
+     */
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_actionbar_mail,menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.message:
+                /**
+                *点击实现跳转，进入消息的列表,跳转成功，而且能够收到信息。
+                 */
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), InformationSys.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return true;
     }
     /**
      * 继承Fragment类，重写两个方法

@@ -17,6 +17,8 @@
         <activity android:name=".MailListSentActivity"
             android:label="邮筒"></activity>
         <activity android:name=".EverydayPhrase"></activity>
+        <activity android:name=".LocationActivity">
+        </activity>
         <activity
             android:name=".UpdatePlanTimeOrHolidayDialogActivity"
             android:label=""
@@ -69,6 +71,11 @@
             android:name=".ScheduleChartActivity"
             android:label="日程表" />
         <activity android:name=".ScheduleChartBaseActivity" />
+
+	<activity android:name=".InformationSys"
+            android:label="消息"/>
+        <activity android:name=".ui.my.MyDeskMate.MyDeskMate"
+            android:label="我的同桌"/>
     </application>
 
 </manifest>

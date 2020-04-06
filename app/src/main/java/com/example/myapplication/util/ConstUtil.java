@@ -133,6 +133,24 @@ public class ConstUtil {
 
     }
 
+    public static class BulletinType{
+        public static final int HELP = 0;
+        public static final int ANNOUNCEMENT = 1;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知种类";
+            switch (code){
+                case HELP:
+                    desc = "帮助";
+                    break;
+                case ANNOUNCEMENT:
+                    desc = "公告";
+                    break;
+            }
+            return desc;
+        }
+    }
+
     public static class TeamNumberLimit{
         public static final int Type_simple = 100;
         public static final int Type_advance = 300;
@@ -170,8 +188,8 @@ public class ConstUtil {
     }
 
     public static class PlanPunchStatus{
-        public static final int PLAN_ON_PUNCH = 1;
-        public static final int PLAN_NOT_ON_PUNCH = 2;
+        public static final int PLAN_ON_PUNCH = 1; //未打卡
+        public static final int PLAN_NOT_ON_PUNCH = 2; //打卡
     }
 
 
@@ -184,7 +202,7 @@ public class ConstUtil {
     }
 
     public static class SysNoteRead{
-        public static final int SYS_NOTE_ON_READ = 1;
-        public static final int SYS_NOTE_NOT_ON_READ = 2;
+        public static final int SYS_NOTE_ON_READ = 1; //已读
+        public static final int SYS_NOTE_NOT_ON_READ = 2; //未读
     }
 }

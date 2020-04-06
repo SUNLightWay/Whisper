@@ -1,5 +1,7 @@
 package com.example.myapplication.module;
 
+import com.example.myapplication.util.ConstUtil;
+
 import org.litepal.crud.LitePalSupport;
 
 import java.util.Date;
@@ -14,11 +16,12 @@ public class BulletinInfo extends LitePalSupport {
     String content = "";
     Integer clickNum = 0;
     Integer heart = 0;
+    Integer type = ConstUtil.BulletinType.ANNOUNCEMENT;
 
     public BulletinInfo() {
     }
 
-    public BulletinInfo(Integer idButtetin, String idTeam, String author, String title, Date time, String content, Integer clickNum, Integer heart) {
+    public BulletinInfo(Integer idButtetin, String idTeam, String author, String title, Date time, String content, Integer clickNum, Integer heart, Integer type) {
         this.idButtetin = idButtetin;
         this.idTeam = idTeam;
         this.author = author;
@@ -27,6 +30,7 @@ public class BulletinInfo extends LitePalSupport {
         this.content = content;
         this.clickNum = clickNum;
         this.heart = heart;
+        this.type = type;
     }
 
     public Integer getIdButtetin() {
