@@ -32,6 +32,7 @@ public class ConstUtil {
         }
     }
 
+
     public static class SeatmateReplyType{
         public static final int TYPE_APPROVE = 0;
         public static final int TYPE_REFUSE = 1;
@@ -78,6 +79,7 @@ public class ConstUtil {
         }
     }
 
+
     public static class MailPublicType{
         public static final int TYPE_NOTPUBLIC = 0;
         public static final int TYPE_PUBLIC = 1;
@@ -96,6 +98,7 @@ public class ConstUtil {
         }
     }
 
+
     public static class MailDealyType{
         public static final int TYPE_NOTDELAY = 0;
         public static final int TYPE_DELAY = 1;
@@ -113,6 +116,7 @@ public class ConstUtil {
             return desc;
         }
     }
+
 
     public static class MailSendStatus{
         public static final int REACHED = 1;
@@ -133,6 +137,7 @@ public class ConstUtil {
 
     }
 
+
     public static class BulletinType{
         public static final int HELP = 0;
         public static final int ANNOUNCEMENT = 1;
@@ -150,6 +155,7 @@ public class ConstUtil {
             return desc;
         }
     }
+
 
     public static class TeamNumberLimit{
         public static final int Type_simple = 100;
@@ -169,12 +175,14 @@ public class ConstUtil {
         }
     }
 
+
     public static class RequestCode{
         public static final int REQUEST_CODE_UPDATE = 1;
         public static final int REQUEST_CODE_DELETE = 2;
         public static final int REQUEST_CODE_INCREASE = 3;
         public static final int REQUEST_CODE_DETAIL = 4;
     }
+
 
     public static class ResponseCode{
         public static final int RESPONSE_CODE_REFRESH = 1;
@@ -186,6 +194,7 @@ public class ConstUtil {
         public static final int PLAN_ON_HOLIDAY = 1;
         public static final int PLAN_NOT_ON_HOLIDAY = 2;
     }
+
 
     public static class PlanPunchStatus{
         public static final int PLAN_ON_PUNCH = 1; //未打卡
@@ -201,8 +210,32 @@ public class ConstUtil {
         public static final int SYS_NOTE_SEATMATE_REJECT = 5;   //拒绝
     }
 
+
     public static class SysNoteRead{
         public static final int SYS_NOTE_ON_READ = 1; //已读
         public static final int SYS_NOTE_NOT_ON_READ = 2; //未读
+    }
+
+
+    public static class PunchAttitude{
+        public static final int PUNCH_STATISFIED = 1;
+        public static final int PUNCH_SIMPLE = 2;
+        public static final int PUNCH_DISSTATISFIED = 3;
+
+        public static String getTypeDesc(int code){
+            String desc = "未知";
+            switch(code){
+                case PUNCH_STATISFIED:
+                    desc = "满意";
+                    break;
+                case PUNCH_SIMPLE:
+                    desc = "一般";
+                    break;
+                case PUNCH_DISSTATISFIED:
+                    desc = "不满意";
+                    break;
+            }
+            return desc;
+        }
     }
 }

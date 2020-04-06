@@ -3,6 +3,7 @@ package com.example.myapplication.dao.DaoImpl;
 import com.example.myapplication.dao.PlanListDao;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.SeatmateInfo;
+import com.example.myapplication.util.ConstUtil;
 
 import org.litepal.LitePal;
 
@@ -88,6 +89,13 @@ public class PlanListDaoImpl implements PlanListDao {
 
         return (LitePal.select()
                 .where("iduser = ? and islast = ?", userId, "1")
+                .find(PlanListInfo.class));
+    }
+
+    @Override
+    public List<PlanListInfo> findPunchedPlanList(String userId) {
+        return (LitePal.select()
+                .where("iduser = ? and ispunch = ?", userId, String.valueOf(ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH))
                 .find(PlanListInfo.class));
     }
 }

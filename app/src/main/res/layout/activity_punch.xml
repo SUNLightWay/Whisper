@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardBackgroundColor="@color/grey_card">
+
+    <ImageView
+        android:src="@drawable/background_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/space_20dp">
+
+        <TextView
+            android:text="打卡"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_20dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:text="满意度："
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <Spinner
+                android:textColor="@color/cal_line_grey"
+                android:layout_width="100dp"
+                android:id="@+id/plan_attitude"
+                android:textSize="20sp"
+                android:layout_height="49dp"
+                android:entries="@array/plan_attitude"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_marginTop="@dimen/space_10dp"
+                android:gravity="top"
+                android:textColor="@color/black"
+                android:id="@+id/plan_summary"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_edittext"
+                android:layout_height="200dp"
+                android:padding="@dimen/space_10dp"
+                android:hint="今日总结"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_marginLeft="@dimen/space_10dp"
+                android:text="打卡"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:id="@+id/punch_main"
+                android:backgroundTint="@color/cal_color_green"
+                android:background="@drawable/button_circle_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_10dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

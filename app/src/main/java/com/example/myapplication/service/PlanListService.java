@@ -58,4 +58,11 @@ public interface PlanListService {
      * @return
      */
     public List<PlanListInfo> findLastPlanList(String userId);
+
+    /**
+     * 查询已经打卡的计划列表
+     * @param userId
+     * @return
+     */
+    public List<PlanListInfo> findPunchedPlanList(String userId);
 }

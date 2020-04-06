@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.IncreasePlanActivity;
 import com.example.myapplication.PlanDetailActivity;
+import com.example.myapplication.PunchActivity;
 import com.example.myapplication.ScheduleChartActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.PlanCardAdapter;
@@ -32,6 +33,8 @@ import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.util.ConstUtil;
 import com.example.myapplication.util.DBUtil;
 import com.example.myapplication.util.Utils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -111,6 +114,18 @@ public class PlanFragment extends Fragment{
         });
 
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.actionStart(getActivity(), PunchActivity.class, null, userId);
+            }
+        });
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override

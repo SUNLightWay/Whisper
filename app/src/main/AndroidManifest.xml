@@ -14,11 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MailListSentActivity"
-            android:label="邮筒"></activity>
-        <activity android:name=".EverydayPhrase"></activity>
-        <activity android:name=".LocationActivity">
-        </activity>
+        <activity
+            android:name=".PunchActivity"
+            android:label="@string/title_activity_punch"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MailListSentActivity"
+            android:label="邮筒" />
+        <activity android:name=".EverydayPhrase" />
+        <activity android:name=".LocationActivity"></activity>
         <activity
             android:name=".UpdatePlanTimeOrHolidayDialogActivity"
             android:label=""
@@ -71,11 +75,12 @@
             android:name=".ScheduleChartActivity"
             android:label="日程表" />
         <activity android:name=".ScheduleChartBaseActivity" />
-
-	<activity android:name=".InformationSys"
-            android:label="消息"/>
-        <activity android:name=".ui.my.MyDeskMate.MyDeskMate"
-            android:label="我的同桌"/>
+        <activity
+            android:name=".InformationSys"
+            android:label="消息" />
+        <activity
+            android:name=".ui.my.MyDeskMate.MyDeskMate"
+            android:label="我的同桌" />
     </application>
 
 </manifest>
