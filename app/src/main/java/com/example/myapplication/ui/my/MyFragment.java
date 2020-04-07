@@ -102,9 +102,14 @@ public class MyFragment extends Fragment {
                 //传递用户名给编辑资料页
                 intent.putExtra("idUser",idUser);
                 startActivity(intent);
-                //实施更新首页图像
-                UserServiceImpl userService=new UserServiceImpl();
+
+               UserServiceImpl userService=new UserServiceImpl();
                 UserInfo userInfo=userService.findUserByID(idUser);
+                //渲染更改后的昵称
+                t_name.setText(userInfo.getNickname());
+                //渲染更改后的账号
+                t_number.setText(userInfo.getIdUser());
+                //实施更新首页图像
                 image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
             }
         });
