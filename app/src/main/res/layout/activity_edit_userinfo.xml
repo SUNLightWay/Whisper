@@ -20,6 +20,7 @@
             android:weightSum="1">
 
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -31,11 +32,13 @@
                     android:id="@+id/head_icon"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginLeft="150dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:scaleType="fitCenter" />
 
                 <Button
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:id="@+id/button_changeimg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -176,18 +179,18 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:text="等级："
+                    android:text="评分："
                     android:textSize="17sp"
                     />
 
-                <EditText
+                <TextView
                     android:id="@+id/rate"
+                    android:textColor="@color/black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:inputType="textEmailAddress"
                     android:paddingLeft="10dp"
                     android:text="77"
                     android:textSize="17sp"/>
@@ -220,7 +223,8 @@
                     android:textSize="17sp"
                     />
 
-                <EditText
+                <TextView
+                    android:textColor="@color/black"
                     android:id="@+id/ID_Seatmate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -260,14 +264,13 @@
                     />
 
 
-                <EditText
+                <TextView
+                    android:textColor="@color/black"
                     android:id="@+id/ID_Team"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:text="12"
                     android:textSize="17sp"/>
@@ -301,6 +304,7 @@
 
 
                 <EditText
+                    android:textColor="@color/black"
                     android:id="@+id/remark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -332,7 +336,9 @@
                     android:textSize="14sp"/>
 
 
-                <EditText
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="未打卡"
                     android:id="@+id/isPunch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -121,7 +121,7 @@ public class PlanDetailActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.father_card_time)).setText(
                 sdf.format(fatherPlan.getStartTime()) + "~" + sdf.format(fatherPlan.getEndTime())
         );
-        ((ProgressBar)findViewById(R.id.father_card_progressbar)).setProgress((int)fatherPlan.getCompletion());
+        ((ProgressBar)findViewById(R.id.father_card_progressbar)).setProgress((int)(fatherPlan.getCompletion() * 100));
         ((TextView)findViewById(R.id.father_card_time_limit)).setText("剩余" + Utils.differentDayMillisecond(new Date(), fatherPlan.getEndTime()) + "天");
         ((TextView)findViewById(R.id.child_card_significance)).setText(fatherPlan.getSignificance());
 

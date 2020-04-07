@@ -67,7 +67,7 @@ public class Utils {
     }
 
     /**
-     * 获取随机序列
+     * 获取随机整数
      * @param length
      * @return
      */

@@ -60,6 +60,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
                 but_feedback();
                 //提交成功后提示提交成功
                 Toast.makeText(getApplicationContext(),"提交成功!",Toast.LENGTH_SHORT).show();
+                finish();
                 //返回 我的 页面
                 //Intent intent=new Intent(FeedbackActivity.this, MyFragment.class);
                 //startActivity(intent);

@@ -78,10 +78,11 @@ public class WelcomeActivity extends AppCompatActivity {
         LoginInfo loginInfo1 = new LoginInfo("cloud", "123456", "12345678912");
         loginInfo1.save();
 
+        LitePal.deleteAll(UserInfo.class);
         //用户信息
-        UserInfo userInfo = new UserInfo("cloud12", "cloud", "12345678912", 89, null,
+        UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null,
                 null, null, 1, Utils.imageToByte(Utils.drawableToBitmap(getResources().getDrawable(R.drawable.daily))));
-        //userInfo.save();
+        userInfo.save();
         {
             UserInfo userInfo1 = new UserInfo();
             userInfo1.setIdUser("phineas");

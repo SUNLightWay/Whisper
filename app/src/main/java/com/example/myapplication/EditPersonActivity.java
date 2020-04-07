@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
@@ -31,11 +32,11 @@ public class EditPersonActivity extends AppCompatActivity {
     private EditText ID_User;//用户名
     private EditText nickname;//昵称
     private EditText phone;//电话
-    private EditText rate;//等级
-    private EditText ID_Seatmate;//同桌
-    private EditText ID_Team;//小组
+    private TextView rate;//等级
+    private TextView ID_Seatmate;//同桌
+    private TextView ID_Team;//小组
     private EditText remark;//备注
-    private EditText isPunch;//是否打卡
+    private TextView isPunch;//是否打卡
 
     private Button p_sbmit;//提交按钮
 
@@ -48,6 +49,7 @@ public class EditPersonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_edit_userinfo);
 
         //初始化视图
@@ -152,8 +154,9 @@ public class EditPersonActivity extends AppCompatActivity {
                 userService.updateUserInfo(userInfo);
 
                 //提示更新成功
-                Toast.makeText(getApplicationContext(),"修改成功！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"修改成功！", Toast.LENGTH_SHORT).show();
 
+                finish();
 
                 //更改成功后返回我的主页
                 //Intent intent=new Intent(EditPersonActivity.this, MyFragment.class);

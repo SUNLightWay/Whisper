@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class PunchActivity extends AppCompatActivity {
     private TextView summary;
     private Spinner attitude;
     private Button punch;
+    private ImageButton record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class PunchActivity extends AppCompatActivity {
         List<PlanListInfo> planListPunched = new ArrayList<>();
         planListPunched.addAll(planListService.findPunchedPlanList(userId));
         final float completion = (float)planListPunched.size() / planList.size();
-        summary.setText("#今日计划完成度：" + completion + " #");
+        summary.setText("#今日计划完成度：" + completion * 100 + "% #");
 
         punch.setOnClickListener(new View.OnClickListener() {
             @Override

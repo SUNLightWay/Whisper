@@ -14,15 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PunchRecordsActivity"></activity>
         <activity
             android:name=".PunchActivity"
             android:label="@string/title_activity_punch"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MailListSentActivity"
             android:label="邮筒" />
         <activity android:name=".EverydayPhrase" />
-        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".LocationActivity" />
         <activity
             android:name=".UpdatePlanTimeOrHolidayDialogActivity"
             android:label=""
@@ -81,20 +82,25 @@
         <activity
             android:name=".ui.my.MyDeskMate.MyDeskMate"
             android:label="我的同桌" />
-        <activity android:name=".EditPersonActivity"
+        <activity
+            android:name=".EditPersonActivity"
             android:label="个人信息"
-            android:theme="@style/ActivityTheme"/>
-        <activity android:name=".SettingsActivity"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".SettingsActivity"
             android:label="设置"
-            android:theme="@style/ActivityTheme"/>
-        <activity android:name=".ShareActivity"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ShareActivity"
             android:label="分享"
-            android:theme="@style/ActivityTheme"/>
-        <activity android:name=".SelectPhotoActivity"
-            android:label="更换头像"/>
-        <activity android:name=".FeedbackActivity"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".SelectPhotoActivity"
+            android:label="更换头像" />
+        <activity
+            android:name=".FeedbackActivity"
             android:label="留言反馈"
-            android:theme="@style/ActivityTheme"/>
+            android:theme="@style/ActivityTheme" />
     </application>
 
 </manifest>

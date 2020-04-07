@@ -74,10 +74,22 @@ public class UpdatePlanTimeOrHolidayDialogActivity extends AppCompatActivity imp
 
             case R.id.punch_dialog:
                 setResult(ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH);
-                PlanListInfo plan3 = new PlanListInfo();
-                plan3.setIdPlan(planId);
-                plan3.setIsPunch(ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH);
-                Toast.makeText(this, planListService.updatePlanInfo(plan3) == true ? "更新成功": "更新失败", Toast.LENGTH_SHORT).show();
+                PlanListInfo plan1 = planListService.findPlanById(planId);
+                float duration = plan1.getHourPerTime();
+                plan1.setHourRemained(plan1.getHourRemained() - plan1.getHourPerTime());
+                plan1.setCompletion((plan1.getSumHourNeeded() - plan1.getHourRemained()) / plan1.getSumHourNeeded());
+                plan1.setIsPunch(ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH);
+                Toast.makeText(this, planListService.updatePlanInfo(plan1) == true ? "更新成功": "更新失败", Toast.LENGTH_SHORT).show();
+
+                while (!plan1.getFatherPlan().equals("-1") && plan1.getFatherPlan() != null){
+                    String fatherId = plan1.getFatherPlan();
+                    plan1 = planListService.findPlanById(fatherId);
+                    plan1.setHourRemained(plan1.getHourRemained() - duration);
+                    plan1.setCompletion((plan1.getSumHourNeeded() - duration) / plan1.getSumHourNeeded());
+                    planListService.updatePlanInfo(plan1);
+                }
+
+                //更改剩余量，完成度
                 finish();
                 break;
         }
