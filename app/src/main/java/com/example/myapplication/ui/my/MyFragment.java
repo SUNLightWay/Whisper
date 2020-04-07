@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.my;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,10 +21,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.EditPersonActivity;
+import com.example.myapplication.FeedbackActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.SettingsActivity;
+import com.example.myapplication.ShareActivity;
 import com.example.myapplication.adapter.RecyclerAdapter;
 import com.example.myapplication.module.SeatmateInfo;
+import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
+import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.ui.mail.MailViewModel;
 import com.example.myapplication.ui.my.MyDeskMate.MyDeskMate;
 
@@ -73,7 +82,7 @@ public class MyFragment extends Fragment {
         me_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ShareActivity.class);
+                Intent intent=new Intent(getActivity(), ShareActivity.class);
                 startActivity(intent);
             }
         });
@@ -107,7 +116,6 @@ public class MyFragment extends Fragment {
                 startActivity(intent);
             }
         });
-    }
 
         //我的同桌
         LinearLayout myPartner =  getActivity().findViewById(R.id.myPartner);
@@ -133,6 +141,7 @@ public class MyFragment extends Fragment {
             }
         });
     }
+
     /**
      * 继承Fragment类，重写两个方法
      * 第一个方法onCreateView--返回布局
@@ -157,11 +166,16 @@ public class MyFragment extends Fragment {
         UserServiceImpl userService=new UserServiceImpl();
         UserInfo userInfo=userService.findUserByID(idUser);
 
+        if (userInfo == null){
+            super.onViewCreated(view, savedInstanceState);
+            return;
+        }
+
+
         //渲染头像
         //image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
-        image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
-
-
+        if (userInfo.getHeadshot() != null)
+            image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
 
         //渲染昵称
         t_name.setText(userInfo.getNickname());

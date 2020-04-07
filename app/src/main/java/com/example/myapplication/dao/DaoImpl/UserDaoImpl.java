@@ -3,6 +3,7 @@ package com.example.myapplication.dao.DaoImpl;
 import android.util.Log;
 
 import com.example.myapplication.dao.UserDao;
+import com.example.myapplication.module.FeedbackInfo;
 import com.example.myapplication.module.LoginInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.util.DBUtil;
