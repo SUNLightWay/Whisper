@@ -16,6 +16,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.myapplication.EverydayPhrase;
+import com.example.myapplication.LocationActivity;
+import com.example.myapplication.PunchActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.find.DeskMate.DeskmateActivity;
 import com.example.myapplication.util.Utils;
@@ -26,8 +28,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-//public class BannerFragment extends Fragment implements View.OnClickListener{
-    public class DiscoveryFragment extends Fragment{
+public class DiscoveryFragment extends Fragment implements View.OnClickListener{
+    //public class DiscoveryFragment extends Fragment{
     private View mView;
     private ViewPager mViewPaper;
     private List<ImageView> images;
@@ -57,6 +59,13 @@ import java.util.concurrent.TimeUnit;
 
     private FindViewModel notificationsViewModel;
     private View view;
+
+    LinearLayout find_deskmate;
+    LinearLayout dailyWord;
+    LinearLayout team;
+    LinearLayout around;
+    LinearLayout punch;
+
     String userId = "TD.Miracle";
 
     @Nullable
@@ -73,6 +82,17 @@ import java.util.concurrent.TimeUnit;
     private void setView(){
         mViewPaper = (ViewPager)mView.findViewById(R.id.vp);
 
+        find_deskmate = mView.findViewById(R.id.find_deskmate);
+        dailyWord = mView.findViewById(R.id.word_daily);
+        team = mView.findViewById(R.id.team);
+        around = mView.findViewById(R.id.around);
+        punch = mView.findViewById(R.id.punch);
+
+        find_deskmate.setOnClickListener(this);
+        dailyWord.setOnClickListener(this);
+        team.setOnClickListener(this);
+        around.setOnClickListener(this);
+        punch.setOnClickListener(this);
         //显示的图片
         images = new ArrayList<ImageView>();
         for(int i = 0; i < imageIds.length; i++){
@@ -119,40 +139,26 @@ import java.util.concurrent.TimeUnit;
         });
     }
 
-//    private void initView() {
-//        LinearLayout find_deskmate = this.view.findViewById(R.id.find_deskmate);
-//        LinearLayout dailyWord = this.view.findViewById(R.id.word_daily);
-//        LinearLayout team = this.view.findViewById(R.id.team);
-//        LinearLayout around = this.view.findViewById(R.id.around);
-//        LinearLayout punch = this.view.findViewById(R.id.punch);
-//
-//        find_deskmate.setOnClickListener(this);
-//        dailyWord.setOnClickListener(this);
-//        team.setOnClickListener(this);
-//        around.setOnClickListener(this);
-//        punch.setOnClickListener(this);
-//    }
-//
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.find_deskmate:
-//                Utils.actionStart(getActivity(), DeskmateActivity.class, null, userId);
-//                break;
-//            case R.id.word_daily:
-//                Utils.actionStart(getActivity(), EverydayPhrase.class, null, userId);
-//                break;
-//            case R.id.around:
-//                //Utils.actionStart(getActivity(), );
-//                break;
-//            case R.id.punch:
-//                //
-//                break;
-//            case R.id.team:
-//                //
-//                break;
-//        }
-//    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.find_deskmate:
+                Utils.actionStart(getActivity(), DeskmateActivity.class, null, userId);
+                break;
+            case R.id.word_daily:
+                Utils.actionStart(getActivity(), EverydayPhrase.class, null, userId);
+                break;
+            case R.id.around:
+                Utils.actionStart(getActivity(), LocationActivity.class,null,userId);
+                break;
+            case R.id.punch:
+                Utils.actionStart(getActivity(), PunchActivity.class,null,userId);
+                break;
+            case R.id.team:
+                //Utils.actionStart(getActivity(), TeamActivity.class,null,userId);
+                break;
+        }
+    }
 
     /*定义的适配器*/
     public class ViewPagerAdapter extends PagerAdapter {
