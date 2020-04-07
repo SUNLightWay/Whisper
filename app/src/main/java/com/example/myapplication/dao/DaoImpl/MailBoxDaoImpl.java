@@ -2,8 +2,10 @@ package com.example.myapplication.dao.DaoImpl;
 
 import com.example.myapplication.dao.MailBoxDao;
 import com.example.myapplication.module.MailboxInfo;
+import com.example.myapplication.util.ConstUtil;
 
 import org.litepal.LitePal;
+import org.litepal.util.Const;
 
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public List<MailboxInfo> findMailListByUserId(String userId) {
         return LitePal.select()
-                .where("to_lpcolumn = ?", userId)
+                .where("to_lpcolumn = ? and status = ?", userId, String.valueOf(ConstUtil.MailSendStatus.REACHED))
                 .find(MailboxInfo.class);
     }
 

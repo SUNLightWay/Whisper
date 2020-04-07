@@ -8,7 +8,7 @@
 
 
     <string-array name="delayarr">
-        <item>0</item>
+        <item>2h</item>
         <item>3天</item>
         <item>7天</item>
         <item>自定义</item>

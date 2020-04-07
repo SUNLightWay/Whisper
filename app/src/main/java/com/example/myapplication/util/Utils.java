@@ -67,6 +67,22 @@ public class Utils {
     }
 
     /**
+     * 获取随机序列
+     * @param length
+     * @return
+     */
+    public static Integer getRandomInteger(int length){
+        String str="123456789";
+        Random random=new Random();
+        StringBuffer sb=new StringBuffer();
+        for(int i=0;i<length;i++){
+            int number=random.nextInt(9);
+            sb.append(str.charAt(number));
+        }
+        return Integer.parseInt(sb.toString());
+    }
+
+    /**
      * 两个日期的差值（单位:天）
      * @param date1
      * @param date2
