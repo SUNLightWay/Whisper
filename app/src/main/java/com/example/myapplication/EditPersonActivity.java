@@ -151,9 +151,13 @@ public class EditPersonActivity extends AppCompatActivity {
                 //更新用户信息
                 userService.updateUserInfo(userInfo);
 
+                //提示更新成功
+                Toast.makeText(getApplicationContext(),"修改成功！",Toast.LENGTH_SHORT).show();
+
+
                 //更改成功后返回我的主页
-                Intent intent=new Intent(EditPersonActivity.this, MyFragment.class);
-                startActivity(intent);
+                //Intent intent=new Intent(EditPersonActivity.this, MyFragment.class);
+                //startActivity(intent);
             }
         });
 
