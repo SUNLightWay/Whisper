@@ -76,7 +76,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void dbInitFirstInstall(){
 
-        LitePal.getDatabase();
+        LitePal.getDatabase();/*
         //登录用户
         LoginInfo loginInfo = new LoginInfo("phineas", "123456", "12345678912");
         loginInfo.save();
@@ -153,7 +153,7 @@ public class WelcomeActivity extends AppCompatActivity {
         TeamInfo teamInfo = new TeamInfo();
         teamInfo.setIdTeam(Utils.getRandomString(10));
         teamInfo.save();
-        Log.d(TAG, "dbInitFirstInstall: team: " + teamService.findTeamList().size());
+        Log.d(TAG, "dbInitFirstInstall: team: " + teamService.findTeamList().size());*/
     }
 }
 

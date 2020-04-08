@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.util.MD5Util;
+import com.example.myapplication.util.Utils;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -56,6 +57,9 @@ public class RegisterActivity extends AppCompatActivity {
         } else {
             UserInfo userInfo = new UserInfo();
             userInfo.setIdUser(username.getText().toString().trim());
+            userInfo.setNickname(username.getText().toString().trim());
+            userInfo.setRate(60);
+            userInfo.setHeadshot(Utils.imageToByte(Utils.drawableToBitmap(getResources().getDrawable(R.drawable.daily))));
             //加密密码
             String psw = md5Util.encrypt(password.getText().toString().trim());
             if (userService.doRegister(userInfo, psw)) {
