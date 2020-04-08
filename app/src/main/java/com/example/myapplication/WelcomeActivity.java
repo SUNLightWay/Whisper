@@ -84,7 +84,10 @@ public class WelcomeActivity extends AppCompatActivity {
         //用户信息
         UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null,
                 null, null, 1, Utils.imageToByte(Utils.drawableToBitmap(getResources().getDrawable(R.drawable.daily))));
+        UserInfo userInfo2 = new UserInfo("Miracle", "Miracle", "12345678912", 89, null,
+                null, null, 1, Utils.imageToByte(Utils.drawableToBitmap(getResources().getDrawable(R.drawable.daily))));
         userInfo.save();
+        userInfo2.save();
         {
             UserInfo userInfo1 = new UserInfo();
             userInfo1.setIdUser("phineas");
@@ -136,7 +139,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         String seatmateId = Utils.getRandomString(10);
         Log.d(TAG, "dbInitFirstInstall: " +
-            seatmateService.sendRequest(new SeatmateInfo(seatmateId, "phineas", "Miracle", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0))
+            seatmateService.sendRequest(new SeatmateInfo(seatmateId, "Miracle", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0))
         );
 
         Log.d(TAG, "dbInitFirstInstall: " + seatmateService.replyRequest(seatmateId, ConstUtil.SeatmateReplyType.TYPE_APPROVE));

@@ -57,4 +57,12 @@ public interface UserService {
      * @return
      */
     public Boolean updateFeedbackInfo(String problem,String details,String contact);
+
+    /**
+     * 个人评级
+     * @param score
+     * @param feelings
+     * @return
+     */
+    public Boolean updateRankingInfo(float score,String feelings);
 }

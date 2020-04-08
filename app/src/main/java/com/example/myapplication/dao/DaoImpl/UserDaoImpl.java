@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.myapplication.dao.UserDao;
 import com.example.myapplication.module.FeedbackInfo;
 import com.example.myapplication.module.LoginInfo;
+import com.example.myapplication.module.RankingInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.util.DBUtil;
 
@@ -122,6 +123,18 @@ public class UserDaoImpl implements UserDao {
         feedbackInfo.setDetails(details);
         feedbackInfo.setContact(contact);
         
+        return true;
+    }
+
+    //个人评级信息
+    @Override
+    public Boolean updateRankinginfo(float score,String feelings){
+
+        RankingInfo rankingInfo=new RankingInfo();
+
+        rankingInfo.setScore(score);
+        rankingInfo.setFeelings(feelings);
+
         return true;
     }
 }

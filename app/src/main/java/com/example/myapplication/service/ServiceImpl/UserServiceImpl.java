@@ -76,4 +76,11 @@ public class UserServiceImpl implements UserService {
     public Boolean updateFeedbackInfo(String problem,String details,String contact){
         return userDao.updateFeedbackinfo(problem,details,contact);
     }
+
+    //个人评级
+    @Override
+    public Boolean updateRankingInfo(float score,String feelings){
+        return userDao.updateRankinginfo(score,feelings);
+    }
+
 }
