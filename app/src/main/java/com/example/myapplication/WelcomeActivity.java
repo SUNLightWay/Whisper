@@ -16,6 +16,7 @@ import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.MailboxInfo;
 import com.example.myapplication.module.SeatmateInfo;
 import com.example.myapplication.module.SystemNoteInfo;
+import com.example.myapplication.module.TeamInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.MailService;
 import com.example.myapplication.service.SeatmateService;
@@ -23,6 +24,7 @@ import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.service.ServiceImpl.MailServiceImpl;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.SystemNoteServiceImpl;
+import com.example.myapplication.service.ServiceImpl.TeamServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.service.UserService;
 import com.example.myapplication.ui.find.DeskMate.DeskmateActivity;
@@ -43,6 +45,7 @@ public class WelcomeActivity extends AppCompatActivity {
     SeatmateServiceImpl seatmateService = new SeatmateServiceImpl();
     PlanListServiceImpl planListService = new PlanListServiceImpl();
     SystemNoteServiceImpl systemNoteService = new SystemNoteServiceImpl();
+    TeamServiceImpl teamService = new TeamServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +148,12 @@ public class WelcomeActivity extends AppCompatActivity {
         Log.d(TAG, "dbInitFirstInstall: " + seatmateService.replyRequest(seatmateId, ConstUtil.SeatmateReplyType.TYPE_APPROVE));
 
         Log.d(TAG, "dbInitFirstInstall: " + systemNoteService.findNoteNotRead("Miracle").size());
+
+        LitePal.deleteAll(TeamInfo.class);
+        TeamInfo teamInfo = new TeamInfo();
+        teamInfo.setIdTeam(Utils.getRandomString(10));
+        teamInfo.save();
+        Log.d(TAG, "dbInitFirstInstall: team: " + teamService.findTeamList().size());
     }
 }
 
