@@ -118,7 +118,7 @@ public class SelectPhotoActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode,resultCode,data);
+
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case TAKE_PHOTO:
@@ -162,10 +162,9 @@ public class SelectPhotoActivity extends AppCompatActivity implements View.OnCli
                         startActivity(intent1);
                     }
                     break;
-
-
             }
         }
+        super.onActivityResult(requestCode,resultCode,data);
 
     }
 

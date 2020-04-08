@@ -115,7 +115,7 @@ public class ScheduleChartActivity extends ScheduleChartBaseActivity {
             Log.d(TAG, "onMonthChange: hour:" + hour + "/minute" + minute);
 
             WeekViewEvent event = new WeekViewEvent(1, getEventString(plan, startTime, endTime ), startTime, endTime);
-            event.setColor(colors.get(counter % 4));
+            event.setColor(getResources().getColor(colors.get(counter % 4)));
             if (plan.getIsPunch() == ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH){
                 event.setColor(getResources().getColor(R.color.event_color_finish));
             } else if(plan.getIsHoliday() == ConstUtil.PlanHolidayStatus.PLAN_ON_HOLIDAY){

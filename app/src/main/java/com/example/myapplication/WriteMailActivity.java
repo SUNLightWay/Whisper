@@ -70,7 +70,7 @@ public class WriteMailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //是否公开
-                if(receiver.getText().toString().equals("%")){
+                if(receiver.getText().toString().trim().equals("%")){
                     isPublic=ConstUtil.MailPublicType.TYPE_PUBLIC;
                 }else {
                     to=receiver.getText().toString();
