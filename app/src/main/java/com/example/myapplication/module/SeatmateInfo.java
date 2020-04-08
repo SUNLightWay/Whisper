@@ -15,7 +15,7 @@ public class SeatmateInfo extends LitePalSupport {
     Date startTime = null;
     Integer duration = 7;   //单位:天
     Integer status = ConstUtil.SeatmateStatus.STATUS_PROCESSING;
-    Integer processingDay = 0;  //目前处于第几天,每完成一次打卡+1，等于duration时设置为完成态
+    Integer processingDay = 1;  //目前处于第几天,每完成一次打卡+1，等于duration时设置为完成态
 
     public SeatmateInfo() {
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,8 +25,13 @@ import com.example.myapplication.FeedbackActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.ShareActivity;
+import com.example.myapplication.module.SeatmateInfo;
 import com.example.myapplication.module.UserInfo;
+import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
+import com.example.myapplication.ui.my.MyDeskMate.MyDeskMate;
+
+import java.util.List;
 
 import org.w3c.dom.Text;
 
@@ -160,5 +167,33 @@ public class MyFragment extends Fragment{
                 startActivity(intent);
             }
         });
+
+	/**
+         * 我的同桌
+         * 根据用户id查找是否有正在进行的同桌，如果存在正在进行的同桌，则进行显示正在进行的同桌
+         */
+        LinearLayout myPartner =  getActivity().findViewById(R.id.myPartner);
+        myPartner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SeatmateServiceImpl seatmateService = new SeatmateServiceImpl();
+                /*SeatmateInfo seatmateInfo = new SeatmateInfo("132","phineas","zzq",7,null,2,2);
+                seatmateInfo.save();*/
+                //判断现在是否有正在进行的同桌！！
+                List<SeatmateInfo> seatmateInfos = seatmateService.findSeatmateProcessing(idUser);
+
+              /* Log.d("hhh",Integer.toString(seatmateInfos.size())+seatmateInfos.get(0).getPerson1()+" "
+                +seatmateInfos.get(0).getPerson2()+" "+seatmateInfos.get(0).getStatus());*/
+
+                if(seatmateInfos.isEmpty()==false){
+                    Intent intent = new Intent(getActivity(), MyDeskMate.class);
+                    intent.putExtra("idUser",idUser);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getActivity(),"当前暂无正在进行的同桌，快去找个同桌吧！",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 }
