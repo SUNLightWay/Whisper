@@ -103,6 +103,9 @@
             android:name=".FeedbackActivity"
             android:label="留言反馈"
             android:theme="@style/ActivityTheme" />
+       <activity android:name=".PersonalRating"
+            android:label="个人评级"
+            android:theme="@style/ActivityTheme"/>
     </application>
 
 </manifest>

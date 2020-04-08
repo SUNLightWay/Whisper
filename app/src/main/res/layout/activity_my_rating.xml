@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/myrank1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="来给自己今天的表现打个分吧"
+        android:textSize="22dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:outlineAmbientShadowColor="@color/colorGrey"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:hint="写下今天的感受吧...."
+        android:id="@+id/edit_rating"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:text="保存"
+            android:textSize="20dp"
+            android:layout_marginLeft="65dp"
+            android:id="@+id/ratig_save"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/blue_color"
+            android:text="分享"
+            android:textSize="20dp"
+            android:id="@+id/rating_share"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

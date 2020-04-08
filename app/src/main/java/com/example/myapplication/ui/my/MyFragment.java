@@ -125,6 +125,10 @@ public class MyFragment extends Fragment{
         //反馈
         LinearLayout feedback=getActivity().findViewById(R.id.feedback);
 
+        
+        //个人评级
+        LinearLayout myRanking=getActivity().findViewById(R.id.myRanking);
+
         me_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,6 +168,14 @@ public class MyFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(), FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        myRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), PersonalRating.class);
                 startActivity(intent);
             }
         });

@@ -124,6 +124,18 @@ public class UserDaoImpl implements UserDao {
         
         return true;
     }
+
+    //个人评级信息
+    @Override
+    public Boolean updateRankinginfo(float score,String feelings){
+
+        RankingInfo rankingInfo=new RankingInfo();
+
+        rankingInfo.setScore(score);
+        rankingInfo.setFeelings(feelings);
+
+        return true;
+    }
 }
 
 
