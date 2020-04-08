@@ -1,5 +1,7 @@
 package com.example.myapplication.module;
 
+import com.example.myapplication.util.ConstUtil;
+
 import org.litepal.crud.LitePalSupport;
 
 public class UserInfo extends LitePalSupport {
@@ -11,7 +13,7 @@ public class UserInfo extends LitePalSupport {
     String idSeatmate; //同桌ID
     String idTeam;     //队伍ID
     String remark;     //备注
-    Integer isPunch;    //是否打卡
+    Integer isPunch = ConstUtil.PlanPunchStatus.PLAN_NOT_ON_PUNCH;    //是否打卡
     byte[] headshot;    //头像
 
     public UserInfo() {

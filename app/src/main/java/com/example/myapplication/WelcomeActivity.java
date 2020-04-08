@@ -76,13 +76,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void dbInitFirstInstall(){
 
-        LitePal.getDatabase();/*
+        LitePal.getDatabase();
         //登录用户
         LoginInfo loginInfo = new LoginInfo("phineas", "123456", "12345678912");
         loginInfo.save();
         LoginInfo loginInfo1 = new LoginInfo("cloud", "123456", "12345678912");
         loginInfo1.save();
-
+/*
         LitePal.deleteAll(UserInfo.class);
         //用户信息
         UserInfo userInfo = new UserInfo("phineas", "phineas", "12345678912", 89, null,
@@ -118,12 +118,20 @@ public class WelcomeActivity extends AppCompatActivity {
         //PlanListInfo plan2 = new PlanListInfo(Utils.getRandomString(10), "phineas", "1A2xhadRWW", "健身", "匀称", "体态", null, new Date(), new Date(), "告别臃肿，游历世界梦想的第一步", 0, ConstUtil.PlanType.TYPE_PERSONAL, "最无益，只怕一日曝十日寒");
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan1));
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
-
+*/
         //邮件
-        MailboxInfo mailboxInfo = new MailboxInfo(10,"phineas","Miracle",3,1,new Date(),new Date(),"test","hello? nice yo meet you",ConstUtil.MailSendStatus.REACHED);
+        MailboxInfo mailboxInfo = new MailboxInfo(10,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo.save();
-        MailboxInfo mailboxInfo1 = new MailboxInfo(11,"phineas","Miracle",3,1,new Date(),new Date(),"test","hello? nice yo meet you",ConstUtil.MailSendStatus.UNREACHED);
+        MailboxInfo mailboxInfo3 = new MailboxInfo(13,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        mailboxInfo3.save();
+        MailboxInfo mailboxInfo4 = new MailboxInfo(10,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        mailboxInfo4.save();
+        MailboxInfo mailboxInfo2 = new MailboxInfo(12,"phineas","Miracle",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        mailboxInfo2.save();
+        MailboxInfo mailboxInfo1 = new MailboxInfo(11,"phineas","Miracle",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.UNREACHED);
         mailboxInfo1.save();
+        MailboxInfo mailboxInfo5 = new MailboxInfo(10,"Miracle","%",ConstUtil.MailPublicType.TYPE_PUBLIC,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        mailboxInfo5.save();
 //        MailService mailService = new MailServiceImpl();
 //        mailService.findMailBoxList();
 
@@ -135,7 +143,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //消息
         NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
         noteInfo.save();
-
+/*
         LitePal.deleteAll(SystemNoteInfo.class);
         SystemNoteInfo systemNoteInfo = new SystemNoteInfo(Utils.getRandomString(10), "同桌邀请", "phineas", new Date(), "来自cloud的同桌申请", ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_INVITATION, ConstUtil.SysNoteRead.SYS_NOTE_NOT_ON_READ);
         systemNoteInfo.save();

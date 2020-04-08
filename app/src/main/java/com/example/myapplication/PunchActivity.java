@@ -4,8 +4,10 @@ import android.os.Bundle;
 
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.PunchInfo;
+import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
 import com.example.myapplication.service.ServiceImpl.PunchServiceImpl;
+import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.util.ConstUtil;
 import com.example.myapplication.util.Utils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.litepal.util.Const;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class PunchActivity extends AppCompatActivity {
     private PlanListServiceImpl planListService = new PlanListServiceImpl();
     private PunchServiceImpl punchService = new PunchServiceImpl();
     private String userId;
+    private UserServiceImpl userService = new UserServiceImpl();
 
     private TextView summary;
     private Spinner attitude;
@@ -75,6 +79,10 @@ public class PunchActivity extends AppCompatActivity {
                 Toast.makeText(PunchActivity.this,
                         punchService.addPunch(new PunchInfo(Utils.getRandomString(10), userId, new Date(), star, completion, summary.getText().toString())) == true ? "打卡成功": "打卡失败"
                         , Toast.LENGTH_SHORT).show();
+                UserInfo userInfo = new UserInfo();
+                userInfo.setIdUser(userId);
+                userInfo.setIsPunch(ConstUtil.PlanPunchStatus.PLAN_ON_PUNCH);
+                userService.updateUserInfo(userInfo);
                 finish();
             }
         });

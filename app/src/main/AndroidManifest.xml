@@ -14,9 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
 
-=======
         <activity android:name=".PublicMailBoxActivity"></activity>
         <activity android:name=".PunchRecordsActivity" />
         <activity
@@ -37,7 +35,6 @@
             android:name=".HelpDetailActivity"
             android:label="详情" />
         <activity android:name=".MailDetailActivity" />
->>>>>>> c33167f6061f275a2da332fb10cef6c91941786e
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -45,13 +42,9 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
 
         <activity android:name=".UpdatePlanActivity"></activity>
         <!-- 同桌start -->
-=======
-        <activity android:name=".UpdatePlanActivity" />
->>>>>>> c33167f6061f275a2da332fb10cef6c91941786e
         <activity
             android:name=".MailListActivity"
             android:label="@string/title_mail_list"
@@ -62,10 +55,7 @@
         <activity
             android:name=".ui.find.DeskMate.DeskMateFindActivity"
             android:label="寻找同桌" /> <!-- 同桌end -->
-<<<<<<< HEAD
 
-=======
->>>>>>> c33167f6061f275a2da332fb10cef6c91941786e
         <activity android:name=".DiscoveryActivity" />
         <activity
             android:name=".WriteMailActivity"
@@ -73,10 +63,7 @@
         <activity
             android:name=".PlanDetailActivity"
             android:label="计划详情" />
-<<<<<<< HEAD
 
-=======
->>>>>>> c33167f6061f275a2da332fb10cef6c91941786e
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -94,10 +81,7 @@
         <activity
             android:name=".ScheduleChartActivity"
             android:label="日程表" />
-<<<<<<< HEAD
 
-=======
->>>>>>> c33167f6061f275a2da332fb10cef6c91941786e
         <activity android:name=".ScheduleChartBaseActivity" />
         <activity
             android:name=".InformationSys"
