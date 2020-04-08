@@ -35,7 +35,7 @@
                 android:layout_marginLeft="4dp"
                 android:text="小组首页"
                 android:textColor="#fff"
-                android:textSize="23dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>
 
@@ -46,9 +46,9 @@
             android:layout_alignEnd="@id/toolbar"
             android:layout_alignRight="@id/toolbar"
             android:layout_alignBottom="@id/toolbar"
-            android:layout_marginEnd="-200dp"
-            android:layout_marginRight="-200dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="-159dp"
+            android:layout_marginRight="-159dp"
+            android:layout_marginBottom="11dp"
             android:background="@drawable/search_group" />
 
         <ImageView
@@ -58,9 +58,9 @@
             android:layout_alignEnd="@id/toolbar"
             android:layout_alignRight="@id/toolbar"
             android:layout_alignBottom="@id/toolbar"
-            android:layout_marginEnd="-250dp"
-            android:layout_marginRight="-250dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="-200dp"
+            android:layout_marginRight="-200dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/add_group" />
     </RelativeLayout>
 
@@ -75,8 +75,8 @@
         <com.youth.banner.Banner
             android:id="@+id/group_banner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp" />
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
 

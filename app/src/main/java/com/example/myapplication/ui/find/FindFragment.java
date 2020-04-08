@@ -92,7 +92,7 @@ public class FindFragment extends Fragment implements View.OnClickListener {
                 //
                 break;
             case R.id.team:
-                //
+                Utils.actionStart(getActivity(),GroupHome.class,null,userId);
                 break;
         }
     }

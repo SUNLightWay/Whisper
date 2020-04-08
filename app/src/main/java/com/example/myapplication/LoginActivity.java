@@ -112,7 +112,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     /*
-     *读取用户IdUser
+     * 读取缓存方式
+     * 读取当前登录用户的IdUser
      */
     public String getidUserUer(){
         SharedPreferences mPreference = getSharedPreferences("loginConfig", Context.MODE_PRIVATE);

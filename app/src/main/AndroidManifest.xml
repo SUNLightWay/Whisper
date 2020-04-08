@@ -38,7 +38,9 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.find.GroupHome" />
+        <activity
+            android:name=".ui.find.GroupHome"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -111,9 +113,18 @@
             android:name=".FeedbackActivity"
             android:label="留言反馈"
             android:theme="@style/ActivityTheme" />
-       <activity android:name=".PersonalRating"
+        <activity
+            android:name=".PersonalRating"
             android:label="个人评级"
-            android:theme="@style/ActivityTheme"/>
+            android:theme="@style/ActivityTheme" />
+        <!--        搜索小组-->
+        <activity
+            android:name=".ui.find.ManyGroupActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--        创建小组-->
+        <activity
+            android:name=".ui.find.CreateGroupActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -16,21 +18,77 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerClickListener;
+import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 import com.youth.banner.loader.ImageLoaderInterface;
 
+import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupHome extends AppCompatActivity implements OnBannerClickListener {
+public class GroupHome extends AppCompatActivity implements OnBannerListener {
     private Banner banner;
     private Context context;   //轮播用到的上下文
+
+    private ImageView mIv_back;
+    private ImageView mIv_search;
+    private ImageView mIv_create;
+    private ImageView mGroupHotContent, mNewActivity, mGroupRank;  //组内热帖  最新活动  组内排名
+    private LinearLayout mManyGroup,mPostGraduate; //更多
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_home);
         setBanner();
+        initView();
 
+        //返回
+        mIv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        //小组搜索
+        mIv_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroupHome.this,ManyGroupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //创建界面
+        mIv_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroupHome.this,CreateGroupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //更多小组
+        mManyGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroupHome.this,ManyGroupActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initView() {
+        mIv_back = findViewById(R.id.iv_back);
+        mIv_search = findViewById(R.id.iv_search_group);
+        mIv_create = findViewById(R.id.iv_addGroup);
+        mGroupHotContent = findViewById(R.id.iv_groupHotContent);
+        mNewActivity = findViewById(R.id.iv_newActivity);
+        mGroupRank = findViewById(R.id.iv_groupRank);
+        mManyGroup = findViewById(R.id.manyGroup);
+       // mPostGraduate = findViewById(R.id.postgraduate);
 
     }
 
@@ -41,9 +99,9 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
         context = GroupHome.this;
         banner = findViewById(R.id.group_banner);
         List imgs = new ArrayList<>();
-        imgs.add(getStringFromDrawableRes(context,R.drawable.p1));
-        imgs.add(getStringFromDrawableRes(context,R.drawable.p2));
-        imgs.add(getStringFromDrawableRes(context,R.drawable.p3));
+        imgs.add(getStringFromDrawableRes(context, R.drawable.p1));
+        imgs.add(getStringFromDrawableRes(context, R.drawable.p2));
+        imgs.add(getStringFromDrawableRes(context, R.drawable.p3));
         List img_titles = new ArrayList<>();
         img_titles.add("小组1");
         img_titles.add("小组2");
@@ -64,10 +122,10 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
         //设置是否为自动轮播，默认是“是”。
         banner.isAutoPlay(true);
         //设置指示器的位置，小点点，左中右。
-        banner.setIndicatorGravity(BannerConfig.CENTER)
+        banner.setIndicatorGravity(BannerConfig.LEFT)
                 //以上内容都可写成链式布局，这是轮播图的监听。比较重要。方法在下面。
                 //必须最后调用的方法，启动轮播图。
-                .setOnBannerClickListener(this).start();
+                .setOnBannerListener(this).start();
 
 
     }
@@ -77,7 +135,7 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
      */
     @Override
     public void OnBannerClick(int position) {
-        Toast.makeText(this, "你点击了第"+position+"图片", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "你点击了第" + position + "图片", Toast.LENGTH_SHORT).show();
     }
 
     /*
@@ -86,7 +144,7 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
     private class GroupLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
-            Glide.with(context).load((String)path).into(imageView);
+            Glide.with(context).load((String) path).into(imageView);
         }
 
     }
@@ -96,9 +154,9 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
      */
     public static String getStringFromDrawableRes(Context context, int id) {
         Resources resources = context.getResources();
-        String path = ContentResolver.SCHEME_ANDROID_RESOURCE +"://"
-                + resources.getResourcePackageName(id) +"/"
-                + resources.getResourceTypeName(id) +"/"
+        String path = ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+                + resources.getResourcePackageName(id) + "/"
+                + resources.getResourceTypeName(id) + "/"
                 + resources.getResourceEntryName(id);
         return path;
     }
@@ -115,7 +173,6 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
     /*
      * 退出界面 ，轮播结束
      */
-
     @Override
     protected void onStop() {
         super.onStop();
