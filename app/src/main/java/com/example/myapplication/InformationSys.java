@@ -16,12 +16,14 @@ import java.util.List;
 public class InformationSys extends AppCompatActivity {
     private RecyclerView recyclerView;
 
-    private String idUser = "zzq"; //始终都是这个登录人的信息
+    private String idUser; //始终都是这个登录人的信息
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informationsys);
+
+        idUser = getIntent().getStringExtra("param2");
 
         recyclerView = findViewById(R.id.recycler_view_information);
         //设置线性布局管理器

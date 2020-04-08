@@ -25,6 +25,8 @@ import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.ShareActivity;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
+import com.example.myapplication.ui.my.MyDeskMate.MyDeskMate;
+import com.example.myapplication.util.Utils;
 
 import org.w3c.dom.Text;
 
@@ -118,6 +120,8 @@ public class MyFragment extends Fragment{
         //反馈
         LinearLayout feedback=getActivity().findViewById(R.id.feedback);
 
+        LinearLayout seatmate = getActivity().findViewById(R.id.myPartner);
+
         me_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,6 +162,13 @@ public class MyFragment extends Fragment{
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(), FeedbackActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        seatmate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.actionStart(getActivity(), MyDeskMate.class, null, idUser);
             }
         });
     }

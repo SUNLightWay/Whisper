@@ -15,6 +15,7 @@ import com.example.myapplication.module.NoteInfo;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.module.MailboxInfo;
 import com.example.myapplication.module.SeatmateInfo;
+import com.example.myapplication.module.SystemNoteInfo;
 import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.MailService;
 import com.example.myapplication.service.SeatmateService;
@@ -24,6 +25,7 @@ import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.SystemNoteServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.service.UserService;
+import com.example.myapplication.ui.find.DeskMate.DeskmateActivity;
 import com.example.myapplication.util.ConstUtil;
 import com.example.myapplication.util.Utils;
 
@@ -93,7 +95,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //同桌
         //SeatmateInfo seatmateInfo1 = new SeatmateInfo(Utils.getRandomString(10), "phineas", "cloud", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 0);
         LitePal.deleteAll(SeatmateInfo.class);
-        SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_PROCESSING, 1);
+        SeatmateInfo seatmateInfo2 = new SeatmateInfo(Utils.getRandomString(10), "cloud", "phineas", 7, new Date(), ConstUtil.SeatmateStatus.STATUS_WAITING_ANOTHER_RESPONSE, 1);
         seatmateInfo2.save();
 
         //seatmateService.sendRequest(seatmateInfo1);
@@ -127,6 +129,10 @@ public class WelcomeActivity extends AppCompatActivity {
         //消息
         NoteInfo noteInfo = new NoteInfo(1,new Date(),"test",Utils.getRandomString(10),"Miracle");
         noteInfo.save();
+
+        LitePal.deleteAll(SystemNoteInfo.class);
+        SystemNoteInfo systemNoteInfo = new SystemNoteInfo(Utils.getRandomString(10), "同桌邀请", "phineas", new Date(), "来自cloud的同桌申请", ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_INVITATION, ConstUtil.SysNoteRead.SYS_NOTE_NOT_ON_READ);
+        systemNoteInfo.save();
 
         String seatmateId = Utils.getRandomString(10);
         Log.d(TAG, "dbInitFirstInstall: " +

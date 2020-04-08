@@ -61,6 +61,9 @@ public class MyDeskMate extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mydeskmate);
+
+        idUser = getIntent().getStringExtra("param2");
+
         intiView();//初始化控件
         judgeDayClock();
 

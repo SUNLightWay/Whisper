@@ -66,7 +66,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener{
     LinearLayout around;
     LinearLayout punch;
 
-    String userId = "TD.Miracle";
+    String userId = "phineas";
 
     @Nullable
     @Override

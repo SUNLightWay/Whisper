@@ -3,6 +3,7 @@ package com.example.myapplication.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.solver.widgets.ConstraintTableLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.InformationSys;
@@ -18,6 +20,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.module.SeatmateInfo;
 import com.example.myapplication.module.SystemNoteInfo;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
+import com.example.myapplication.service.ServiceImpl.SystemNoteServiceImpl;
+import com.example.myapplication.util.ConstUtil;
 
 import java.util.List;
 
@@ -29,12 +33,15 @@ public class InformationSysAdapter extends RecyclerView.Adapter<InformationSysAd
 
     private Context context;
     private LayoutInflater mLayoutInflater;
+    private SystemNoteServiceImpl systemNoteService = new SystemNoteServiceImpl();
+    private final String TAG = "InformationSysAdapter";
 
     private List<SystemNoteInfo> datas;
     public InformationSysAdapter(Context context, List<SystemNoteInfo> datas){
         this.datas = datas;
         this.context = context;
         mLayoutInflater = LayoutInflater.from(context);
+
     }
     @NonNull
     @Override
@@ -51,7 +58,6 @@ public class InformationSysAdapter extends RecyclerView.Adapter<InformationSysAd
          * 当这个消息是已读的时候，点击无效果，即不能点击
          * 有bug,即每次进入消息列表都会是来自什么的打卡信息
          */
-
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,11 +66,13 @@ public class InformationSysAdapter extends RecyclerView.Adapter<InformationSysAd
                  */
                 final SeatmateServiceImpl seatmateService = new SeatmateServiceImpl();
                 final List<SeatmateInfo> seatmateInfos = seatmateService.findSeatmateNeedToResponse(datas.get(position).getTo());
-                switch (datas.get(position).getTitle()){
-                    case "同桌邀请":
+                switch (datas.get(position).getType()){
+                    case (ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_INVITATION):
                         /**
                          * 实现信息的回复
                          */
+
+                        systemNoteService.updateReadStatus(datas.get(position).getIdNote());
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle("同桌邀请");
@@ -73,10 +81,12 @@ public class InformationSysAdapter extends RecyclerView.Adapter<InformationSysAd
                         builder.setPositiveButton("同意", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                Log.d(TAG, "onClick: " + seatmateInfos.get(0).getIdSeatmate());
                                 seatmateService.replyRequest(seatmateInfos.get(0).getIdSeatmate(),TYPE_APPROVE);
 
                                 holder.textView.setClickable(false);//设置不能点击
                                 holder.textView.setText("已同意"+datas.get(position).getContent());//改变文本
+                                holder.textView.setTextColor(Color.rgb(47, 220, 33));
                                 datas.get(position).setContent("已同意"+datas.get(position).getContent());
                                 datas.get(position).setIsRead(SYS_NOTE_NOT_ON_READ);
                                 Log.d("ddddd",datas.get(position).getContent());
@@ -96,7 +106,12 @@ public class InformationSysAdapter extends RecyclerView.Adapter<InformationSysAd
                         });
                         builder.show();
                         break;
-                    case "13":
+                    case (ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_RECEIVE):
+                        systemNoteService.updateReadStatus(datas.get(position).getIdNote());
+
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                        builder1.setTitle("同桌邀请结果");
+                        builder1.setMessage(datas.get(position).getContent());
 
                         break;
                         default:

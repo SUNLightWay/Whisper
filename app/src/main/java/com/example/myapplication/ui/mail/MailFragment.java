@@ -88,9 +88,7 @@ public class MailFragment extends Fragment{
                 /**
                 *点击实现跳转，进入消息的列表,跳转成功，而且能够收到信息。
                  */
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), InformationSys.class);
-                startActivity(intent);
+                Utils.actionStart(getActivity(), InformationSys.class, null, idUser);
                 break;
             default:
                 break;
