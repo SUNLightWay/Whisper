@@ -44,5 +44,12 @@ public class MailBoxDaoImpl implements MailBoxDao {
                 .find(MailboxInfo.class);
     }
 
+    @Override
+    public List<MailboxInfo> findPublicMainList() {
+        return LitePal.select()
+                .where("ispublic = ?", String.valueOf(ConstUtil.MailPublicType.TYPE_PUBLIC))
+                .find(MailboxInfo.class);
+    }
+
 
 }

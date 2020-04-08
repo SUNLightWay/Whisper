@@ -52,5 +52,10 @@ public class MailServiceImpl implements MailService {
         return mailDao.findMailSentListByUserId(userId);
     }
 
+    @Override
+    public List<MailboxInfo> findPublicMainList() {
+        return mailDao.findPublicMainList();
+    }
+
 
 }

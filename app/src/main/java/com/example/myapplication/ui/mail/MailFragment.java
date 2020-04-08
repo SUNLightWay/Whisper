@@ -24,6 +24,7 @@ import com.example.myapplication.HelpDetailActivity;
 import com.example.myapplication.InformationSys;
 import com.example.myapplication.MailListActivity;
 import com.example.myapplication.MailListSentActivity;
+import com.example.myapplication.PublicMailBoxActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.WriteMailActivity;
 import com.example.myapplication.adapter.ChildPlanCardAdapter;
@@ -179,6 +180,15 @@ public class MailFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Utils.actionStart(getActivity(), MailListSentActivity.class, null, idUser);
+            }
+        });
+
+        ImageButton publicBox = (ImageButton)getActivity().findViewById(R.id.btStamp);
+        publicBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.actionStart(getActivity(), PublicMailBoxActivity.class, null, idUser);
+
             }
         });
     }

@@ -41,4 +41,11 @@ public interface MailBoxDao {
      * @return
      */
     public List<MailboxInfo> findMailSentListByUserId(String userId);
+
+
+    /**
+     * 获取公共邮件列表
+     * @return
+     */
+    public List<MailboxInfo> findPublicMainList();
 }

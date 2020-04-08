@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PunchRecordsActivity"></activity>
+        <activity android:name=".PublicMailBoxActivity"></activity>
+        <activity android:name=".PunchRecordsActivity" />
         <activity
             android:name=".PunchActivity"
             android:label="@string/title_activity_punch"
@@ -96,7 +97,8 @@
             android:theme="@style/ActivityTheme" />
         <activity
             android:name=".SelectPhotoActivity"
-            android:label="更换头像" />
+            android:label="更换头像"
+            android:theme="@style/Dialog.NoTitle" />
         <activity
             android:name=".FeedbackActivity"
             android:label="留言反馈"
