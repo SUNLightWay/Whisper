@@ -25,4 +25,27 @@ public interface MailBoxDao {
      * @return
      */
     public boolean sendMail(MailboxInfo mail);
+
+
+    /**
+     * 根据用户Id查询邮件列表
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailListByUserId(String userId);
+
+
+    /**
+     * 根据用户Id查询已发送的邮件
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailSentListByUserId(String userId);
+
+
+    /**
+     * 获取公共邮件列表
+     * @return
+     */
+    public List<MailboxInfo> findPublicMainList();
 }

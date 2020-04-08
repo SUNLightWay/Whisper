@@ -3,8 +3,10 @@
 
     <color name="event_color_01">#59dbe0</color>
     <color name="event_color_02">#f57f68</color>
-    <color name="event_color_03">#87d288</color>
+    <color name="event_color_03">#B698D2</color>
     <color name="event_color_04">#f8b552</color>
+    <color name="event_color_finish">#57C55C</color>
+    <color name="event_color_holiday">#CDCBCB</color>
     <color name="toolbar">#efefef</color>
     <color name="toolbar_text">#8f000000</color>
     <color name="accent">#2789e4</color>
@@ -71,4 +73,14 @@
     <color name="border_clo">#ccc</color>
     <color name="text_clo">#333</color>
     <color name="sblue">#C74DADF7</color>
+
+     <color name="bg_black">#000000</color>
+
+    <!-- 位置颜色 -->
+    <color name="line_color_blue">#3C8EAE</color>
+    <color name="bg_color_pink">#FF90A2</color>
+    <color name="bg_color_blue">#43D5FF</color>
+    <color name="bg_color_blue_light">#84B5CA</color>
+
+    <color name="grey_card">#fafafa</color>
 </resources>

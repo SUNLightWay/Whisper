@@ -60,4 +60,17 @@ public interface BulletinDao {
      * @return
      */
     public boolean updateClickNum(BulletinInfo bulletinInfo);
+
+    /**
+     * 获取最新5条公告
+     * @return
+     */
+    public List<BulletinInfo> getRecentBullets();
+
+    /**
+     * 根据类型获取说明或公告
+     * @param type
+     * @return
+     */
+    public List<BulletinInfo> getBulletsByType(Integer type);
 }

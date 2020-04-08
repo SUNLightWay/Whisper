@@ -59,5 +59,6 @@
     <string name="pt6">留言反馈</string>
     <string name="setting">设置</string>
     <string name="quit">退出登陆</string>
+    <string name="title_activity_punch">PunchActivity</string>
 
 </resources>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_20dp">
+
+        <TextView
+            android:id="@+id/plan_title_dialog"
+            android:text="高等数学"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_20dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:text="设置开始时间："
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <EditText
+                android:textColor="@color/black"
+                android:id="@+id/et_start_time_dialog"
+                android:layout_width="100dp"
+                android:background="@null"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/black"
+                android:text="设置持续时间："
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:textColor="@color/black"
+                android:id="@+id/et_duration_dialog"
+                android:layout_width="100dp"
+                android:background="@null"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:text="修改"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:id="@+id/button_confirm_dialog"
+                android:background="@drawable/button_circle_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_10dp"/>
+
+            <Button
+                android:layout_marginLeft="@dimen/space_10dp"
+                android:text="休假"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:id="@+id/apply_holiday_dialog"
+                android:background="@drawable/button_circle_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_10dp"/>
+
+            <Button
+                android:layout_marginLeft="@dimen/space_10dp"
+                android:text="打卡"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:id="@+id/punch_dialog"
+                android:backgroundTint="@color/cal_color_green"
+                android:background="@drawable/button_circle_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_10dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

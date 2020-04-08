@@ -19,10 +19,11 @@
         <!--图标按钮-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/colorWhite">
+            android:background="@color/colorWhite"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <!--写信-->
             <LinearLayout
@@ -31,10 +32,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="5dp"
-                android:layout_marginTop="@dimen/space_10dp">
+                android:layout_gravity="center">
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_envelop"
                     android:background="@drawable/background_envelop"
                     android:id="@+id/btWriteLetters"
@@ -55,15 +56,15 @@
 
             <!--邮箱-->
             <LinearLayout
+                android:layout_gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="5dp"
-                android:layout_marginTop="@dimen/space_10dp">
+                android:paddingTop="5dp">
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_postbox"
                     android:background="@drawable/background_postbox"
                     android:id="@+id/btPostbox"
@@ -84,15 +85,15 @@
 
             <!--信箱-->
             <LinearLayout
+                android:layout_gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="5dp"
-                android:layout_marginTop="@dimen/space_10dp">
+                android:paddingTop="5dp">
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_mailbox"
                     android:background="@drawable/background_mailbox"
                     android:id="@+id/ib_mail_box"
@@ -113,15 +114,15 @@
 
             <!--邮票-->
             <LinearLayout
+                android:layout_gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="5dp"
-                android:layout_marginTop="@dimen/space_10dp">
+                android:paddingTop="5dp">
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_stamp"
                     android:background="@drawable/background_stamp"
                     android:id="@+id/btStamp"
@@ -133,11 +134,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="邮票"
+                    android:text="公共信箱"
                     android:textSize="18sp"
                     android:textColor="@color/colorfont"
                     android:paddingTop="5dp"
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
 

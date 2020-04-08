@@ -8,9 +8,15 @@
 
 
     <string-array name="delayarr">
-        <item>0</item>
+        <item>2h</item>
         <item>3天</item>
         <item>7天</item>
         <item>自定义</item>
+    </string-array>
+
+    <string-array name="plan_attitude">
+        <item>满意</item>
+        <item>一般</item>
+        <item>不满意</item>
     </string-array>
 </resources>

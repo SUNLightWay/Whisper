@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +32,6 @@
                 android:layout_marginBottom="10dp"
                 android:contentDescription="@string/desc"
                 android:scaleType="fitCenter"
-                android:src="@drawable/image_my"
                 />
 
             <LinearLayout
@@ -92,8 +94,10 @@
             style="@style/wrap_layout">
             <!-- 上圆角-->
             <LinearLayout
-                android:id="@+id/preson_data"
-                style="@style/top_layout">
+                android:id="@+id/personInfo"
+                style="@style/top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -114,7 +118,8 @@
                 style="@style/bg_line"
                 android:layout_height="1dp"/>
             <!-- 无圆角-->
-            <LinearLayout style="@style/mid_layout">
+            <LinearLayout style="@style/mid_layout"
+                android:id="@+id/mySchedule">
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -193,7 +198,9 @@
 
             <LinearLayout
                 android:id="@+id/me_share"
-                style="@style/mid_layout">
+                style="@style/mid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView9"
@@ -218,7 +225,9 @@
             <!-- 下圆角-->
             <LinearLayout
                 android:id="@+id/feedback"
-                style="@style/bottom_layout">
+                style="@style/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView10"
@@ -238,10 +247,19 @@
         </LinearLayout>
 
 
+        <View
+            style="@style/bg_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+
         <!-- 全圆角-->
         <LinearLayout style="@style/wrap_layout">
 
-            <LinearLayout style="@style/single_layout">
+            <LinearLayout style="@style/single_layout"
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView11"
@@ -260,17 +278,7 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_quit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:background="?attr/colorPrimary"
-            android:text="@string/quit"
-            android:textColor="@color/white"
-            android:textSize="18sp"/>
+
 
     </LinearLayout>
 </ScrollView>

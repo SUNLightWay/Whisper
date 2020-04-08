@@ -37,4 +37,24 @@ public interface MailService {
     public boolean sendMail(Integer idMail, String from, String to, Integer isPublic, Integer isDelay , Date sendTime, Date recelveTime, String title, String content);
 
 
+    /**
+     * 根据用户ID查找邮件列表
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailListByUserId(String userId);
+
+
+    /**
+     * 根据用户Id查找已发送的邮件列表
+     * @param userId
+     * @return
+     */
+    public List<MailboxInfo> findMailSentListByUserId(String userId);
+
+    /**
+     * 获取公共邮件列表
+     * @return
+     */
+    public List<MailboxInfo> findPublicMainList();
 }

@@ -71,7 +71,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="edit_link" >
+    <style name="edit_link">
         <item name="colorControlNormal">#030202</item>
         <item name="colorControlActivated">#3AA4F3</item>
     </style>

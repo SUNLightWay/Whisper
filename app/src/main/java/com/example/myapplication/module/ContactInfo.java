@@ -5,13 +5,23 @@ public class ContactInfo {
     protected String title;
     protected Integer timeRemain;
     protected String significance;
+    protected Integer remainDays;
     protected int imgId;
 
-    public ContactInfo(String title, Integer timeRemain, String significance, int imgId) {
+    public ContactInfo(String title, Integer timeRemain, String significance, int imgId, int remainDays) {
         this.title = title;
         this.timeRemain = timeRemain;
         this.significance = significance;
         this.imgId = imgId;
+        this.remainDays = remainDays;
+    }
+
+    public Integer getRemainDays() {
+        return remainDays;
+    }
+
+    public void setRemainDays(Integer remainDays) {
+        this.remainDays = remainDays;
     }
 
     public String getTitle() {

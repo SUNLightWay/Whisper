@@ -11,7 +11,6 @@ import java.util.List;
 public class TeamDaoImpl implements TeamDao {
 
     private UserDaoImpl userDao = new UserDaoImpl();
-    private TeamDaoImpl teamDao = new TeamDaoImpl();
 
     @Override
     public Boolean addTeam(TeamInfo team) {
@@ -61,7 +60,10 @@ public class TeamDaoImpl implements TeamDao {
     public Boolean joinTeam(String userId, String teamId) {
         UserInfo user = userDao.findUserInfoByID(userId).get(0);
         user.setIdTeam(teamId);
-        TeamInfo team = teamDao.findTeamById(teamId).get(0);
+        TeamInfo team = LitePal.select()
+                .where("idteam = ?", teamId)
+                .limit(1)
+                .find(TeamInfo.class).get(0);
         team.setNumber(team.getNumber() + 1);
 
         if (user.save() && team.save())
@@ -74,7 +76,10 @@ public class TeamDaoImpl implements TeamDao {
     public Boolean exitTeam(String userId, String teamId) {
         UserInfo user = userDao.findUserInfoByID(userId).get(0);
         user.setIdTeam(null);
-        TeamInfo team = teamDao.findTeamById(teamId).get(0);
+        TeamInfo team = LitePal.select()
+                .where("idteam = ?", teamId)
+                .limit(1)
+                .find(TeamInfo.class).get(0);
         team.setNumber(team.getNumber() - 1);
 
         if (user.save() && team.save())

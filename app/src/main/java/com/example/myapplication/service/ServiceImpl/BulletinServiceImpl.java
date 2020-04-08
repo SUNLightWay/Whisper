@@ -6,6 +6,7 @@ import com.example.myapplication.dao.BulletinDao;
 import com.example.myapplication.dao.DaoImpl.BulletinDaoImpl;
 import com.example.myapplication.module.BulletinInfo;
 import com.example.myapplication.service.BulletinService;
+import com.example.myapplication.util.ConstUtil;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class BulletinServiceImpl implements BulletinService {
 
     @Override
     public List<BulletinInfo> getBulletins() {
-        return bulletinDao.getBulletins();
+        return bulletinDao.getRecentBullets();
     }
 
     @Override
@@ -50,6 +51,17 @@ public class BulletinServiceImpl implements BulletinService {
         else {
             Log.d(TAG,"取消点赞失败");
             return false;
+        }
+    }
+
+    @Override
+    public List<BulletinInfo> getBulletsByType(Integer type) {
+        if(type == ConstUtil.BulletinType.HELP || type == ConstUtil.BulletinType.ANNOUNCEMENT){
+            return bulletinDao.getBulletsByType(type);
+        }
+        else {
+            Log.d(TAG,"类型参数错误");
+            return null;
         }
     }
 }

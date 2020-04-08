@@ -52,4 +52,21 @@ public interface UserDao {
      * @return
      */
     public Boolean updateUserinfo(UserInfo userInfo);
+
+    /**
+     * 存储反馈信息
+     * @param problem
+     * @param details
+     * @param contact
+     * @return
+     */
+    public Boolean updateFeedbackinfo(String problem,String details,String contact);
+
+    /**
+     * 存储个人评级信息
+     * @param score
+     * @param feelings
+     * @return
+     */
+    public Boolean updateRankinginfo(float score,String feelings);
 }

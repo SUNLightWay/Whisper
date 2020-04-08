@@ -2,8 +2,10 @@ package com.example.myapplication.dao.DaoImpl;
 
 import com.example.myapplication.dao.MailBoxDao;
 import com.example.myapplication.module.MailboxInfo;
+import com.example.myapplication.util.ConstUtil;
 
 import org.litepal.LitePal;
+import org.litepal.util.Const;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public List<MailboxInfo> findMailById(String Id) {
         List<MailboxInfo> mailboxInfos = LitePal.select()
-                .where("id = ?", Id)
+                .where("idmail = ?", Id)
                 .limit(1)
                 .find(MailboxInfo.class);
         return mailboxInfos;
@@ -26,6 +28,27 @@ public class MailBoxDaoImpl implements MailBoxDao {
     @Override
     public boolean sendMail(MailboxInfo mail) {
         return mail.save();
+    }
+
+    @Override
+    public List<MailboxInfo> findMailListByUserId(String userId) {
+        return LitePal.select()
+                .where("to_lpcolumn = ? and status = ?", userId, String.valueOf(ConstUtil.MailSendStatus.REACHED))
+                .find(MailboxInfo.class);
+    }
+
+    @Override
+    public List<MailboxInfo> findMailSentListByUserId(String userId) {
+        return LitePal.select()
+                .where("from_lpcolumn = ?", userId)
+                .find(MailboxInfo.class);
+    }
+
+    @Override
+    public List<MailboxInfo> findPublicMainList() {
+        return LitePal.select()
+                .where("ispublic = ?", String.valueOf(ConstUtil.MailPublicType.TYPE_PUBLIC))
+                .find(MailboxInfo.class);
     }
 
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectPhotoActivity">
+    <LinearLayout
+        android:id="@+id/pop_layout_select_pic"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/text_take_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/shape_popup_top"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="拍照"
+            android:textColor="#ff006cff"
+            android:textSize="18.0sp"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@color/bg_white" />
+
+        <TextView
+            android:id="@+id/text_pick_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/shape_popup_bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="从相册"
+            android:textColor="#ff006cff"
+            android:textSize="18.0sp"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@color/bg_white" />
+
+        <TextView
+            android:id="@+id/text_cancle"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_margin="10.0dip"
+            android:background="@drawable/shape_popup"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="取消"
+            android:textColor="#ff006cff"
+            android:textSize="18.0sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</RelativeLayout>

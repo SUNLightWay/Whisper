@@ -35,7 +35,7 @@ public class DiscoveryActivity extends AppCompatActivity implements OnBannerList
      * 轮播图组件初始化
      */
     private void initView() {
-        banner = (Banner) findViewById(R.id.banner);
+        //banner = (Banner) findViewById(R.id.banner);
         //放图片地址的集合
         list_path = new ArrayList<>();
         //放标题的集合

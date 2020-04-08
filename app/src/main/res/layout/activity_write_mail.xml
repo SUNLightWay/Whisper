@@ -9,6 +9,17 @@
     android:layout_gravity="center"
     android:gravity="center">
 
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/father_card"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardBackgroundColor="@color/white">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -83,7 +94,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/subject"
-                android:textColor="@color/cal_line_grey"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"/>
@@ -99,8 +110,20 @@
             android:gravity="top"
             android:id="@+id/content"
             android:hint="输入内容..."
+            android:textColor="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
+            android:layout_height="300dp"/>
 
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:layout_marginTop="@dimen/space_10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:background="@drawable/button_circle_shape"
+        android:text="发送"
+        android:id="@+id/bt_save"/>
 </LinearLayout>

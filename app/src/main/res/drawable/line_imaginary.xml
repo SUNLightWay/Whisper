@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line" >
+    <!--<stroke-->
+    <!--android:width="4px"     虚线的高度-->
+    <!--android:color="@android:color/white"-->
+    <!--android:dashGap="5dp"    虚线之间的间隔-->
+    <!--android:dashWidth="10dp"  每个虚线的宽度/>-->
+    <stroke
+        android:dashGap="5dp"
+        android:dashWidth="10dp"
+        android:width="2dp"
+        android:color="#66FF00" />
+    <!-- 虚线的高度 -->
+    <size android:height="2dp" />
+</shape>

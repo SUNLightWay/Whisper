@@ -12,8 +12,8 @@ public class PlanListServiceImpl implements PlanListService {
     private final String TAG = "PlanListServiceImpl";
 
     @Override
-    public List<PlanListInfo> findFirstLevelPlanList() {
-        return planListDao.findFirstLevelPlanList();
+    public List<PlanListInfo> findFirstLevelPlanList(String userId) {
+        return planListDao.findFirstLevelPlanList(userId);
     }
 
     @Override
@@ -44,5 +44,10 @@ public class PlanListServiceImpl implements PlanListService {
     @Override
     public List<PlanListInfo> findLastPlanList(String userId) {
         return planListDao.findLastPlanList(userId);
+    }
+
+    @Override
+    public List<PlanListInfo> findPunchedPlanList(String userId) {
+        return planListDao.findPunchedPlanList(userId);
     }
 }

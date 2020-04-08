@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,14 +23,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.IncreasePlanActivity;
 import com.example.myapplication.PlanDetailActivity;
+import com.example.myapplication.PunchActivity;
 import com.example.myapplication.ScheduleChartActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.PlanCardAdapter;
 import com.example.myapplication.module.ContactInfo;
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
+import com.example.myapplication.util.ConstUtil;
 import com.example.myapplication.util.DBUtil;
 import com.example.myapplication.util.Utils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -112,6 +117,18 @@ public class PlanFragment extends Fragment{
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.actionStart(getActivity(), PunchActivity.class, null, userId);
+            }
+        });
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         //super.onCreateOptionsMenu(menu, inflater);
         getActivity().getMenuInflater().inflate(R.menu.menu_toolbar, menu);
@@ -127,7 +144,9 @@ public class PlanFragment extends Fragment{
                 break;
             case R.id.action_increase_plan:
                 //跳转到添加计划界面
-                Utils.actionStart(getActivity(), IncreasePlanActivity.class, "-1", userId);
+                startActivityForResult(Utils.intentFactory(getActivity(), IncreasePlanActivity.class, "-1", userId), ConstUtil.RequestCode.REQUEST_CODE_INCREASE);
+
+                //Utils.actionStart(getActivity(), IncreasePlanActivity.class, "-1", userId);
                 break;
             default:
                 break;
@@ -135,12 +154,14 @@ public class PlanFragment extends Fragment{
         return super.onOptionsItemSelected(item);
     }
 
+
     public void initInfo(){
-        plans = planListService.findFirstLevelPlanList();
+        plans = planListService.findFirstLevelPlanList(userId);
         for (PlanListInfo plan:plans
              ) {
             ContactInfo card = new ContactInfo(plan.getTitle(),
-                    Utils.differentDayMillisecond(new Date(), plan.getEndTime()), plan.getSignificance(),R.drawable.bg_card_01);
+                    Utils.differentDayMillisecond(new Date(), plan.getEndTime()), plan.getSignificance(),R.drawable.bg_card_01,
+                    (int)(plan.getHourRemained() / plan.getHourPerDayAverage()));
             mList.add(card);
         }
         /*ContactInfo card1 = new ContactInfo("考研",R.drawable.bg_card_01);
@@ -149,5 +170,17 @@ public class PlanFragment extends Fragment{
         mList.add(card2);
         ContactInfo card3 = new ContactInfo("先占个位",R.drawable.bg_card_03);
         mList.add(card3);*/
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (resultCode){
+            case ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH:
+                Intent intent = getActivity().getIntent();
+                getActivity().finish();
+                startActivity(intent);
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

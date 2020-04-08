@@ -17,25 +17,44 @@
         <ImageView
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
-            android:background = "@drawable/welcome1"/>
+            android:background = "@drawable/bg_welcome"/>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:padding="@dimen/space_10dp">
         <TextView
             android:id="@+id/info_text"
-            android:text="贵有恒,何必三更眠五更起。"
-            android:textColor="@color/black"
+            android:text="贵 有 恒 , 何 必 三 更 眠 五 更 起 。"
+            android:textColor="@color/white"
             android:textSize="16sp"
-            android:gravity="center"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/space_20dp"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="wrap_content" />
 
         <TextView
+            android:text="最 无 益 ， 只 怕 一 日 曝十 日 寒 "
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/space_20dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="@color/white"
             android:text="轻语\t"
             android:textSize="22sp"
+            android:layout_marginTop="@dimen/space_20dp"
             android:layout_gravity="bottom|right"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

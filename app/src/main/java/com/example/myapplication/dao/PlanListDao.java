@@ -11,7 +11,7 @@ public interface PlanListDao {
      * 查询第一级计划
      * @return
      */
-    public List<PlanListInfo> findFirstLevelPlanList();
+    public List<PlanListInfo> findFirstLevelPlanList(String userId);
 
 
     /**
@@ -59,4 +59,12 @@ public interface PlanListDao {
      * @return
      */
     public List<PlanListInfo> findLastPlanList(String userId);
+
+
+    /**
+     * 查询已经打卡的计划列表
+     * @param userId
+     * @return
+     */
+    public List<PlanListInfo> findPunchedPlanList(String userId);
 }

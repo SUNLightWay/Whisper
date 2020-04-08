@@ -80,4 +80,14 @@ public class BulletinDaoImpl implements BulletinDao {
         bulletinInfo.setClickNum(bulletinInfo.getClickNum() + 1);
         return bulletinInfo.save();
     }
+
+    @Override
+    public List<BulletinInfo> getRecentBullets() {
+        return LitePal.limit(5).order("time desc").find(BulletinInfo.class);
+    }
+
+    @Override
+    public List<BulletinInfo> getBulletsByType(Integer type) {
+        return LitePal.order("time desc").where("type = ?",type.toString()).find(BulletinInfo.class);
+    }
 }

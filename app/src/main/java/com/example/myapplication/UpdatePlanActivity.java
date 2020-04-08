@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.module.PlanListInfo;
 import com.example.myapplication.service.ServiceImpl.PlanListServiceImpl;
@@ -33,6 +36,18 @@ public class UpdatePlanActivity extends AppCompatActivity {
         planId = getIntent().getStringExtra("param1");
 
         initEditText();
+
+        CheckBox isLast = (CheckBox)findViewById(R.id.cb_is_last1);
+        isLast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    plan.setIsLast(1);
+                }else{
+                    plan.setIsLast(0);
+                }
+            }
+        });
     }
 
     @Override
@@ -48,7 +63,8 @@ public class UpdatePlanActivity extends AppCompatActivity {
             case R.id.enter_increase:
                 //完成
                 setValue();
-                planListService.updatePlanInfo(plan);
+                setResult(ConstUtil.ResponseCode.RESPONSE_CODE_REFRESH);
+                Toast.makeText(this, planListService.updatePlanInfo(plan) == true? "更新成功": "更新失败", Toast.LENGTH_SHORT).show();
                 this.finish();
                 break;
             default:
@@ -60,42 +76,42 @@ public class UpdatePlanActivity extends AppCompatActivity {
     private void initEditText(){
         plan = planListService.findPlanById(planId);
 
-        ((EditText)findViewById(R.id.et_time_n)).setText(String.valueOf(plan.getHourPerTime()));
-        ((EditText)findViewById(R.id.et_time_needed)).setText(String.valueOf(plan.getSumHourNeeded()));
-        ((EditText)findViewById(R.id.et_start_time)).setText(Utils.sdf.format(plan.getStartTime()));
-        ((EditText)findViewById(R.id.et_end_time)).setText(Utils.sdf.format(plan.getEndTime()));
-        ((EditText)findViewById(R.id.et_detail)).setText(plan.getDetail());
-        ((EditText)findViewById(R.id.et_goal_type)).setText(plan.getGoalType());
-        ((EditText)findViewById(R.id.et_goal)).setText(plan.getGoal());
-        ((EditText)findViewById(R.id.et_significance)).setText(plan.getSignificance());
-        ((EditText)findViewById(R.id.et_blessing)).setText(plan.getBless());
-        ((EditText)findViewById(R.id.et_title)).setText(plan.getTitle());
+        ((EditText)findViewById(R.id.et_time_n1)).setText(String.valueOf(plan.getHourPerTime()));
+        ((EditText)findViewById(R.id.et_time_needed1)).setText(String.valueOf(plan.getSumHourNeeded()));
+        ((EditText)findViewById(R.id.et_start_time1)).setText(Utils.sdf.format(plan.getStartTime()));
+        ((EditText)findViewById(R.id.et_end_time1)).setText(Utils.sdf.format(plan.getEndTime()));
+        ((EditText)findViewById(R.id.et_detail1)).setText(plan.getDetail());
+        ((EditText)findViewById(R.id.et_goal_type1)).setText(plan.getGoalType());
+        ((EditText)findViewById(R.id.et_goal1)).setText(plan.getGoal());
+        ((EditText)findViewById(R.id.et_significance1)).setText(plan.getSignificance());
+        ((EditText)findViewById(R.id.et_blessing1)).setText(plan.getBless());
+        ((EditText)findViewById(R.id.et_title1)).setText(plan.getTitle());
     }
 
     private void setValue(){
-        plan.setTitle(((TextView)findViewById(R.id.et_title)).getText().toString());
-        plan.setBless(((TextView)findViewById(R.id.et_blessing)).getText().toString());
-        plan.setSignificance(((TextView)findViewById(R.id.et_significance)).getText().toString());
-        plan.setGoal(((TextView)findViewById(R.id.et_goal)).getText().toString());
-        plan.setGoalType(((TextView)findViewById(R.id.et_goal_type)).getText().toString());
-        plan.setDetail(((TextView)findViewById(R.id.et_detail)).getText().toString());
+        plan.setTitle(((TextView)findViewById(R.id.et_title1)).getText().toString());
+        plan.setBless(((TextView)findViewById(R.id.et_blessing1)).getText().toString());
+        plan.setSignificance(((TextView)findViewById(R.id.et_significance1)).getText().toString());
+        plan.setGoal(((TextView)findViewById(R.id.et_goal1)).getText().toString());
+        plan.setGoalType(((TextView)findViewById(R.id.et_goal_type1)).getText().toString());
+        plan.setDetail(((TextView)findViewById(R.id.et_detail1)).getText().toString());
         try {
-            plan.setStartTime(Utils.sdf.parse(((TextView)findViewById(R.id.et_start_time)).getText().toString()));
+            plan.setStartTime(Utils.sdf.parse(((TextView)findViewById(R.id.et_start_time1)).getText().toString()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         try {
-            plan.setEndTime(Utils.sdf.parse(((TextView)findViewById(R.id.et_end_time)).getText().toString()));
+            plan.setEndTime(Utils.sdf.parse(((TextView)findViewById(R.id.et_end_time1)).getText().toString()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        plan.setSumHourNeeded(Integer.parseInt(((TextView)findViewById(R.id.et_time_needed)).getText().toString()));
+        plan.setSumHourNeeded(Integer.parseInt(((TextView)findViewById(R.id.et_time_needed1)).getText().toString()));
         plan.setCompletion(0);
-        plan.setIdPlan(Utils.getRandomString(10));
+        plan.setIdPlan(planId);
         plan.setIdUser(userId);
         Log.d(TAG, "setValue: " + plan.getIdUser());
         plan.setType(ConstUtil.PlanType.TYPE_PERSONAL);
-        plan.setHourPerTime(Float.parseFloat(((TextView)findViewById(R.id.et_time_n)).getText().toString()));
+        plan.setHourPerTime(Float.parseFloat(((TextView)findViewById(R.id.et_time_n1)).getText().toString()));
     }
 
 
