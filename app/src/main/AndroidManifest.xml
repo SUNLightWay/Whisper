@@ -45,6 +45,7 @@
 
         <activity android:name=".UpdatePlanActivity"></activity>
         <!-- 同桌start -->
+
         <activity
             android:name=".MailListActivity"
             android:label="@string/title_mail_list"

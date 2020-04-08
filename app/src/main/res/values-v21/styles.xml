@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="edit_link">
+        <item name="android:colorButtonNormal">#030202</item>
+        <item name="colorControlActivated">#3AA4F3</item>
+    </style>
+</resources>

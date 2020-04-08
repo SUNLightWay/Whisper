@@ -72,7 +72,7 @@
     </style>
 
     <style name="edit_link">
-        <item name="colorControlNormal">#030202</item>
+        <item name="colorButtonNormal">#030202</item>
         <item name="colorControlActivated">#3AA4F3</item>
     </style>
 

@@ -12,19 +12,24 @@
         android:layout_height="wrap_content"
         android:background="#303F9F">
 
-        <ImageView
+        <LinearLayout
+            android:id="@+id/back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="center"
-            app:srcCompat="@drawable/group_back" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="返回"
-            android:textColor="#fff"
-            android:textSize="22sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                app:srcCompat="@drawable/group_back" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -54,34 +59,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="小组名称" />
+            android:text="小组名称"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
 
         <EditText
+            android:id="@+id/team_Introduct"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:layout_margin="15dp"
             android:background="@drawable/team_instroduct"
             android:ellipsize="end"
             android:gravity="left"
             android:hint="小组介绍"
-            android:layout_margin="15dp"
             android:maxLines="5"
-            android:textColor="@color/black"
-            android:padding="5dp"
+            android:padding="8dp"
             android:scrollbars="none"
-            android:selectAllOnFocus="true" />
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_margin="@dimen/space_10dp">
+        android:layout_margin="@dimen/space_10dp"
+        android:gravity="center">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_createTeam"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:drawable="@drawable/btn_createteam_shape"
-            android:text="创建" />
+            android:background="@drawable/btn_createteam"
+            android:text="创    建"
+            android:textColor="#0B0A0A"
+            android:textSize="18dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

@@ -31,6 +31,7 @@ public class GroupHome extends AppCompatActivity implements OnBannerClickListene
         setContentView(R.layout.activity_group_home);
         setBanner();
 
+
     }
 
     /*

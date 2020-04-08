@@ -2,7 +2,9 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,13 +29,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageView q, weChat, sina;
     private MD5Util md5Util = new MD5Util();
     private UserServiceImpl userService = new UserServiceImpl();
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initComponet();
+        initPreference();
+    }
 
+    /*
+    * 初始化缓存对象并实例化
+     */
+    private void initPreference() {
+        preferences = getSharedPreferences("loginConfig",MODE_PRIVATE);
+        editor = preferences.edit();
     }
 
     /*
@@ -86,7 +98,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             LoginInfo loginInfo = new LoginInfo(username.getText().toString().trim(), psw, null);
             if (userService.doLogin(loginInfo)) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("username", username.getText().toString()); //传递用户名
+                //保存登录用户idUser
+                editor.putString("idUser",username.getText().toString().trim());
+                editor.commit();
+                //intent.putExtra("username", username.getText().toString()); //传递用户名
                 startActivity(intent);
                 finish();
             } else {
@@ -94,7 +109,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.e(TAG,"用户的输入:"+ psw);
             }
         }
+    }
 
+    /*
+     *读取用户IdUser
+     */
+    public String getidUserUer(){
+        SharedPreferences mPreference = getSharedPreferences("loginConfig", Context.MODE_PRIVATE);
+        String idUser = mPreference.getString("idUser","");
+        return idUser;
     }
 
 }
