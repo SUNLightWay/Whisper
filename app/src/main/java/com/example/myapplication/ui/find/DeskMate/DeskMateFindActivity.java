@@ -32,6 +32,7 @@ public class DeskMateFindActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //设置adapter
         mRecyclerView.setAdapter(new DeskMateAdapter(DeskMateFindActivity.this, getUserInfo(), idUser));
+        mRecyclerView.setAdapter(new DeskMateAdapter(this,getUserInfo(),idUser));
     }
     /**
      * 获取用户数据用于显示
