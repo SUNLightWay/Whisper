@@ -120,11 +120,11 @@ public class WelcomeActivity extends AppCompatActivity {
         //Log.d(TAG, "dbInitFirstInstall: " + planListService.addPlan(plan2));
 */
         //邮件
-        MailboxInfo mailboxInfo = new MailboxInfo(10,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        MailboxInfo mailboxInfo = new MailboxInfo(10,"Miracle","phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo.save();
-        MailboxInfo mailboxInfo3 = new MailboxInfo(13,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        MailboxInfo mailboxInfo3 = new MailboxInfo(13,"Miracle","phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo3.save();
-        MailboxInfo mailboxInfo4 = new MailboxInfo(10,"Miracle","Phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
+        MailboxInfo mailboxInfo4 = new MailboxInfo(10,"Miracle","phineas",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo4.save();
         MailboxInfo mailboxInfo2 = new MailboxInfo(12,"phineas","Miracle",0,1,new Date(),new Date(),"test","hello? nice to meet you",ConstUtil.MailSendStatus.REACHED);
         mailboxInfo2.save();

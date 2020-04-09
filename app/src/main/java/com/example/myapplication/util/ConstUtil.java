@@ -197,8 +197,8 @@ public class ConstUtil {
 
 
     public static class PlanPunchStatus{
-        public static final int PLAN_ON_PUNCH = 1; //未打卡
-        public static final int PLAN_NOT_ON_PUNCH = 2; //打卡
+        public static final int PLAN_ON_PUNCH = 1; //打卡
+        public static final int PLAN_NOT_ON_PUNCH = 2; //未打卡
     }
 
 
