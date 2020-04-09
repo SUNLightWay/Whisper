@@ -77,8 +77,7 @@ public class MyDeskMate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mydeskmate);
         //获取用户名
-        Intent intent = getIntent();
-        idUser = intent.getStringExtra("idUser");
+       idUser = getIntent().getStringExtra("param2");
         intiView();//初始化控件
         judgeDayClock();
     }
@@ -106,7 +105,7 @@ public class MyDeskMate extends AppCompatActivity {
             final UserInfo userInfo1 = userService.findUserByID(idUser);
             //获取头像,头像进行显示
             personOneHead.setImageBitmap(BitmapFactory.decodeByteArray(userInfo1.getHeadshot(),0,userInfo1.getHeadshot().length));
-            if (userInfo1.getIsPunch() == 2) { //已打卡
+            if (userInfo1.getIsPunch() == 1) { //已打卡
                 switch (seatmateInfos.get(0).getProcessingDay()) {
                     case 1:
                         dayOne_p1.setImageBitmap(BitmapFactory.decodeByteArray(userInfo1.getHeadshot(),0,userInfo1.getHeadshot().length));
@@ -156,7 +155,7 @@ public class MyDeskMate extends AppCompatActivity {
             //获取头像,头像进行显示
             personTwoHead.setImageBitmap(BitmapFactory.decodeByteArray(userInfo2.getHeadshot(),0,userInfo2.getHeadshot().length));
 
-            if (userInfo2.getIsPunch() == 2) { //已打卡
+            if (userInfo2.getIsPunch() == 1) { //已打卡
                 switch (seatmateInfos.get(0).getProcessingDay()) {
                     case 1:
                         dayOne_p2.setImageBitmap(BitmapFactory.decodeByteArray(userInfo2.getHeadshot(),0,userInfo2.getHeadshot().length));
@@ -206,7 +205,7 @@ public class MyDeskMate extends AppCompatActivity {
 
             /**
              * 当天两个中有一个未打卡，那么就按照失败处理
-             * 这时按照超过今天的24点打卡记录仍为1的情况
+             * 这时按照超过今天的24点打卡记录仍为2的情况
              */
             Calendar calendar = Calendar.getInstance();
             int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -226,8 +225,8 @@ public class MyDeskMate extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     //当您打卡了才可以提醒别人打卡
-                    if(userInfo1.getIsPunch()==2) {
-                        if (userInfo2.getIsPunch() == 2) {
+                    if(userInfo1.getIsPunch()==1) {
+                        if (userInfo2.getIsPunch() == 1) {
                             Toast.makeText(MyDeskMate.this, "您的同桌已打卡", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(MyDeskMate.this, "已发送提醒！", Toast.LENGTH_LONG).show();

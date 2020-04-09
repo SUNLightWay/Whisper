@@ -86,7 +86,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 用户登录逻辑
      */
     public void userLogin() {
-
         //输入为空的情况处理
         if (username.getText().toString().equals("")) {
             Toast.makeText(this, "账号为空", Toast.LENGTH_SHORT).show();

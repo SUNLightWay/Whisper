@@ -2,6 +2,7 @@ package com.example.myapplication.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class DeskMateAdapter extends RecyclerView.Adapter<DeskMateAdapter.DeskMateListViewHolder> {
 
-    private String idUser = "phineas";
+    private String idUser;
     private Context context;
     private LayoutInflater mLayoutInflater;
     private List<UserInfo> datas; //传过来用户列表
@@ -37,9 +38,10 @@ public class DeskMateAdapter extends RecyclerView.Adapter<DeskMateAdapter.DeskMa
     /*
     DeskMateAdapter的构造函数
      */
-    public DeskMateAdapter(Context context ,List<UserInfo> datas){
+    public DeskMateAdapter(Context context ,List<UserInfo> datas,String idUser){
         this.datas = datas;
         this.context = context;
+        this.idUser = idUser;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
@@ -51,8 +53,8 @@ public class DeskMateAdapter extends RecyclerView.Adapter<DeskMateAdapter.DeskMa
     //数据绑定
     @Override
     public void onBindViewHolder(@NonNull final DeskMateListViewHolder holder, final int position) {
-        //头像数据库不存在，所以固定头像内容
-        holder.imageView.setImageResource(R.drawable.deskone);
+        //头像
+       holder.imageView.setImageBitmap(BitmapFactory.decodeByteArray(datas.get(position).getHeadshot(),0,datas.get(position).getHeadshot().length));
         //显示用户id
         holder.nickname.setText(datas.get(position).getIdUser());
         Log.d("aaaa","onBindViewHolder————"+datas.get(position).getIdUser()+"  "+position+" "+datas.size());
