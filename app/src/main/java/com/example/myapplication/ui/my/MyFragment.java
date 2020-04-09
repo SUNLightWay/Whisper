@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.EditPersonActivity;
 import com.example.myapplication.FeedbackActivity;
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.PersonalRating;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
@@ -31,6 +32,7 @@ import com.example.myapplication.module.UserInfo;
 import com.example.myapplication.service.ServiceImpl.SeatmateServiceImpl;
 import com.example.myapplication.service.ServiceImpl.UserServiceImpl;
 import com.example.myapplication.ui.my.MyDeskMate.MyDeskMate;
+import com.example.myapplication.util.Utils;
 
 import java.util.List;
 
@@ -44,10 +46,7 @@ public class MyFragment extends Fragment{
     private ImageView image_head;//头像
     private TextView t_name;//昵称
     private TextView t_number;//账号
-
-    //暂时未与登录模块连接起来，故先假定是这个用户
-
-    public String idUser="phineas";
+    public String idUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,51 +74,46 @@ public class MyFragment extends Fragment{
 
         myViewModel= ViewModelProviders.of(this).get(MyViewModel.class);
         View root = inflater.inflate(R.layout.fragment_my, container, false);   //获取fragment的layout
-
         view=root;
-
+        /**
+         * 获取当前登录的用户
+         */
+        Intent intent = getActivity().getIntent();
+        idUser = intent.getStringExtra("username");
         return root;
     }
-
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        image_head=(ImageView)view.findViewById(R.id.images_head);
-        t_name=(TextView)view.findViewById(R.id.t_name);
-        t_number=(TextView)view.findViewById(R.id.t_number);
+        if(idUser == null){
+            super.onViewCreated(view, savedInstanceState);
+            Toast.makeText(getActivity(),"请先登录！",Toast.LENGTH_LONG).show();
+            Utils.actionStart(getActivity(), LoginActivity.class,null,null);
+            return;
+        }else{
+            image_head=(ImageView)view.findViewById(R.id.images_head);
+            t_name=(TextView)view.findViewById(R.id.t_name);
+            t_number=(TextView)view.findViewById(R.id.t_number);
 
-        UserServiceImpl userService=new UserServiceImpl();
-        UserInfo userInfo=userService.findUserByID(idUser);
-
-        if (userInfo == null){
+            UserServiceImpl userService=new UserServiceImpl();
+            UserInfo userInfo=userService.findUserByID(idUser);
+            image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
+            //渲染昵称
+            t_name.setText(userInfo.getNickname());
+            //渲染账号
+            t_number.setText(userInfo.getIdUser());
             super.onViewCreated(view, savedInstanceState);
             initView();//初始化视图
-            return;
         }
-        //渲染头像
-        //image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
-        image_head.setImageBitmap(BitmapFactory.decodeByteArray(userInfo.getHeadshot(),0,userInfo.getHeadshot().length));
 
-        //渲染昵称
-        t_name.setText(userInfo.getNickname());
-
-        //渲染账号
-        t_number.setText(userInfo.getIdUser());
-
-        super.onViewCreated(view, savedInstanceState);
-
-        initView();//初始化视图
     }
 
     public void initView(){
         //分享
         LinearLayout me_share=getActivity().findViewById(R.id.me_share);
-
         //设置
         LinearLayout settings=getActivity().findViewById(R.id.settings);
-
         //编辑个人资料
         LinearLayout personInfo=getActivity().findViewById(R.id.personInfo);
 
@@ -193,14 +187,8 @@ public class MyFragment extends Fragment{
                 seatmateInfo.save();*/
                 //判断现在是否有正在进行的同桌！！
                 List<SeatmateInfo> seatmateInfos = seatmateService.findSeatmateProcessing(idUser);
-
-              /* Log.d("hhh",Integer.toString(seatmateInfos.size())+seatmateInfos.get(0).getPerson1()+" "
-                +seatmateInfos.get(0).getPerson2()+" "+seatmateInfos.get(0).getStatus());*/
-
                 if(seatmateInfos.isEmpty()==false){
-                    Intent intent = new Intent(getActivity(), MyDeskMate.class);
-                    intent.putExtra("idUser",idUser);
-                    startActivity(intent);
+                    Utils.actionStart(getActivity(),MyDeskMate.class,null,idUser);
                 }else{
                     Toast.makeText(getActivity(),"当前暂无正在进行的同桌，快去找个同桌吧！",Toast.LENGTH_LONG).show();
                 }
