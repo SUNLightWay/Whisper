@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.myapplication.R;
 import com.example.myapplication.module.TeamInfo;
 import com.example.myapplication.service.ServiceImpl.TeamServiceImpl;
+import com.example.myapplication.ui.find.dialog.CustomerDialog;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -20,13 +21,14 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
 
     private LinearLayout mBack;
     private CircleImageView mClTeamPhoto;
-    private EditText mTeamTitle,mTeamInfo;
+    private EditText mTeamTitle, mTeamInfo;
     private Button mCreateGroup;
 
-    private TeamServiceImpl mteamService;
+    private TeamServiceImpl mteamService = new TeamServiceImpl();
     private TeamInfo teamInfo;
 
     private SharedPreferences mPreferences;
+    private CustomerDialog customerDialog;
 
     private String idUser = "phineas";
 
@@ -51,7 +53,7 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.back:
                 finish();
                 break;
@@ -68,12 +70,29 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
         //mPreferences = getSharedPreferences("loginConfig")
         String title = mTeamTitle.getText().toString();
         String info = mTeamInfo.getText().toString();
-        teamInfo = mteamService.createTeam(idUser,title,info,1);
-        if (teamInfo == null){
-            Toast.makeText(this, "创建失败！", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, "创建成功！", Toast.LENGTH_SHORT).show();
+        teamInfo = mteamService.createTeam(idUser, title, info, 1);
+        if (teamInfo == null) {
+            customerDialog = new CustomerDialog(this, "温馨提示", "创建失败", "再来一次？", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    customerDialog.dismiss();
+                }
+
+            });
+            customerDialog.setCanotBackPress();
+            customerDialog.setCanceledOnTouchOutside(false);
+            customerDialog.show();
+        } else {
+            customerDialog = new CustomerDialog(this, "温馨提示", "创建成功", "确定", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    customerDialog.dismiss();
+                }
+
+            });
+            customerDialog.setCanotBackPress();
+            customerDialog.setCanceledOnTouchOutside(false);
+            customerDialog.show();
         }
     }
 }

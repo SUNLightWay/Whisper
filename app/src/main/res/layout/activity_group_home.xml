@@ -223,76 +223,84 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/group_name1"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:layout_marginRight="30dp"
-                android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/clv_group1"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/image_my" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="小组名称"
-                    android:textColor="#CD000000"
-                    android:textSize="18dp" />
-            </LinearLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:id="@+id/group_name2"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:orientation="vertical">
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/group_name1"-->
+            <!--                android:layout_width="100dp"-->
+            <!--                android:layout_height="120dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:layout_marginRight="30dp"-->
+            <!--                android:orientation="vertical">-->
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/clv_group2"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/image_my" />
+            <!--                <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                    android:id="@+id/clv_group1"-->
+            <!--                    android:layout_width="85dp"-->
+            <!--                    android:layout_height="85dp"-->
+            <!--                    android:layout_centerInParent="true"-->
+            <!--                    android:src="@drawable/image_my" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="小组名称"
-                    android:textColor="#CD000000"
-                    android:textSize="18dp" />
-            </LinearLayout>
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="小组名称"-->
+            <!--                    android:textColor="#CD000000"-->
+            <!--                    android:textSize="18dp" />-->
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/group_name3"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="30dp"
-                android:gravity="center"
-                android:orientation="vertical">
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/group_name2"-->
+            <!--                android:layout_width="100dp"-->
+            <!--                android:layout_height="120dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:orientation="vertical">-->
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/clv_group3"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/image_my" />
+            <!--                <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                    android:id="@+id/clv_group2"-->
+            <!--                    android:layout_width="85dp"-->
+            <!--                    android:layout_height="85dp"-->
+            <!--                    android:layout_centerInParent="true"-->
+            <!--                    android:src="@drawable/image_my" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="小组名称"
-                    android:textColor="#CD000000"
-                    android:textSize="18dp" />
-            </LinearLayout>
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="小组名称"-->
+            <!--                    android:textColor="#CD000000"-->
+            <!--                    android:textSize="18dp" />-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/group_name3"-->
+            <!--                android:layout_width="100dp"-->
+            <!--                android:layout_height="120dp"-->
+            <!--                android:layout_marginLeft="30dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                    android:id="@+id/clv_group3"-->
+            <!--                    android:layout_width="85dp"-->
+            <!--                    android:layout_height="85dp"-->
+            <!--                    android:layout_centerInParent="true"-->
+            <!--                    android:src="@drawable/image_my" />-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="小组名称"-->
+            <!--                    android:textColor="#CD000000"-->
+            <!--                    android:textSize="18dp" />-->
+            <!--            </LinearLayout>-->
         </LinearLayout>
 
     </LinearLayout>
@@ -367,8 +375,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:gravity="center">
 
             <LinearLayout
                 android:id="@+id/postgraduate_name1"
@@ -421,8 +429,8 @@
                 android:id="@+id/postgraduate_name3"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
-                android:gravity="center"
                 android:layout_marginLeft="30dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView

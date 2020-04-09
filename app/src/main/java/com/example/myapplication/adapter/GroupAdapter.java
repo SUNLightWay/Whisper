@@ -3,23 +3,29 @@ package com.example.myapplication.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.module.TeamInfo;
+import com.example.myapplication.service.ServiceImpl.TeamServiceImpl;
 import com.example.myapplication.ui.find.TeamReceive;
+import com.example.myapplication.ui.find.dialog.CustomerDialog;
 
 import java.util.List;
 
 
 public class GroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final String TAG =  "GroupAdapter";
 
     Context context;
     List<TeamInfo> data;
@@ -27,7 +33,12 @@ public class GroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private final int N_TYPE = 0;
     private final int F_TYPE = 1;
     private Boolean isfootView = true;
-    private int MAX_NUM = 12; //预加载的数据 一共15条
+    private int MAX_NUM = 6; //预加载的数据 一共6条
+
+    private TeamServiceImpl teamService = new TeamServiceImpl();
+    private CustomerDialog customerDialog;
+
+    private String idUser = "phineas"; //暂定用户
 
     public GroupAdapter(Context context, List<TeamInfo> data) {
         this.context = context;
@@ -56,23 +67,41 @@ public class GroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    MAX_NUM += 8;  //每次加载出8条数据
+                    MAX_NUM += 6;  //每次加载出8条数据
                     notifyDataSetChanged();
                 }
             }, 4000);
         } else {
             //activity_team_receive的内容
             final Recycle_ViewHolder recycle_viewHolder = (Recycle_ViewHolder) holder;
-            TeamInfo teamInfo = data.get(position);
+            final TeamInfo teamInfo = data.get(position);
             recycle_viewHolder.title.setText(teamInfo.getTeamTitle());
             recycle_viewHolder.info.setText(teamInfo.getTeamInfo());
+            //加入按钮
+            recycle_viewHolder.enjoy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (teamService.joinTeam(idUser, teamInfo.getIdTeam())) {
+                        customerDialog = new CustomerDialog(context,"温馨提示", "加入成功", "确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                customerDialog.dismiss();
+                                Log.e(TAG,"判断加入是否成功");
+                            }
+                        });
+                        customerDialog.setCanotBackPress();
+                        customerDialog.setCanceledOnTouchOutside(false);
+                        customerDialog.show();
+                    }
+                }
+            });
             recycle_viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //查看小组信息
                     int i = recycle_viewHolder.getAdapterPosition();
                     Intent intent = new Intent(context, TeamReceive.class);
-                    intent.putExtra("id",data.get(i).getIdTeam());
+                    intent.putExtra("id", data.get(i).getIdTeam());
                     context.startActivity(intent);
                 }
             });
@@ -90,7 +119,10 @@ public class GroupAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (data.size() < MAX_NUM) {
+            return data.size();
+        }
+        return MAX_NUM;
     }
 
     private class Recycle_ViewHolder extends RecyclerView.ViewHolder {
