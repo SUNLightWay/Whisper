@@ -1,12 +1,15 @@
 package com.example.myapplication.ui.find;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +17,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.adapter.NewTeamAdapter;
+import com.example.myapplication.module.TeamInfo;
+import com.example.myapplication.service.ServiceImpl.TeamServiceImpl;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -27,6 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupHome extends AppCompatActivity implements OnBannerListener {
+
+    private  final String TAG = "GroupHome";
     private Banner banner;
     private Context context;   //轮播用到的上下文
 
@@ -36,6 +44,12 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
     private ImageView mGroupHotContent, mNewActivity, mGroupRank;  //组内热帖  最新活动  组内排名
     private LinearLayout mManyGroup,mPostGraduate; //更多
 
+    private List<TeamInfo> data;
+    private TeamServiceImpl teamService = new TeamServiceImpl();
+
+    private RecyclerView recyclerView;
+    private NewTeamAdapter newTeamAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +57,9 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
         setContentView(R.layout.activity_group_home);
         setBanner();
         initView();
+
+        ///加载最新成立的小组
+        loadNewTeam();
 
         //返回
         mIv_back.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +78,7 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
             }
         });
 
-        //创建界面
+        //创建小组
         mIv_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +95,25 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
                 startActivity(intent);
             }
         });
+
+
+    }
+
+    private void loadNewTeam() {
+        data = teamService.findTeamList();
+        Log.e(TAG,"打印列表数据"+data);
+        if (data == null){
+            Toast.makeText(context, "获取数据失败", Toast.LENGTH_SHORT).show();
+        }else{
+            newTeamAdapter = new NewTeamAdapter(context,data);
+            //recyclerView横向显示数据
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            recyclerView.setLayoutManager(linearLayoutManager);
+           // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+            recyclerView.setAdapter(newTeamAdapter);
+        }
+
     }
 
     private void initView() {
@@ -89,6 +125,8 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
         mGroupRank = findViewById(R.id.iv_groupRank);
         mManyGroup = findViewById(R.id.manyGroup);
        // mPostGraduate = findViewById(R.id.postgraduate);
+
+        recyclerView = findViewById(R.id.rv);
 
     }
 

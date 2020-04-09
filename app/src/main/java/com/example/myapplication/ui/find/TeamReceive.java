@@ -6,8 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,6 +44,7 @@ public class TeamReceive extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_receive);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         initView();
 
         initData();
@@ -57,10 +61,30 @@ public class TeamReceive extends AppCompatActivity {
         enjoy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (teamService.joinTeam(idUser,teamID)){
+                if (teamService.joinTeam(idUser, teamID)) {
                     Toast.makeText(TeamReceive.this, "加入成功", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     Toast.makeText(TeamReceive.this, "加入失败", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //小组简介文字的展开和伸缩
+        info.setOnClickListener(new View.OnClickListener() {
+
+            Boolean flag = true;
+
+            @Override
+            public void onClick(View v) {
+                if (flag){
+                    flag = false;
+                    info.setEllipsize(null); //展开
+                    info.setSingleLine(false);
+                    info.setMovementMethod(ScrollingMovementMethod.getInstance());
+                }
+                else {
+                    flag = true;
+                    info.setEllipsize(TextUtils.TruncateAt.END); //收缩
                 }
             }
         });
@@ -70,7 +94,7 @@ public class TeamReceive extends AppCompatActivity {
      * 获取当前登录用户的idUser
      */
    /* public String getIdUser() {
-        mPreference = getSharedPreferences("loginCOnfig", Context.MODE_PRIVATE);
+        mPreference = getSharedPreferences("loginConfig", Context.MODE_PRIVATE);
         id = mPreference.getString("idUser", "");
         if (id != null){
             return id;
@@ -94,7 +118,7 @@ public class TeamReceive extends AppCompatActivity {
         } else {
             title.setText(teamInfo.getTeamTitle());
             info.setText(teamInfo.getTeamInfo());
-            Log.e(TAG,"小组数据列表"+teamInfo.getTeamTitle()+"\t"+teamInfo.getTeamInfo());
+            Log.e(TAG, "小组数据列表" + teamInfo.getTeamTitle() + "\t" + teamInfo.getTeamInfo());
         }
     }
 

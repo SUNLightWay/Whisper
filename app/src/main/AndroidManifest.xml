@@ -124,8 +124,10 @@
         <!--        创建小组-->
         <activity
             android:name=".ui.find.CreateGroupActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.find.TeamReceive" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ui.find.TeamReceive"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
