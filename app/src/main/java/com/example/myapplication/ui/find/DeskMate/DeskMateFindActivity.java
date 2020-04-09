@@ -20,10 +20,12 @@ public class DeskMateFindActivity extends AppCompatActivity {
     private SearchView search_deskMate;       //搜索功能暂未实现。
     private List<UserInfo> users;
     private RecyclerView mRecyclerView;
+    private String idUser;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_desk_mate);
+         idUser = getIntent().getStringExtra("param2");
         //获取RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
         //设置线性布局管理器
