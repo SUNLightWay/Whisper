@@ -93,16 +93,10 @@ public class ManyGroupActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void refresh() {
-        List<TeamInfo> mData1 = mTeamService.findTeamList();
-        if (keyword != null && !keyword.equals("")){
-            for (TeamInfo team: mData1
-            ) {
-                if (team.getTeamTitle().indexOf(keyword) != -1)
-                    mData.add(team);
-            }
-        }else{
-            mData.addAll(mData1);
-        }
+        if (keyword == null || keyword.equals(""))
+            mData = mTeamService.findTeamList();
+        else
+            mData = mTeamService.findTeamListByKeyword(keyword);
 
         Log.e(TAG,"小组列表："+mData);
         mSwipeRefreshLayout.setRefreshing(false);

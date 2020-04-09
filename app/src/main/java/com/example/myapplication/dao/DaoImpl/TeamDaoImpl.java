@@ -87,4 +87,11 @@ public class TeamDaoImpl implements TeamDao {
         else
             return false;
     }
+
+    @Override
+    public List<TeamInfo> findTeamListByKeyword(String keyword) {
+        return LitePal.select()
+                .where("teamtitle like ?", "%" + keyword + "%")
+                .find(TeamInfo.class);
+    }
 }

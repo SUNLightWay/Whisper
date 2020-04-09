@@ -50,4 +50,11 @@ public interface TeamDao {
      * @return
      */
     public Boolean exitTeam(String userId, String teamId);
+
+    /**
+     * 根据关键词搜索
+     * @param keyword
+     * @return
+     */
+    public List<TeamInfo> findTeamListByKeyword(String keyword);
 }

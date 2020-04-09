@@ -54,4 +54,11 @@ public interface TeamService {
      */
     public List<TeamInfo> findTeamList();
 
+    /**
+     * 根据关键词搜索
+     * @param keyword
+     * @return
+     */
+    public List<TeamInfo> findTeamListByKeyword(String keyword);
+
 }

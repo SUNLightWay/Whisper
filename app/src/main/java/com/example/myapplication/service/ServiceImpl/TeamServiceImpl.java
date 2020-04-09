@@ -65,5 +65,10 @@ public class TeamServiceImpl implements TeamService {
         return teamDao.findTeamList();
     }
 
+    @Override
+    public List<TeamInfo> findTeamListByKeyword(String keyword) {
+        return teamDao.findTeamListByKeyword(keyword);
+    }
+
 
 }
