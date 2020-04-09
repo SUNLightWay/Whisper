@@ -138,8 +138,8 @@ public class GroupHome extends AppCompatActivity implements OnBannerListener {
         banner = findViewById(R.id.group_banner);
         List imgs = new ArrayList<>();
         imgs.add(getStringFromDrawableRes(context, R.drawable.p1));
-        imgs.add(getStringFromDrawableRes(context, R.drawable.p2));
-        imgs.add(getStringFromDrawableRes(context, R.drawable.p3));
+        imgs.add(getStringFromDrawableRes(context, R.drawable.p8));
+        imgs.add(getStringFromDrawableRes(context, R.drawable.p9));
         List img_titles = new ArrayList<>();
         img_titles.add("小组1");
         img_titles.add("小组2");
