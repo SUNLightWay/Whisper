@@ -56,10 +56,11 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/team_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:text="小组名称"
+            android:hint="小组名称"
+            android:textColor="#E4000000"
             android:textStyle="bold"
             android:textSize="18dp"/>
 

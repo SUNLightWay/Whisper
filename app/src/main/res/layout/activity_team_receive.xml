@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="返回"
                 android:textColor="#fff"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -60,9 +60,9 @@
             android:id="@+id/tean_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:text="小组名称"
+            android:hint="小组名称"
             android:textSize="@dimen/space_20dp"
+            android:textColor="#DD000000"
             android:textStyle="bold" />
 
         <TextView
@@ -74,6 +74,7 @@
             android:ellipsize="end"
             android:gravity="left"
             android:hint="小组介绍"
+            android:textSize="20sp"
             android:maxLines="5"
             android:padding="5dp"
             android:scrollbars="none"

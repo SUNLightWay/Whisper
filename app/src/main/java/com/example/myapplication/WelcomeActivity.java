@@ -78,10 +78,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         LitePal.getDatabase();
         //登录用户
+        /*
         LoginInfo loginInfo = new LoginInfo("phineas", "123456", "12345678912");
         loginInfo.save();
         LoginInfo loginInfo1 = new LoginInfo("cloud", "123456", "12345678912");
-        loginInfo1.save();
+        loginInfo1.save();*/
 /*
         LitePal.deleteAll(UserInfo.class);
         //用户信息

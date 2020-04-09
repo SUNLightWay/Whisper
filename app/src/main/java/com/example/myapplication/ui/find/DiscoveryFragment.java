@@ -155,7 +155,7 @@ public class DiscoveryFragment extends Fragment implements View.OnClickListener{
                 Utils.actionStart(getActivity(), PunchActivity.class,null,userId);
                 break;
             case R.id.team:
-                //Utils.actionStart(getActivity(), TeamActivity.class,null,userId);
+                Utils.actionStart(getActivity(), GroupHome.class,null,userId);
                 break;
         }
     }

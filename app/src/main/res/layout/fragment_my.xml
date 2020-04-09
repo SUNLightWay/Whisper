@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,14 +30,12 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:contentDescription="@string/desc"
-                android:scaleType="fitCenter"
-                />
+                android:scaleType="fitCenter" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -53,7 +50,7 @@
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="@string/p_name"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/t_name"
@@ -61,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -75,7 +72,7 @@
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="@string/id"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/t_number"
@@ -83,15 +80,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/t_person"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/wrap_layout">
+        <LinearLayout style="@style/wrap_layout">
             <!-- 上圆角-->
             <LinearLayout
                 android:id="@+id/personInfo"
@@ -103,43 +99,45 @@
                     android:id="@+id/imageView2"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/tab_menu_home"/>
+                    android:src="@drawable/tab_menu_home" />
 
                 <TextView
                     style="@style/usertext"
-                    android:text="@string/pt1"/>
+                    android:text="@string/pt1" />
 
-                <ImageView style="@style/img_arrow"
-                    android:contentDescription="@string/desc"/>
+                <ImageView
+                    style="@style/img_arrow"
+                    android:contentDescription="@string/desc" />
             </LinearLayout>
 
             <!-- 分割线 -->
             <View
                 style="@style/bg_line"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp" />
             <!-- 无圆角-->
-            <LinearLayout style="@style/mid_layout"
-                android:id="@+id/mySchedule">
+            <LinearLayout
+                android:id="@+id/mySchedule"
+                style="@style/mid_layout">
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_agenda"
-                    />
+                    android:src="@android:drawable/ic_menu_agenda" />
 
                 <TextView
                     style="@style/usertext"
-                    android:text="@string/pt2"/>
+                    android:text="@string/pt2" />
 
-                <ImageView style="@style/img_arrow"
-                    android:contentDescription="@string/desc"/>
+                <ImageView
+                    style="@style/img_arrow"
+                    android:contentDescription="@string/desc" />
             </LinearLayout>
 
             <!-- 分割线 -->
             <View
                 style="@style/bg_line"
-                android:layout_height="1dp"/>     <!-- 分割线 -->
+                android:layout_height="1dp" />     <!-- 分割线 -->
 
             <!-- 无圆角-->
             <LinearLayout
@@ -166,7 +164,7 @@
             <View
                 style="@style/bg_line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp" />
 
             <LinearLayout
                 android:id="@+id/myPartner"
@@ -194,7 +192,7 @@
                 android:id="@+id/view9"
                 style="@style/bg_line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp" />
 
             <LinearLayout
                 android:id="@+id/me_share"
@@ -221,7 +219,7 @@
 
             <View
                 style="@style/bg_line"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp" />
             <!-- 下圆角-->
             <LinearLayout
                 android:id="@+id/feedback"
@@ -250,14 +248,15 @@
         <View
             style="@style/bg_line"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp" />
 
 
         <!-- 全圆角-->
         <LinearLayout style="@style/wrap_layout">
 
-            <LinearLayout style="@style/single_layout"
+            <LinearLayout
                 android:id="@+id/settings"
+                style="@style/single_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -265,19 +264,18 @@
                     android:id="@+id/imageView11"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_manage"
-                    />
+                    android:src="@android:drawable/ic_menu_manage" />
 
                 <TextView
                     style="@style/usertext"
-                    android:text="@string/setting"/>
+                    android:text="@string/setting" />
 
-                <ImageView style="@style/img_arrow"
-                    android:contentDescription="@string/desc"/>
+                <ImageView
+                    style="@style/img_arrow"
+                    android:contentDescription="@string/desc" />
             </LinearLayout>
 
         </LinearLayout>
-
 
 
     </LinearLayout>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,49 +66,21 @@ public class MyDeskMate extends AppCompatActivity {
     private Button leave_message;
     private TextView message_show;
 
+    private TextView To_who;
+    private TextView To_date;
+    private LinearLayout showMessage;
+
     private List<SeatmateInfo> seatmateInfos;
     private SeatmateServiceImpl seatmateService;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mydeskmate);
-
-        //idUser = getIntent().getStringExtra("param2");
-
         //获取用户名
         Intent intent = getIntent();
         idUser = intent.getStringExtra("idUser");
-
         intiView();//初始化控件
         judgeDayClock();
-        //留言
-        leaveMessage();
-
-    }
-
-    /**
-     * 由于两者的同桌之间的留言，在同桌的信息里没有留言信息的字段
-     * 所以，采用系统提醒的方式进行发送留言。
-     */
-    private void leaveMessage() {
-        leave_message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(edit_message.getText().toString().equals("")==false){
-                    //输入留言的内容
-                    message_show.setText("留言："+edit_message.getText());
-                    //发送系统通知，通知对方留言
-                    SystemNoteServiceImpl systemNoteService = new SystemNoteServiceImpl();
-                    //向对方发送系统消息
-                    systemNoteService.addNote(new SystemNoteInfo(Utils.getRandomString(10),
-                            "同桌留言", seatmateInfos.get(0).getPerson2(), new Date(), "来自" + idUser + "的同桌留言:"+edit_message.getText(),
-                            ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_INVITATION, ConstUtil.SysNoteRead.SYS_NOTE_NOT_ON_READ));
-
-                }else {
-                    Toast.makeText(MyDeskMate.this,"请先输入留言内容",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
 
     /**
@@ -174,11 +147,15 @@ public class MyDeskMate extends AppCompatActivity {
             }else {
                  userInfo2 = userService.findUserByID(seatmateInfos.get(0).getPerson1());
             }
+
+            Log.d("mmm",seatmateInfos.get(0).getPerson1()+" "+seatmateInfos.get(0).getPerson2()+" "
+            +userInfo1.getIsPunch()+" "+userInfo2.getIsPunch());
+
+
             personTwoNickname.setText(userInfo2.getIdUser());
             //获取头像,头像进行显示
             personTwoHead.setImageBitmap(BitmapFactory.decodeByteArray(userInfo2.getHeadshot(),0,userInfo2.getHeadshot().length));
-           // Log.d("mmm",seatmateInfos.get(0).getPerson1()+" "+seatmateInfos.get(0).getPerson2()+" "
-           // +userInfo1.getIsPunch()+" "+userInfo2.getIsPunch());
+
             if (userInfo2.getIsPunch() == 2) { //已打卡
                 switch (seatmateInfos.get(0).getProcessingDay()) {
                     case 1:
@@ -267,6 +244,36 @@ public class MyDeskMate extends AppCompatActivity {
 
                 }
             });
+
+
+            /**
+             *
+             */
+            leave_message.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(edit_message.getText().toString().equals("")==false){
+                        To_who.setText("To:"+userInfo2.getIdUser());
+                        //输入留言的内容
+                        message_show.setText("  "+edit_message.getText());
+                        //显示日期
+                        Date date = new Date();
+                        String datas = Utils.sdf.format(date);
+                        To_date.setText(datas);
+                       showMessage.setVisibility(View.VISIBLE);
+                        //发送系统通知，通知对方留言
+                        SystemNoteServiceImpl systemNoteService = new SystemNoteServiceImpl();
+                        //向对方发送系统消息
+                        systemNoteService.addNote(new SystemNoteInfo(Utils.getRandomString(10),
+                                "同桌留言", userInfo2.getIdUser(), new Date(), "来自" + idUser + "的同桌留言:"+edit_message.getText(),
+                                ConstUtil.SysNoteType.SYS_NOTE_SEATMATE_SUCCESS, ConstUtil.SysNoteRead.SYS_NOTE_NOT_ON_READ));
+                        edit_message.setText("");//设为空的显示。
+
+                    }else {
+                        Toast.makeText(MyDeskMate.this,"请先输入留言内容",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 
@@ -300,6 +307,9 @@ public class MyDeskMate extends AppCompatActivity {
         edit_message = findViewById(R.id.edit_message);
         leave_message = findViewById(R.id.leave_message);
 
-        message_show = findViewById(R.id.message_show);
+        message_show = findViewById(R.id.leave_text);
+        To_who = findViewById(R.id.To_who);
+        To_date = findViewById(R.id.to_date);
+        showMessage = findViewById(R.id.showMessage);
     }
 }
