@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
@@ -20,6 +21,7 @@ import java.util.List;
 
 public class ManyGroupActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "ManyGroupActivity";
     private LinearLayout mBack;
     private SearchView mSearchView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -69,8 +71,10 @@ public class ManyGroupActivity extends AppCompatActivity implements View.OnClick
 
     private void refresh() {
         mData = mTeamService.findTeamList();
+        Log.e(TAG,"小组列表："+mData);
         mSwipeRefreshLayout.setRefreshing(false);
         if (mData == null){
+            mSwipeRefreshLayout.setRefreshing(false);
             Toast.makeText(this, "获取数据失败", Toast.LENGTH_SHORT).show();
         }
         else {
