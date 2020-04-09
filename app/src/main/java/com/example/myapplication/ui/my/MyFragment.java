@@ -91,7 +91,7 @@ public class MyFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        if(idUser == null){
+        if(idUser == null || idUser.equals("")){
             super.onViewCreated(view, savedInstanceState);
             Toast.makeText(getActivity(),"请先登录！",Toast.LENGTH_LONG).show();
             Utils.actionStart(getActivity(), LoginActivity.class,null,null);
